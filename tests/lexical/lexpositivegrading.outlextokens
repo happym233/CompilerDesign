@@ -1,0 +1,37 @@
+[eq, ==, 1] [plus, +, 1] [or, or, 1] [openpar, (, 1] [semi, ;, 1] [integer, integer, 1] [while, while, 1] [localvar, localvar, 1]
+[noteq, <>, 2] [minus, -, 2] [and, and, 2] [closepar, ), 2] [comma, ,, 2] [float, float, 2] [if, if, 2] [constructor, constructor, 2]
+[lt, <, 3] [mult, *, 3] [not, not, 3] [opencubr, {, 3] [dot, ., 3] [void, void, 3] [then, then, 3] [attribute, attribute, 3]
+[gt, >, 4] [div, /, 4] [closecubr, }, 4] [colon, :, 4] [class, class, 4] [else, else, 4] [function, function, 4]
+[leq, <=, 5] [assign, =, 5] [opensqbr, [, 5] [returntype, =>, 5] [self, self, 5] [read, read, 5] [public, public, 5]
+[geq, >=, 6] [opensqbr, ], 6] [scopeop, ::, 6] [isa, isa, 6] [write, write, 6] [private, private, 6]
+[return, return, 7]
+[intnum, 0, 9]
+[floatnum, 1.0e0, 10]
+[floatnum, 1.0, 11]
+[intnum, 1, 12]
+[intnum, 10, 13]
+[intnum, 12, 14]
+[intnum, 123, 15]
+[intnum, 12345, 16]
+[floatnum, 0.0, 17]
+[id, a, 19] [plus, +, 19] [id, b, 19] [eq, ==, 19] [id, cfas, 19] [div, /, 19] [intnum, 213131, 19]
+[floatnum, 1.0e23423, 20] [plus, +, 20] [intnum, 23423, 20] [leq, <=, 20] [intnum, 324213, 20] [mult, *, 20] [floatnum, 11333.34243242, 20]
+[floatnum, 1.23, 22]
+[floatnum, 12.34, 23]
+[floatnum, 120.34e10, 24]
+[floatnum, 12345.6789e-123, 25]
+[id, abc, 27]
+[id, abc1, 28]
+[id, a1bc, 29]
+[id, abc_1abc, 30]
+[id, abc1_abc, 31]
+[blockcmt, // this is an inline comment , 33]
+[inlinecmt, /*this is a single line block comment */, 35]
+[inlinecmt, /*this is a  
+multiple line 
+block comment  
+*/, 40]
+[inlinecmt, /*this is an imbricated  
+/*block comment 
+*/
+*/, 45]
