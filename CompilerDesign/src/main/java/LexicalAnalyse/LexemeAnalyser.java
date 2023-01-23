@@ -116,10 +116,20 @@ public class LexemeAnalyser {
         return  isLetter(c) || isDigit(c) || c == '_';
     }
 
-    private boolean toSpecialCharacter() throws IOException {
+    private boolean toSpecialCharacterID() throws IOException {
         if (!isAlphaNum(lastCharacter) || isEOF(lastCharacter)) return false;
         else {
             while (!isEOF(lastCharacter) && isAlphaNum(lastCharacter)) {
+                nextChar();
+            }
+            return true;
+        }
+    }
+
+    private boolean toSpecialCharacterNum() throws IOException {
+        if ((!isAlphaNum(lastCharacter) && lastCharacter != '.') || isEOF(lastCharacter)) return false;
+        else {
+            while (!isEOF(lastCharacter) && (isAlphaNum(lastCharacter) || lastCharacter == '.')) {
                 nextChar();
             }
             return true;
@@ -133,7 +143,7 @@ public class LexemeAnalyser {
                 c = nextChar();
             }
         }
-        if (toSpecialCharacter()) return createToken(TokenType.INVALID_ID);
+        if (toSpecialCharacterID()) return createToken(TokenType.INVALID_ID);
         else {
             backtrack();
             return createWordToken();
@@ -198,10 +208,10 @@ public class LexemeAnalyser {
                     validNum = false;
                 }
             }
-            validNum = validNum & !toSpecialCharacter();
+            validNum = validNum & !toSpecialCharacterNum();
             if (validNum) return createToken(TokenType.FLOAT_NUM);
         } else {
-            validNum = validNum & !toSpecialCharacter();
+            validNum = validNum & !toSpecialCharacterNum();
             if (validNum) return createToken(TokenType.INT_NUM);
         }
         return createToken(TokenType.INVALID_NUM);
@@ -255,8 +265,9 @@ public class LexemeAnalyser {
 
     private void stateA(Stack<Character> stack, StringBuilder sb) throws IOException {
         nextChar();
-        while (lastCharacter != '*' && lastCharacter != '/') {
+        while (!isEOF(lastCharacter) && lastCharacter != '*' && lastCharacter != '/') {
             nextChar();
+            // System.out.print(lastCharacter);
             putSpecialCharacter(sb, lastCharacter);
         }
         if (lastCharacter == '/') {
