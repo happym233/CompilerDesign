@@ -16,18 +16,28 @@
 123
 12345
 0.0
+0.0e+0
 inta+b
+1and2or3
 
 a+b==cfas/213131
 1.0e23423+23423<=324213*11333.34243242
+for(integer a=1;a<10.0e10;a=a+1)
+(e+e)/(e-e)
 	
 1.23	
 12.34	
 120.34e10	
 12345.6789e-123
+0.0
 0.0e0
+0.0e+0
+0.0e-0
 
-abc 	
+
+abc
+a1
+a_1
 abc1
 a1bc	
 abc_1abc	
@@ -41,6 +51,14 @@ abc1_abc
 multiple line
 block comment 
 */
+
+
+/**/
+/***/
+/****/
+/*****/
+/*a*b*/
+/*a/b*/
 
 /* this is an imbricated 
 /* block comment

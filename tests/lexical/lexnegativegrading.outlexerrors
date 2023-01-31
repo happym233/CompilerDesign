@@ -9,15 +9,26 @@ Lexical error: Invalid number: "01": line 4.
 Lexical error: Invalid number: "010": line 5.
 Lexical error: Invalid number: "0120": line 6.
 Lexical error: Invalid number: "01230": line 7.
-Lexical error: Invalid number: "0123450": line 8.
-Lexical error: Invalid number: "01.23": line 10.
-Lexical error: Invalid number: "012.34": line 11.
-Lexical error: Invalid number: "12.340": line 12.
-Lexical error: Invalid number: "012.340": line 13.
-Lexical error: Invalid number: "0.123e-1.0": line 14.
-Lexical error: Invalid number: "012.34e10": line 16.
-Lexical error: Invalid number: "12.34e010": line 17.
-Lexical error: Invalid number: "52435.g": line 18.
-Lexical error: Invalid identifier: "_abc": line 20.
-Lexical error: Invalid number: "1abc": line 21.
-Lexical error: Invalid identifier: "_1abc": line 22.
+Lexical error: Invalid number: "0123a": line 8.
+Lexical error: Invalid number: "0123.1": line 9.
+Lexical error: Invalid number: "0123450": line 10.
+Lexical error: Invalid number: "01.23": line 12.
+Lexical error: Invalid number: "012.34": line 13.
+Lexical error: Invalid number: "12.340": line 14.
+Lexical error: Invalid number: "012.340": line 15.
+Lexical error: Invalid number: "0.123e-1.0": line 16.
+Lexical error: Invalid number: "0.0ee": line 17.
+Lexical error: Invalid number: "0.0e": line 18.
+Lexical error: Invalid number: "012.34e10": line 20.
+Lexical error: Invalid number: "12.34e010": line 21.
+Lexical error: Invalid number: "52435.g": line 22.
+Lexical error: Invalid identifier: "_abc": line 24.
+Lexical error: Invalid number: "1abc": line 25.
+Lexical error: Invalid identifier: "_1abc": line 26.
+Lexical error: Invalid character: "@": line 27.
+Lexical error: Invalid character: "`": line 28.
+Lexical error: Invalid comment: "/* this is an imbricated 
+/* block comment 
+*/ 
+ 
+": line 35.

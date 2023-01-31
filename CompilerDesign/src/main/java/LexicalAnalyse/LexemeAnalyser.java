@@ -266,10 +266,11 @@ public class LexemeAnalyser {
     private void stateA(Stack<Character> stack, StringBuilder sb) throws IOException {
         nextChar();
         while (!isEOF(lastCharacter) && lastCharacter != '*' && lastCharacter != '/') {
-            nextChar();
-            // System.out.print(lastCharacter);
             putSpecialCharacter(sb, lastCharacter);
+            nextChar();
+            //System.out.print(lastCharacter);
         }
+        putSpecialCharacter(sb, lastCharacter);
         if (lastCharacter == '/') {
             stack.push('/');
             stateB(stack, sb);
@@ -297,7 +298,7 @@ public class LexemeAnalyser {
             stateD(stack, sb);
         } else {
             stack.push('*');
-            putSpecialCharacter(sb, lastCharacter);
+            backtrack();
             stateA(stack, sb);
         }
     }
@@ -322,14 +323,14 @@ public class LexemeAnalyser {
                 }
                 else break;
             }
-           return createToken(TokenType.BK_CMT, sb.toString(), lineNum - 1);
+           return createToken(TokenType.IN_CMT, sb.toString(), lineNum - 1);
         } else if (lastCharacter == '*') {
             stack.push('*');
             sb.append("*");
             stateA(stack, sb);
             if (isEOF(lastCharacter)) {
                 return createToken(TokenType.INVALID_CMT, sb.toString(), lineNum);
-            } else return createToken(TokenType.IN_CMT, sb.toString(), lineNum);
+            } else return createToken(TokenType.BK_CMT, sb.toString(), lineNum);
         } else {
             backtrack();
             return createToken(TokenType.DIV);
@@ -389,21 +390,6 @@ public class LexemeAnalyser {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        try {
-            String filePath = LexemeAnalyser.class.getResource("/test.txt").getPath();
-            System.out.println(filePath);
-            LexemeAnalyser lexemeAnalyser = new LexemeAnalyser(filePath);
-            Token token = lexemeAnalyser.nextToken();
-            while (token != null) {
-                System.out.println(token);
-                token = lexemeAnalyser.nextToken();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 }

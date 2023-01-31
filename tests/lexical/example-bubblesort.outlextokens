@@ -1,4 +1,4 @@
-[inlinecmt, /*sort the array */, 1]
+[blockcmt, /* sort the array */, 1]
 [function, function, 2] [id, bubbleSort, 2] [openpar, (, 2] [id, arr, 2] [colon, :, 2] [integer, integer, 2] [opensqbr, [, 2] [opensqbr, ], 2] [comma, ,, 2] [id, size, 2] [colon, :, 2] [integer, integer, 2] [closepar, ), 2] [returntype, =>, 2] [void, void, 2]
 [opencubr, {, 3]
 [localvar, localvar, 4] [id, n, 4] [colon, :, 4] [integer, integer, 4] [semi, ;, 4]
@@ -13,7 +13,7 @@
 [while, while, 13] [openpar, (, 13] [id, j, 13] [lt, <, 13] [id, n, 13] [minus, -, 13] [id, i, 13] [minus, -, 13] [intnum, 1, 13] [closepar, ), 13] [opencubr, {, 13]
 [if, if, 14] [openpar, (, 14] [id, arr, 14] [opensqbr, [, 14] [id, j, 14] [opensqbr, ], 14] [gt, >, 14] [id, arr, 14] [opensqbr, [, 14] [id, j, 14] [plus, +, 14] [intnum, 1, 14] [opensqbr, ], 14] [closepar, ), 14]
 [then, then, 15] [opencubr, {, 15]
-[blockcmt, // swap temp and arr[i], 16]
+[inlinecmt, // swap temp and arr[i], 16]
 [id, temp, 17] [assign, =, 17] [id, arr, 17] [opensqbr, [, 17] [id, j, 17] [opensqbr, ], 17] [semi, ;, 17]
 [id, arr, 18] [opensqbr, [, 18] [id, j, 18] [opensqbr, ], 18] [assign, =, 18] [id, arr, 18] [opensqbr, [, 18] [id, j, 18] [plus, +, 18] [intnum, 1, 18] [opensqbr, ], 18] [semi, ;, 18]
 [id, arr, 19] [opensqbr, [, 19] [id, j, 19] [plus, +, 19] [intnum, 1, 19] [opensqbr, ], 19] [assign, =, 19] [id, temp, 19] [semi, ;, 19]
@@ -23,7 +23,7 @@
 [id, i, 23] [assign, =, 23] [id, i, 23] [plus, +, 23] [intnum, 1, 23] [semi, ;, 23]
 [closecubr, }, 24] [semi, ;, 24]
 [closecubr, }, 25]
-[inlinecmt, /*print the array */, 27]
+[blockcmt, /* print the array */, 27]
 [function, function, 28] [id, printArray, 28] [openpar, (, 28] [id, arr, 28] [colon, :, 28] [integer, integer, 28] [opensqbr, [, 28] [opensqbr, ], 28] [comma, ,, 28] [id, size, 28] [colon, :, 28] [integer, integer, 28] [closepar, ), 28] [returntype, =>, 28] [void, void, 28]
 [opencubr, {, 29]
 [localvar, localvar, 30] [id, n, 30] [colon, :, 30] [integer, integer, 30] [semi, ;, 30]
@@ -35,7 +35,7 @@
 [id, i, 36] [assign, =, 36] [id, i, 36] [plus, +, 36] [intnum, 1, 36] [semi, ;, 36]
 [closecubr, }, 37] [semi, ;, 37]
 [closecubr, }, 38]
-[blockcmt, // main funtion to test above, 40]
+[inlinecmt, // main funtion to test above, 40]
 [function, function, 41] [id, main, 41] [openpar, (, 41] [closepar, ), 41] [returntype, =>, 41]
 [void, void, 42] [opencubr, {, 42]
 [localvar, localvar, 43] [id, arr, 43] [colon, :, 43] [integer, integer, 43] [opensqbr, [, 43] [intnum, 7, 43] [opensqbr, ], 43] [semi, ;, 43]
@@ -50,7 +50,8 @@
 [id, bubbleSort, 52] [openpar, (, 52] [id, arr, 52] [comma, ,, 52] [intnum, 7, 52] [closepar, ), 52] [semi, ;, 52]
 [id, printarray, 53] [openpar, (, 53] [id, arr, 53] [comma, ,, 53] [intnum, 7, 53] [closepar, ), 53] [semi, ;, 53]
 [closecubr, }, 54]
-[inlinecmt, /*    classes
+[blockcmt, /*
+    classes
     --------------------------------------
 |X| no class declaration
 | | class declaration
