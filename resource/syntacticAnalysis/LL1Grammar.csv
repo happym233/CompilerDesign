@@ -1,0 +1,108 @@
+statement_A, *statement, id *optIdnestFollowing *multiIdnest *functionCallOrAssignStat semi
+statement_B, *statement, if openpar *relExpr closepar then *statBlock else *statBlock semi
+statement_C, *statement, while openpar *relExpr closepar *statBlock semi
+statement_D, *statement, read openpar *variable closepar semi
+statement_E, *statement, write openpar *expr closepar semi
+statement_F, *statement, return openpar *expr closepar semi
+addOp_A, *addOp, plus
+addOp_B, *addOp, minus
+addOp_C, *addOp, or
+returnType_A, *returnType, *type
+returnType_B, *returnType, void
+idnestFollowing_A, *idnestFollowing, *multiIndice
+idnestFollowing_B, *idnestFollowing, openpar *aParams closepar
+multiClassDeclOrFuncDef_A, *multiClassDeclOrFuncDef, *classDeclOrFuncDef *multiClassDeclOrFuncDef
+multiClassDeclOrFuncDef_B, *multiClassDeclOrFuncDef, 
+localVarDecl_A, *localVarDecl, localVar id colon *type *localVarDeclFollowing
+visibility_A, *visibility, public
+visibility_B, *visibility, private
+visibility_C, *visibility, 
+START_A, *START, *multiClassDeclOrFuncDef
+funcHead_A, *funcHead, function id *funcHeadFollowing
+funcHeadFollowing_A, *funcHeadFollowing, openpar *fParams closepar returnType *returnType
+funcHeadFollowing_B, *funcHeadFollowing, scopeop *funcHeadFollowingFuncOrCons
+funcDef_A, *funcDef, *funcHead *funcBody
+aParams_A, *aParams, *expr *multiAParamsTail
+aParams_B, *aParams, 
+aParamsTail_A, *aParamsTail, comma *expr
+memberFuncDecl_A, *memberFuncDecl, function id colon openpar *fParams closepar returnType *returnType semi
+memberFuncDecl_B, *memberFuncDecl, constructor colon openpar *fParams closepar semi
+multiStatement_A, *multiStatement, *statement *multiStatement
+multiStatement_B, *multiStatement, 
+memberVarDecl_A, *memberVarDecl, attribute id colon *type *multiArraySize semi
+fParamsTail_A, *fParamsTail, comma id colon *type *multiArraySize
+memberDecl_A, *memberDecl, *memberFuncDecl
+memberDecl_B, *memberDecl, *memberVarDecl
+classDecl_A, *classDecl, class id *optClassDecl2 opencubr *multiVisiMemberDecl closecubr semi
+localVarDeclOrStmt_A, *localVarDeclOrStmt, *localVarDecl
+localVarDeclOrStmt_B, *localVarDeclOrStmt, *statement
+fParams_A, *fParams, id colon *type *multiArraySize *multiFParamsTail
+fParams_B, *fParams, 
+relOp_A, *relOp, eq
+relOp_B, *relOp, noteq
+relOp_C, *relOp, lt
+relOp_D, *relOp, gt
+relOp_E, *relOp, leq
+relOp_F, *relOp, geq
+indice_A, *indice, opensqbr *arithExpr closesqbr
+multiCommaId_A, *multiCommaId, comma id *multiCommaId
+multiCommaId_B, *multiCommaId, 
+multiAParamsTail_A, *multiAParamsTail, *aParamsTail *multiAParamsTail
+multiAParamsTail_B, *multiAParamsTail, 
+funcBody_A, *funcBody, opencubr *multiLocalVarDeclOrStmt closecubr
+multiFParamsTail_A, *multiFParamsTail, *fParamsTail *multiFParamsTail
+multiFParamsTail_B, *multiFParamsTail, 
+funcHeadFollowingFuncOrCons_A, *funcHeadFollowingFuncOrCons, id openpar *fParams closepar returnType *returnType
+funcHeadFollowingFuncOrCons_B, *funcHeadFollowingFuncOrCons, constructor openpar *fParams closepar
+sign_A, *sign, plus
+sign_B, *sign, minus
+statBlock_A, *statBlock, opencubr *multiStatement closecubr
+statBlock_B, *statBlock, *statement
+statBlock_C, *statBlock, 
+assignOp_A, *assignOp, assign
+multiLocalVarDeclOrStmt_A, *multiLocalVarDeclOrStmt, *localVarDeclOrStmt *multiLocalVarDeclOrStmt
+multiLocalVarDeclOrStmt_B, *multiLocalVarDeclOrStmt, 
+relExpr_A, *relExpr, *arithExpr *relOp *arithExpr
+variable_A, *variable, id *optIdnestFollowing *multiIdnest
+factor_A, *factor, id *optIdnestFollowing *multiIdnest
+factor_B, *factor, intnum
+factor_C, *factor, floatnum
+factor_D, *factor, openpar *arithExpr closepar
+factor_E, *factor, not *factor
+factor_F, *factor, *sign *factor
+term_A, *term, *factor *rightrecTerm
+localVarDeclFollowing_A, *localVarDeclFollowing, *multiArraySize semi
+localVarDeclFollowing_B, *localVarDeclFollowing, openpar *aParams closepar semi
+multOp_A, *multOp, mult
+multOp_B, *multOp, div
+multOp_C, *multOp, and
+rightrecTerm_A, *rightrecTerm, 
+rightrecTerm_B, *rightrecTerm, *multOp *factor *rightrecTerm
+multiVisiMemberDecl_A, *multiVisiMemberDecl, *visibility *memberDecl *multiVisiMemberDecl
+multiVisiMemberDecl_B, *multiVisiMemberDecl, 
+multiIndice_A, *multiIndice, *indice *multiIndice
+multiIndice_B, *multiIndice, 
+optClassDecl2_A, *optClassDecl2, isa id *multiCommaId
+optClassDecl2_B, *optClassDecl2, 
+expr_A, *expr, *arithExpr *exprFollowing
+exprFollowing_A, *exprFollowing, *relOp *arithExpr
+exprFollowing_B, *exprFollowing, 
+functionCallOrAssignStat_A, *functionCallOrAssignStat, *assignOp *expr
+functionCallOrAssignStat_B, *functionCallOrAssignStat, 
+type_A, *type, integer
+type_B, *type, float
+type_C, *type, id
+arithExpr_A, *arithExpr, *term *rightrecArithExpr
+arraySizeParam_A, *arraySizeParam, intNum closesqbr
+arraySizeParam_B, *arraySizeParam, closesqbr
+rightrecArithExpr_A, *rightrecArithExpr, 
+rightrecArithExpr_B, *rightrecArithExpr,  *addOp *term *rightrecArithExpr
+arraySize_A, *arraySize, opensqbr *arraySizeParam
+classDeclOrFuncDef_A, *classDeclOrFuncDef, *classDecl
+classDeclOrFuncDef_B, *classDeclOrFuncDef, *funcDef
+multiIdnest_A, *multiIdnest, dot id *idnestFollowing *multiIdnest
+multiIdnest_B, *multiIdnest,
+multiArraySize_A, *multiArraySize, *arraySize *multiArraySize
+multiArraySize_B, *multiArraySize,
+optIdnestFollowing_A, *optIdnestFollowing, *idnestFollowing
+optIdnestFollowing_B, *optIdnestFollowing,

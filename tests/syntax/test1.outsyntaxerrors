@@ -1,0 +1,7 @@
+Syntax error at line 1 near "[".
+Syntax error at line 3 near "if".
+Lexical error: Invalid identifier: "_a": line 6.
+Lexical error: Invalid number: "1.0e123.432423": line 6.
+Syntax error at line 10 near "(".
+Syntax error at line 14 near "+".
+Syntax error at line 20 near "EOF".
