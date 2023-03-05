@@ -18,6 +18,19 @@ public class SyntacticAnalyser {
 
     private Token lastToken;
 
+    public SyntacticAnalyser(String fileName, ParsingTable parsingTable, String outDerivationFilePath,  String outSyntaxErrorFilePath) throws IOException {
+        lexemeAnalyser = new LexemeAnalyser(fileName);
+        this.parsingTable = parsingTable;
+        stack = new Stack<>();
+        outDerivationWriter = new FileWriter(outDerivationFilePath);
+        outSyntaxErrorWriter = new FileWriter(outSyntaxErrorFilePath);
+        stack.push(new NonTerminalSymbol("$"));
+        stack.push(parsingTable.getStartSymbol());
+        // System.out.println(stack.isEmpty());
+        parsedString = new StringBuilder();
+    }
+
+
     public SyntacticAnalyser(String fileName, String outDerivationFilePath, String outSyntaxErrorFilePath) throws IOException {
         lexemeAnalyser = new LexemeAnalyser(fileName);
         parsingTable = ParsingTableFactory.generate(Config.getLL1GrammarPath(), Config.getParsingTablePath());
@@ -34,15 +47,35 @@ public class SyntacticAnalyser {
         this(fileName, fileName.replace(".src", ".outderivation"), fileName.replace(".src", ".outsyntaxerrors"));
     }
 
+    public SyntacticAnalyser(String fileName, ParsingTable parsingTable) throws IOException {
+        this(fileName, parsingTable, fileName.replace(".src", ".outderivation"), fileName.replace(".src", ".outsyntaxerrors"));
+    }
+
     private void writeSyntaxError(Token token) throws IOException {
         outSyntaxErrorWriter.write("Syntax error at line " + token.getLocation() + " near \"" + token.getLexeme() + "\".\n");
+    }
+
+    public ParsingTable getParsingTable() {
+        return parsingTable;
+    }
+
+    public Stack<Symbol> getStack() {
+        return stack;
+    }
+
+    public FileWriter getOutDerivationWriter() {
+        return outDerivationWriter;
+    }
+
+    public StringBuilder getParsedString() {
+        return parsedString;
     }
 
     private void writeLexicalError(Token token) throws IOException {
         outSyntaxErrorWriter.write(token.errMessage() + "\n");
     }
 
-    private void writeStackTrace() throws IOException {
+    protected void writeStackTrace() throws IOException {
         outDerivationWriter.write("stack: \n");
         outDerivationWriter.write(stackToString(stack) + "\n");
         outDerivationWriter.write("input: \n");
@@ -62,7 +95,7 @@ public class SyntacticAnalyser {
         outSyntaxErrorWriter.close();
     }
 
-    private String stackToString(Stack<Symbol> stack) {
+    protected String stackToString(Stack<Symbol> stack) {
         String str = "";
         for (Symbol s: stack) {
             str += s.toString() + " ";
@@ -84,6 +117,7 @@ public class SyntacticAnalyser {
             if (token.isError()) {
                 writeLexicalError(token);
             }
+            addToken(parsedString, token);
             StringBuilder skippedToken = new StringBuilder();
             while (token != null) {
                 boolean parseSuccess = parsingTable.parse(stack, token);
@@ -111,9 +145,11 @@ public class SyntacticAnalyser {
                 }
                 if (token == null) {
                     token = new Token(TokenType.EOF, "EOF", lastToken.getLocation());
-                    parsingTable.parse(stack, token);
+                    while (!stack.peek().isTerminal() && stack.size() != 1) {
+                        parsingTable.parse(stack, token);
+                    }
                     writeStackTrace();
-                    if (stack.peek().isTerminal() || !((NonTerminalSymbol) stack.peek()).getName().equals("$"))
+                    if (stack.peek().isTerminal() || (!((NonTerminalSymbol) stack.peek()).getName().equals("$")))
                         writeSyntaxError(token);
                     token = null;
                 }
@@ -123,18 +159,4 @@ public class SyntacticAnalyser {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        try {
-            SyntacticAnalyser syntacticAnalyser1 = new SyntacticAnalyser("tests/syntax/test1.src");
-            SyntacticAnalyser syntacticAnalyser = new SyntacticAnalyser("tests/syntax/example-bubblesort.src");
-            SyntacticAnalyser syntacticAnalyser2 = new SyntacticAnalyser("tests/syntax/example-polynomial.src");
-            syntacticAnalyser1.parseAll();
-            syntacticAnalyser.parseAll();
-            syntacticAnalyser2.parseAll();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }

@@ -1,5 +1,7 @@
 package SyntacticAnalysis;
 
+import ASTGeneration.SemanticActionSymbol;
+import ASTGeneration.nodes.ASTTreeNode;
 import LexicalAnalyse.Token;
 import LexicalAnalyse.TokenType;
 
@@ -22,6 +24,8 @@ public class ParsingTable {
 
     private boolean readNext;
 
+    private Token lastToken;
+
     public ParsingTable(ArrayList<Rule> tableRules, Map<TokenType, Integer> tableTsMap, Map<NonTerminalSymbol, Integer> tableNtsMap, int[][] ll1Table, NonTerminalSymbol startSymbol) {
         this.tableRules = tableRules;
         this.tableTsMap = tableTsMap;
@@ -30,6 +34,7 @@ public class ParsingTable {
         this.lastRule = null;
         this.startSymbol = startSymbol;
         this.readNext = true;
+        this.lastToken = null;
     }
 
     public String getLastRule() {
@@ -42,16 +47,27 @@ public class ParsingTable {
         return readNext;
     }
 
+    protected void doSemanticAction(SemanticActionSymbol s, Token lastToken) {}
+
     public boolean parse(Stack<Symbol> stack, Token token) {
         Symbol s = stack.peek();
         if (s.isTerminal()) {
             TerminalSymbol symbol = (TerminalSymbol) stack.pop();
             readNext = true;
             lastRule = "matching: " + symbol + " " + token;
+            lastToken = token;
             return true;
+        } else if (s.isSemanticAction()) {
+            doSemanticAction((SemanticActionSymbol) s, lastToken);
+            stack.pop();
+            return parse(stack, token);
         } else {
             NonTerminalSymbol nts = (NonTerminalSymbol) s;
+            if (nts.getName() == "$") {
+                return true;
+            }
             TokenType tokenType = token.getType();
+            lastToken = token;
             if (tokenType == TokenType.SELF || tokenType == TokenType.INVALID_ID) {
                 tokenType = TokenType.ID;
             }
@@ -86,4 +102,22 @@ public class ParsingTable {
             }
         }
     }
+
+    public ArrayList<Rule> getTableRules() {
+        return tableRules;
+    }
+
+    public Map<TokenType, Integer> getTableTsMap() {
+        return tableTsMap;
+    }
+
+    public Map<NonTerminalSymbol, Integer> getTableNtsMap() {
+        return tableNtsMap;
+    }
+
+    public int[][] getLl1Table() {
+        return ll1Table;
+    }
+
+
 }

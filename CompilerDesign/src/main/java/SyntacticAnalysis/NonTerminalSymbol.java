@@ -21,6 +21,10 @@ public class NonTerminalSymbol implements Symbol{
         return false;
     }
 
+    public boolean isSemanticAction() {
+        return false;
+    }
+
     @Override
     public String toString() {
         return "<" + name + ">";

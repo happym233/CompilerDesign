@@ -14,6 +14,10 @@ public class TerminalSymbol implements Symbol{
         return true;
     }
 
+    public boolean isSemanticAction() {
+        return false;
+    }
+
     public TokenType getType() {
         return type;
     }

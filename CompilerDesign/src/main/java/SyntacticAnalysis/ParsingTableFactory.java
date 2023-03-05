@@ -1,5 +1,6 @@
 package SyntacticAnalysis;
 
+import ASTGeneration.SemanticActionSymbolFactory;
 import LexicalAnalyse.TokenType;
 
 import java.io.File;
@@ -35,7 +36,9 @@ public class ParsingTableFactory {
                     String[] symStrs = strStrip.split(" ");
                     ruleSymbols = new Symbol[symStrs.length];
                     for (int i = 0; i < symStrs.length; i++) {
-                        if (symStrs[i].charAt(0) == '*') {
+                        if (symStrs[i].charAt(0) == '(') {
+                            ruleSymbols[i] = SemanticActionSymbolFactory.create(symStrs[i]);
+                        } else if (symStrs[i].charAt(0) == '*') {
                             NonTerminalSymbol nts = null;
                             String ntsName = symStrs[i].substring(1);
                             if (!nonTerminalSymbols.containsKey(ntsName)) {
@@ -84,7 +87,9 @@ public class ParsingTableFactory {
             if (tsSymbol.contains("(")) {
                 tsSymbol = tsSymbol.substring(0, tsSymbol.indexOf("("));
             }
-            if (tsSymbol.equals("$")) tableTsMap.put(TokenType.EOF, start++);
+            if (tsSymbol.strip().equals("$")) {
+                tableTsMap.put(TokenType.EOF, start++);
+            }
             else if (terminalSymbols.get(tsSymbol) == null) {
                 tableTsMap.put(null, start++);
             }
@@ -146,8 +151,11 @@ public class ParsingTableFactory {
 
     public static void main(String[] args) {
         try {
-            ParsingTableFactory.generate("resource/syntacticAnalysis/LL1Grammar.csv",
+            ParsingTable parsingTable = ParsingTableFactory.generate("resource/ASTGeneration/AttributeGrammar.csv",
                     "resource/syntacticAnalysis/parsingTable.csv");
+            for (Rule rule: parsingTable.getTableRules()) {
+                System.out.println(rule.toString());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
