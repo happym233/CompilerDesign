@@ -8,14 +8,14 @@ function bubbleSort(arr: integer[], size: integer) => void
   i = 0;
   j = 0;
   temp = 0;
-  while (i < n-1) {  // 1
+  while (i < n-1) { 
     while (j < n-i-1) {
-      if (arr[j] > arr[j+1])  // 2
+      if (arr[j] > arr[j+1]) 
         then {
           // swap temp and arr[i]
-          temp = arr[j]; // 3
-          arr[j] = arr[j+1]; // 4
-          arr[j+1] = temp; // 5
+          temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
         } else ;
         j = j+1;
       };
@@ -30,8 +30,8 @@ function printArray(arr: integer[], size: integer) => void
   localvar i: integer; 
   n = size;
   i = 0; 
-  while (i<n) {  // 6
-    write(arr[i]); // 7
+  while (i<n) { 
+    write(arr[i]);
       i = i+1;
   };
 } 
@@ -182,10 +182,3 @@ function main() => void
 |X| involving function calls
 | | involving all the above in one expression
 */
-// 1: [line 12]Error: return type void expected, given null
-// 2: [line 14]Error: Arraysize should be of type integer
-// 3: [line 17]Error: Arraysize should be of type integer
-// 4: [line 18]Error: Arraysize should be of type integer
-// 5: [line 19]Error: Arraysize should be of type integer
-// 6: [line 34]Error: return type void expected, given null
-// 7: [line 35]Error: Arraysize should be of type integer

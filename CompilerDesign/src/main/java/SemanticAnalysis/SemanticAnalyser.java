@@ -152,12 +152,12 @@ public class SemanticAnalyser {
             if (symbolTableEntry instanceof MemberFuncEntry) {
                 MemberFuncEntry memberFuncEntry = (MemberFuncEntry)  symbolTableEntry;
                 if (memberFuncEntry.getFunctionTable().getSymTable().size() == 0) {
-                    errorMesseges.add(new ErrorMessege(memberFuncEntry.getLocation(), ErrorLevel.ERROR, "Member function " + memberFuncEntry.getName() + "declared but not implemented"));
+                    errorMesseges.add(new ErrorMessege(memberFuncEntry.getLocation(), ErrorLevel.ERROR, "Member function " + memberFuncEntry.getName() + " declared but not implemented"));
                 }
             } else if (symbolTableEntry instanceof MemberConEntry) {
                 MemberConEntry memberConEntry = (MemberConEntry)  symbolTableEntry;
                 if (memberConEntry.getFunctionTable().getSymTable().size() == 0) {
-                    errorMesseges.add(new ErrorMessege(memberConEntry.getLocation(), ErrorLevel.ERROR, "Constructor " + memberConEntry.getName() + "declared but not implemented"));
+                    errorMesseges.add(new ErrorMessege(memberConEntry.getLocation(), ErrorLevel.ERROR, "Constructor " + memberConEntry.getName() + " declared but not implemented"));
                 }
             } else if (symbolTableEntry instanceof ClassEntry) {
               checkEmptyEntry(((ClassEntry)symbolTableEntry).getClassTable());

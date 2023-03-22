@@ -20,7 +20,7 @@ class QUADRATIC isa POLYNOMIAL {
 // ====== member function implementations ====== //  
 function POLYNOMIAL::evaluate(x: float) => float
 {
-  return (0); // 3
+  return (0.0);
 }
 
 function QUADRATIC::evaluate(x: float) => float
@@ -37,13 +37,13 @@ function QUADRATIC::constructor(A: float, B: float, C: float)
 {
   self.a = A;
   self.b = B;
-  self.c = C; // 4
+  self.c = C;
 }
 
 function LINEAR::constructor(A: float, B: float) 
 {
   self.a = A;
-  self.b = B; // 5
+  self.b = B;
 }
 
 function LINEAR::evaluate(x: float) => float 
@@ -59,15 +59,15 @@ function main() => void
 {
   localvar f1: LINEAR(2, 3.5);
   localvar f2: QUADRATIC(-2.0, 1.0, 0.0);
-  localvar counter: integer;
+  localvar counter: float;
 
-  counter = 1; 	
+  counter = 1.0;
 
-  while(counter <= 10) // 6
+  while(counter <= 10)
   {
     write(counter);
-    write(f1.evaluate(counter)); // 7
-    write(f2.evaluate(counter)); // 8
+    write(f1.evaluate(counter));
+    write(f2.evaluate(counter));
   };
 }
 /*
@@ -202,9 +202,3 @@ function main() => void
 */
 // 1: [line 10]Warning: Overriding member function evaluate
 // 2: [line 18]Warning: Overriding member function evaluate
-// 3: [line 24]Error: return type float expected, given integer
-// 4: [line 41]Error: return statement expeceted
-// 5: [line 47]Error: return statement expeceted
-// 6: [line 67]Error: return type void expected, given null
-// 7: [line 70]Error: evaluate(integer) not defined under class LINEAR
-// 8: [line 71]Error: evaluate(integer) not defined under class QUADRATIC

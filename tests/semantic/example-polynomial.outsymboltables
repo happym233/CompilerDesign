@@ -6,7 +6,7 @@
 |    | table: main                                                             |
 |    ===========================================================================
 |    | localVar       | f1                   | LINEAR                          |
-|    | localVar       | counter              | integer                         |
+|    | localVar       | counter              | float                           |
 |    | localVar       | f2                   | QUADRATIC                       |
 |    ===========================================================================
 | class          | QUADRATIC                                                   |

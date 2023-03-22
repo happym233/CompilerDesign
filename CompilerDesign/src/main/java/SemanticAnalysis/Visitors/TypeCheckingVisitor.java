@@ -141,7 +141,7 @@ public class TypeCheckingVisitor extends ASTVisitor {
 
         for (ASTTreeNode astTreeNode: semanticTreeNode.getChildren()) {
             if (astTreeNode instanceof SemanticTreeNode) {
-                if (((SemanticTreeNode)astTreeNode).getType() != "integer") {
+                if (!((SemanticTreeNode)astTreeNode).getType().equals("integer")) {
                     errors.add(new ErrorMessege(((SemanticTreeNode)astTreeNode).getLocation(), ErrorLevel.ERROR, "Arraysize should be of type integer"));
                 }
             }
@@ -170,17 +170,28 @@ public class TypeCheckingVisitor extends ASTVisitor {
                 ((SemanticTreeNode)astTreeNode).accept(this);
             }
         }
-        SemanticTreeNode lastStatement = (functionBody.getChildren().length > 0)? (SemanticTreeNode) functionBody.getChildren()[functionBody.getChildren().length - 1]: null;
-        if (lastStatement == null) {
-            if (functionPair.returnType != "void") {
-                errors.add(new ErrorMessege(functionBody.getLocation(), ErrorLevel.ERROR, "return type " + functionPair.returnType + " expected, given void"));
+        SemanticTreeNode functionHead = (SemanticTreeNode) semanticTreeNode.getChildren()[0];
+        if (functionHead.getName().equals("scopedFunctionHead") || functionHead.getName().equals("normalFunctionHead")) {
+            SemanticTreeNode lastStatement = (functionBody.getChildren().length > 0) ? (SemanticTreeNode) functionBody.getChildren()[functionBody.getChildren().length - 1] : null;
+            if (lastStatement == null) {
+                if (functionPair.returnType != null && functionPair.returnType != "void") {
+                    errors.add(new ErrorMessege(functionBody.getLocation(), ErrorLevel.ERROR, "return type " + functionPair.returnType + " given, expected void"));
+                }
+            } else if (functionPair.returnType.equals("void") && !lastStatement.getName().equals("returnStatement")) {
+
+            } else if (functionPair.returnType.equals("void") && lastStatement.getName().equals("returnStatement")) {
+                errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "unexpected return type " + functionPair.returnType + " for void"));
+            } else if (!lastStatement.getName().equals("returnStatement") && !functionPair.returnType.equals("void")) {
+                errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "return statement expeceted"));
+            } else if (!functionPair.returnType.equals(lastStatement.getType())) {
+                errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "return type " + functionPair.returnType + " expected, given " + lastStatement.getType()));
             }
-        } else if (functionPair.returnType.equals("void") && lastStatement.getName().equals("returnStatement")) {
-            errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "unexpected return type " + functionPair.returnType + " for void"));
-        }   else if (!lastStatement.getName().equals("returnStatement") && !functionPair.returnType.equals("void")) {
-            errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "return statement expeceted"));
-        } else if (!functionPair.returnType.equals(lastStatement.getType())) {
-            errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "return type " + functionPair.returnType + " expected, given " + lastStatement.getType()));
+        } else {
+            // System.out.println(functionHead.getName());
+            SemanticTreeNode lastStatement = (functionBody.getChildren().length > 0) ? (SemanticTreeNode) functionBody.getChildren()[functionBody.getChildren().length - 1] : null;
+            if (lastStatement != null && (lastStatement.getName().equals("returnStatement") && lastStatement.getType() != functionPair.scope)) {
+                errors.add(new ErrorMessege(lastStatement.getLocation(), ErrorLevel.ERROR, "wrong return type " + lastStatement.getType() + " for constructor"));
+            }
         }
         scope.pop();
         if (functionPair.scope != null) {
