@@ -30486,7 +30486,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray 
+printArray 
 rule: 
 <multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
 semantic stack: 
@@ -30543,7 +30543,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray 
+printArray 
 rule: 
 <localVarDeclOrStmt>: <statement> 
 semantic stack: 
@@ -30600,7 +30600,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray 
+printArray 
 rule: 
 <statement>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
 semantic stack: 
@@ -30657,9 +30657,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray 
+printArray 
 rule: 
-matching: id [id, printarray, 51]
+matching: id [id, printArray, 51]
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -30714,14 +30714,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( 
+printArray ( 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> openpar [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> openpar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -30771,14 +30771,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( 
+printArray ( 
 rule: 
-<idnestFollowing>: [EPSILON: epsilon] openpar <aParams> closepar [CREATE_NODE: aParams] [CREATE_NODE: funcCall] 
+<idnestFollowing>: openpar <aParams> closepar [CREATE_NODE: funcCall] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -30828,14 +30828,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( 
+printArray ( 
 rule: 
 matching: openpar [openpar, (, 51]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -30885,14 +30885,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -30942,14 +30942,71 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
+semantic stack: 
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+/* sort the array */ 
+function bubbleSort ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+localvar j : integer ; 
+localvar temp : integer ; 
+n = size ; 
+i = 0 ; 
+j = 0 ; 
+temp = 0 ; 
+while ( i < n - 1 ) { 
+while ( j < n - i - 1 ) { 
+if ( arr [ j ] > arr [ j + 1 ] ) 
+then { 
+// swap temp and arr[i] 
+temp = arr [ j ] ; 
+arr [ j ] = arr [ j + 1 ] ; 
+arr [ j + 1 ] = temp ; 
+} else ; 
+j = j + 1 ; 
+} ; 
+i = i + 1 ; 
+} ; 
+} 
+/* print the array */ 
+function printArray ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+n = size ; 
+i = 0 ; 
+while ( i < n ) { 
+write ( arr [ i ] ) ; 
+i = i + 1 ; 
+} ; 
+} 
+// main funtion to test above 
+function main ( ) => 
+void { 
+localvar arr : integer [ 7 ] ; 
+arr [ 0 ] = 64 ; 
+arr [ 1 ] = 34 ; 
+arr [ 2 ] = 25 ; 
+arr [ 3 ] = 12 ; 
+arr [ 4 ] = 22 ; 
+arr [ 5 ] = 11 ; 
+arr [ 6 ] = 90 ; 
+printArray ( arr 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -30999,14 +31056,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
-<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31056,14 +31113,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
-<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31113,71 +31170,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr 
-rule: 
-<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
-semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon]
------------------------------------------------------------------------
-stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
-input: 
-/* sort the array */ 
-function bubbleSort ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-localvar j : integer ; 
-localvar temp : integer ; 
-n = size ; 
-i = 0 ; 
-j = 0 ; 
-temp = 0 ; 
-while ( i < n - 1 ) { 
-while ( j < n - i - 1 ) { 
-if ( arr [ j ] > arr [ j + 1 ] ) 
-then { 
-// swap temp and arr[i] 
-temp = arr [ j ] ; 
-arr [ j ] = arr [ j + 1 ] ; 
-arr [ j + 1 ] = temp ; 
-} else ; 
-j = j + 1 ; 
-} ; 
-i = i + 1 ; 
-} ; 
-} 
-/* print the array */ 
-function printArray ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-n = size ; 
-i = 0 ; 
-while ( i < n ) { 
-write ( arr [ i ] ) ; 
-i = i + 1 ; 
-} ; 
-} 
-// main funtion to test above 
-function main ( ) => 
-void { 
-localvar arr : integer [ 7 ] ; 
-arr [ 0 ] = 64 ; 
-arr [ 1 ] = 34 ; 
-arr [ 2 ] = 25 ; 
-arr [ 3 ] = 12 ; 
-arr [ 4 ] = 22 ; 
-arr [ 5 ] = 11 ; 
-arr [ 6 ] = 90 ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 matching: id [id, arr, 51]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31227,14 +31227,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <optIdnestFollowing>: [CREATE_NODE: idIndice] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31284,14 +31284,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <multiIdnest>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][idIndice]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31341,14 +31341,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][idFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31398,14 +31398,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31455,14 +31455,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <aParamsTail> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <aParamsTail> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31512,14 +31512,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <multiAParamsTail>: <aParamsTail> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> comma 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> comma 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31569,14 +31569,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <aParamsTail>: comma <expr> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31626,14 +31626,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 matching: comma [comma, ,, 51]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31683,14 +31683,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31740,14 +31740,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31797,14 +31797,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31854,14 +31854,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <factor>: intnum [CREATE_LEAF: intnum] [CREATE_NODE: numFactor] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31911,14 +31911,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 matching: intnum [intnum, 7, 51]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -31968,14 +31968,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon][numFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon][numFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32025,14 +32025,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32082,14 +32082,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32139,14 +32139,14 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <multiAParamsTail>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32196,11 +32196,11 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 matching: closepar [closepar, ), 51]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
 <$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
@@ -32253,7 +32253,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 <multiIdnest>: 
 semantic stack: 
@@ -32310,7 +32310,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 <functionCallOrAssignStat>: [CREATE_NODE: functionCallStatement] 
 semantic stack: 
@@ -32367,7 +32367,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 matching: semi [semi, ;, 51]
 semantic stack: 
@@ -32424,7 +32424,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort 
 rule: 
 <multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
@@ -32482,7 +32482,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort 
 rule: 
 <localVarDeclOrStmt>: <statement> 
@@ -32540,7 +32540,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort 
 rule: 
 <statement>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
@@ -32598,7 +32598,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort 
 rule: 
 matching: id [id, bubbleSort, 52]
@@ -32656,7 +32656,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
@@ -32664,7 +32664,7 @@ semantic stack:
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> openpar [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> openpar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32714,15 +32714,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( 
 rule: 
-<idnestFollowing>: [EPSILON: epsilon] openpar <aParams> closepar [CREATE_NODE: aParams] [CREATE_NODE: funcCall] 
+<idnestFollowing>: openpar <aParams> closepar [CREATE_NODE: funcCall] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32772,15 +32772,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( 
 rule: 
 matching: openpar [openpar, (, 52]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32830,15 +32830,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr 
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32888,15 +32888,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -32946,15 +32946,73 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr 
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+semantic stack: 
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+input: 
+/* sort the array */ 
+function bubbleSort ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+localvar j : integer ; 
+localvar temp : integer ; 
+n = size ; 
+i = 0 ; 
+j = 0 ; 
+temp = 0 ; 
+while ( i < n - 1 ) { 
+while ( j < n - i - 1 ) { 
+if ( arr [ j ] > arr [ j + 1 ] ) 
+then { 
+// swap temp and arr[i] 
+temp = arr [ j ] ; 
+arr [ j ] = arr [ j + 1 ] ; 
+arr [ j + 1 ] = temp ; 
+} else ; 
+j = j + 1 ; 
+} ; 
+i = i + 1 ; 
+} ; 
+} 
+/* print the array */ 
+function printArray ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+n = size ; 
+i = 0 ; 
+while ( i < n ) { 
+write ( arr [ i ] ) ; 
+i = i + 1 ; 
+} ; 
+} 
+// main funtion to test above 
+function main ( ) => 
+void { 
+localvar arr : integer [ 7 ] ; 
+arr [ 0 ] = 64 ; 
+arr [ 1 ] = 34 ; 
+arr [ 2 ] = 25 ; 
+arr [ 3 ] = 12 ; 
+arr [ 4 ] = 22 ; 
+arr [ 5 ] = 11 ; 
+arr [ 6 ] = 90 ; 
+printArray ( arr , 7 ) ; 
+bubbleSort ( arr 
+rule: 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33004,73 +33062,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
-bubbleSort ( arr 
-rule: 
-<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
-semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon]
------------------------------------------------------------------------
-stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
-input: 
-/* sort the array */ 
-function bubbleSort ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-localvar j : integer ; 
-localvar temp : integer ; 
-n = size ; 
-i = 0 ; 
-j = 0 ; 
-temp = 0 ; 
-while ( i < n - 1 ) { 
-while ( j < n - i - 1 ) { 
-if ( arr [ j ] > arr [ j + 1 ] ) 
-then { 
-// swap temp and arr[i] 
-temp = arr [ j ] ; 
-arr [ j ] = arr [ j + 1 ] ; 
-arr [ j + 1 ] = temp ; 
-} else ; 
-j = j + 1 ; 
-} ; 
-i = i + 1 ; 
-} ; 
-} 
-/* print the array */ 
-function printArray ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-n = size ; 
-i = 0 ; 
-while ( i < n ) { 
-write ( arr [ i ] ) ; 
-i = i + 1 ; 
-} ; 
-} 
-// main funtion to test above 
-function main ( ) => 
-void { 
-localvar arr : integer [ 7 ] ; 
-arr [ 0 ] = 64 ; 
-arr [ 1 ] = 34 ; 
-arr [ 2 ] = 25 ; 
-arr [ 3 ] = 12 ; 
-arr [ 4 ] = 22 ; 
-arr [ 5 ] = 11 ; 
-arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr 
 rule: 
 <factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33120,15 +33120,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr 
 rule: 
 matching: id [id, arr, 52]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33178,15 +33178,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <optIdnestFollowing>: [CREATE_NODE: idIndice] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33236,15 +33236,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <multiIdnest>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][idIndice]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33294,15 +33294,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][idFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33352,15 +33352,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33410,15 +33410,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <aParamsTail> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <aParamsTail> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33468,15 +33468,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <multiAParamsTail>: <aParamsTail> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> comma 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> comma 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33526,15 +33526,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 <aParamsTail>: comma <expr> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33584,15 +33584,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 
 rule: 
 matching: comma [comma, ,, 52]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33642,15 +33642,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33700,15 +33700,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33758,15 +33758,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 
 rule: 
 <term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33816,15 +33816,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 
 rule: 
 <factor>: intnum [CREATE_LEAF: intnum] [CREATE_NODE: numFactor] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33874,15 +33874,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 
 rule: 
 matching: intnum [intnum, 7, 52]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33932,15 +33932,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon][numFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon][numFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -33990,15 +33990,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34048,15 +34048,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34106,15 +34106,15 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) 
 rule: 
 <multiAParamsTail>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34164,12 +34164,12 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) 
 rule: 
 matching: closepar [closepar, ), 52]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
 <$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
@@ -34222,7 +34222,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
 rule: 
 <multiIdnest>: 
@@ -34280,7 +34280,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
 rule: 
 <functionCallOrAssignStat>: [CREATE_NODE: functionCallStatement] 
@@ -34338,7 +34338,7 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
 rule: 
 matching: semi [semi, ;, 52]
@@ -34396,9 +34396,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray 
+printArray 
 rule: 
 <multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
 semantic stack: 
@@ -34455,9 +34455,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray 
+printArray 
 rule: 
 <localVarDeclOrStmt>: <statement> 
 semantic stack: 
@@ -34514,9 +34514,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray 
+printArray 
 rule: 
 <statement>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
 semantic stack: 
@@ -34573,11 +34573,11 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray 
+printArray 
 rule: 
-matching: id [id, printarray, 53]
+matching: id [id, printArray, 53]
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -34632,16 +34632,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( 
+printArray ( 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> openpar [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> openpar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34691,16 +34691,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( 
+printArray ( 
 rule: 
-<idnestFollowing>: [EPSILON: epsilon] openpar <aParams> closepar [CREATE_NODE: aParams] [CREATE_NODE: funcCall] 
+<idnestFollowing>: openpar <aParams> closepar [CREATE_NODE: funcCall] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34750,16 +34750,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( 
+printArray ( 
 rule: 
 matching: openpar [openpar, (, 53]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34809,16 +34809,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34868,16 +34868,75 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
+semantic stack: 
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+/* sort the array */ 
+function bubbleSort ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+localvar j : integer ; 
+localvar temp : integer ; 
+n = size ; 
+i = 0 ; 
+j = 0 ; 
+temp = 0 ; 
+while ( i < n - 1 ) { 
+while ( j < n - i - 1 ) { 
+if ( arr [ j ] > arr [ j + 1 ] ) 
+then { 
+// swap temp and arr[i] 
+temp = arr [ j ] ; 
+arr [ j ] = arr [ j + 1 ] ; 
+arr [ j + 1 ] = temp ; 
+} else ; 
+j = j + 1 ; 
+} ; 
+i = i + 1 ; 
+} ; 
+} 
+/* print the array */ 
+function printArray ( arr : integer [ ] , size : integer ) => void 
+{ 
+localvar n : integer ; 
+localvar i : integer ; 
+n = size ; 
+i = 0 ; 
+while ( i < n ) { 
+write ( arr [ i ] ) ; 
+i = i + 1 ; 
+} ; 
+} 
+// main funtion to test above 
+function main ( ) => 
+void { 
+localvar arr : integer [ 7 ] ; 
+arr [ 0 ] = 64 ; 
+arr [ 1 ] = 34 ; 
+arr [ 2 ] = 25 ; 
+arr [ 3 ] = 12 ; 
+arr [ 4 ] = 22 ; 
+arr [ 5 ] = 11 ; 
+arr [ 6 ] = 90 ; 
+printArray ( arr , 7 ) ; 
+bubbleSort ( arr , 7 ) ; 
+printArray ( arr 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34927,16 +34986,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
-<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -34986,16 +35045,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
-<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
 semantic stack: 
 [epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35045,75 +35104,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
-rule: 
-<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
-semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon]
------------------------------------------------------------------------
-stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
-input: 
-/* sort the array */ 
-function bubbleSort ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-localvar j : integer ; 
-localvar temp : integer ; 
-n = size ; 
-i = 0 ; 
-j = 0 ; 
-temp = 0 ; 
-while ( i < n - 1 ) { 
-while ( j < n - i - 1 ) { 
-if ( arr [ j ] > arr [ j + 1 ] ) 
-then { 
-// swap temp and arr[i] 
-temp = arr [ j ] ; 
-arr [ j ] = arr [ j + 1 ] ; 
-arr [ j + 1 ] = temp ; 
-} else ; 
-j = j + 1 ; 
-} ; 
-i = i + 1 ; 
-} ; 
-} 
-/* print the array */ 
-function printArray ( arr : integer [ ] , size : integer ) => void 
-{ 
-localvar n : integer ; 
-localvar i : integer ; 
-n = size ; 
-i = 0 ; 
-while ( i < n ) { 
-write ( arr [ i ] ) ; 
-i = i + 1 ; 
-} ; 
-} 
-// main funtion to test above 
-function main ( ) => 
-void { 
-localvar arr : integer [ 7 ] ; 
-arr [ 0 ] = 64 ; 
-arr [ 1 ] = 34 ; 
-arr [ 2 ] = 25 ; 
-arr [ 3 ] = 12 ; 
-arr [ 4 ] = 22 ; 
-arr [ 5 ] = 11 ; 
-arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
-bubbleSort ( arr , 7 ) ; 
-printarray ( arr 
+printArray ( arr 
 rule: 
 matching: id [id, arr, 53]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35163,16 +35163,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <optIdnestFollowing>: [CREATE_NODE: idIndice] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35222,16 +35222,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <multiIdnest>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][idIndice]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35281,16 +35281,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][epsilon][idFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][idFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35340,16 +35340,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35399,16 +35399,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <aParamsTail> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <aParamsTail> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35458,16 +35458,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <multiAParamsTail>: <aParamsTail> <multiAParamsTail> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> comma 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> comma 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35517,16 +35517,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 <aParamsTail>: comma <expr> 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35576,16 +35576,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 
+printArray ( arr , 
 rule: 
 matching: comma [comma, ,, 53]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35635,16 +35635,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35694,16 +35694,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35753,16 +35753,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] intnum 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35812,16 +35812,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 <factor>: intnum [CREATE_LEAF: intnum] [CREATE_NODE: numFactor] 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: intnum] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35871,16 +35871,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 
+printArray ( arr , 7 
 rule: 
 matching: intnum [intnum, 7, 53]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35930,16 +35930,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][epsilon][numFactor]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][epsilon][numFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -35989,16 +35989,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][epsilon][term]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -36048,16 +36048,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][epsilon][arithExpr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] closepar 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -36107,16 +36107,16 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 <multiAParamsTail>: 
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: funcCall] 
 input: 
 /* sort the array */ 
 function bubbleSort ( arr : integer [ ] , size : integer ) => void 
@@ -36166,13 +36166,13 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) 
+printArray ( arr , 7 ) 
 rule: 
 matching: closepar [closepar, ), 53]
 semantic stack: 
-[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][epsilon][expr][expr]
+[epsilon][function][function][normalFunctionHead][epsilon][localVarDecl][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][assignStatement][functionCallStatement][functionCallStatement][epsilon][epsilon][id][expr][expr]
 -----------------------------------------------------------------------
 stack: 
 <$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
@@ -36225,9 +36225,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 <multiIdnest>: 
 semantic stack: 
@@ -36284,9 +36284,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 <functionCallOrAssignStat>: [CREATE_NODE: functionCallStatement] 
 semantic stack: 
@@ -36343,9 +36343,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 rule: 
 matching: semi [semi, ;, 53]
 semantic stack: 
@@ -36402,9 +36402,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 } 
 rule: 
 <multiLocalVarDeclOrStmt>: 
@@ -36462,9 +36462,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 } 
 rule: 
 matching: closecubr [closecubr, }, 54]
@@ -36522,9 +36522,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 } 
 /*
     classes
@@ -36712,9 +36712,9 @@ arr [ 3 ] = 12 ;
 arr [ 4 ] = 22 ; 
 arr [ 5 ] = 11 ; 
 arr [ 6 ] = 90 ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 bubbleSort ( arr , 7 ) ; 
-printarray ( arr , 7 ) ; 
+printArray ( arr , 7 ) ; 
 } 
 /*
     classes

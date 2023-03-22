@@ -31756,7 +31756,7 @@ localvar f2 : QUADRATIC ( - 2.0 , 1.0 , 0.0 ) ;
 localvar counter : integer ; 
 counter 
 rule: 
-matching: id [id, counter, 64]
+matching: id [id, counter, 65]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -32076,7 +32076,7 @@ localvar f2 : QUADRATIC ( - 2.0 , 1.0 , 0.0 ) ;
 localvar counter : integer ; 
 counter = 
 rule: 
-matching: assign [assign, =, 64]
+matching: assign [assign, =, 65]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][epsilon][idIndice]
 -----------------------------------------------------------------------
@@ -32396,7 +32396,7 @@ localvar f2 : QUADRATIC ( - 2.0 , 1.0 , 0.0 ) ;
 localvar counter : integer ; 
 counter = 1 
 rule: 
-matching: intnum [intnum, 1, 64]
+matching: intnum [intnum, 1, 65]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][epsilon][idIndice][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -32652,7 +32652,7 @@ localvar f2 : QUADRATIC ( - 2.0 , 1.0 , 0.0 ) ;
 localvar counter : integer ; 
 counter = 1 ; 
 rule: 
-matching: semi [semi, ;, 64]
+matching: semi [semi, ;, 65]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement]
 -----------------------------------------------------------------------
@@ -32912,7 +32912,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while 
 rule: 
-matching: while [while, while, 66]
+matching: while [while, while, 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement]
 -----------------------------------------------------------------------
@@ -32977,7 +32977,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while ( 
 rule: 
-matching: openpar [openpar, (, 66]
+matching: openpar [openpar, (, 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement]
 -----------------------------------------------------------------------
@@ -33302,7 +33302,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while ( counter 
 rule: 
-matching: id [id, counter, 66]
+matching: id [id, counter, 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -33692,7 +33692,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while ( counter <= 
 rule: 
-matching: leq [leq, <=, 66]
+matching: leq [leq, <=, 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][epsilon][arithExpr]
 -----------------------------------------------------------------------
@@ -33952,7 +33952,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while ( counter <= 10 
 rule: 
-matching: intnum [intnum, 10, 66]
+matching: intnum [intnum, 10, 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][epsilon][arithExpr][leq][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -34147,7 +34147,7 @@ localvar counter : integer ;
 counter = 1 ; 
 while ( counter <= 10 ) 
 rule: 
-matching: closepar [closepar, ), 66]
+matching: closepar [closepar, ), 67]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition]
 -----------------------------------------------------------------------
@@ -34279,7 +34279,7 @@ counter = 1 ;
 while ( counter <= 10 ) 
 { 
 rule: 
-matching: opencubr [opencubr, {, 67]
+matching: opencubr [opencubr, {, 68]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon]
 -----------------------------------------------------------------------
@@ -34480,7 +34480,7 @@ while ( counter <= 10 )
 { 
 write 
 rule: 
-matching: write [write, write, 68]
+matching: write [write, write, 69]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon]
 -----------------------------------------------------------------------
@@ -34547,7 +34547,7 @@ while ( counter <= 10 )
 { 
 write ( 
 rule: 
-matching: openpar [openpar, (, 68]
+matching: openpar [openpar, (, 69]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon]
 -----------------------------------------------------------------------
@@ -34882,7 +34882,7 @@ while ( counter <= 10 )
 { 
 write ( counter 
 rule: 
-matching: id [id, counter, 68]
+matching: id [id, counter, 69]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -35284,7 +35284,7 @@ while ( counter <= 10 )
 { 
 write ( counter ) 
 rule: 
-matching: closepar [closepar, ), 68]
+matching: closepar [closepar, ), 69]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][expr]
 -----------------------------------------------------------------------
@@ -35351,7 +35351,7 @@ while ( counter <= 10 )
 { 
 write ( counter ) ; 
 rule: 
-matching: semi [semi, ;, 68]
+matching: semi [semi, ;, 69]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement]
 -----------------------------------------------------------------------
@@ -35555,7 +35555,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write 
 rule: 
-matching: write [write, write, 69]
+matching: write [write, write, 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement]
 -----------------------------------------------------------------------
@@ -35623,7 +35623,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( 
 rule: 
-matching: openpar [openpar, (, 69]
+matching: openpar [openpar, (, 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement]
 -----------------------------------------------------------------------
@@ -35963,7 +35963,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 
 rule: 
-matching: id [id, f1, 69]
+matching: id [id, f1, 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -36167,7 +36167,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . 
 rule: 
-matching: dot [dot, ., 69]
+matching: dot [dot, ., 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
@@ -36235,12 +36235,12 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate 
 rule: 
-matching: id [id, evaluate, 69]
+matching: id [id, evaluate, 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> openpar [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> openpar 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36303,12 +36303,12 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( 
 rule: 
-<idnestFollowing>: [EPSILON: epsilon] openpar <aParams> closepar [CREATE_NODE: aParams] [CREATE_NODE: funcCall] 
+<idnestFollowing>: openpar <aParams> closepar [CREATE_NODE: funcCall] 
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36371,12 +36371,12 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( 
 rule: 
-matching: openpar [openpar, (, 69]
+matching: openpar [openpar, (, 70]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36441,10 +36441,10 @@ write ( f1 . evaluate ( counter
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36509,10 +36509,10 @@ write ( f1 . evaluate ( counter
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36577,10 +36577,10 @@ write ( f1 . evaluate ( counter
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36645,10 +36645,10 @@ write ( f1 . evaluate ( counter
 rule: 
 <term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36713,10 +36713,10 @@ write ( f1 . evaluate ( counter
 rule: 
 <factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36779,12 +36779,12 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( counter 
 rule: 
-matching: id [id, counter, 69]
+matching: id [id, counter, 70]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36849,10 +36849,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <optIdnestFollowing>: [CREATE_NODE: idIndice] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36917,10 +36917,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <multiIdnest>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][idIndice]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -36985,10 +36985,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][idFactor]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][idFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -37053,10 +37053,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][term]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -37121,10 +37121,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][arithExpr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -37189,10 +37189,10 @@ write ( f1 . evaluate ( counter )
 rule: 
 <multiAParamsTail>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][expr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -37255,9 +37255,9 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( counter ) 
 rule: 
-matching: closepar [closepar, ), 69]
+matching: closepar [closepar, ), 70]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][expr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
 <$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
@@ -37595,7 +37595,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( counter ) ) 
 rule: 
-matching: closepar [closepar, ), 69]
+matching: closepar [closepar, ), 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][expr]
 -----------------------------------------------------------------------
@@ -37663,7 +37663,7 @@ while ( counter <= 10 )
 write ( counter ) ; 
 write ( f1 . evaluate ( counter ) ) ; 
 rule: 
-matching: semi [semi, ;, 69]
+matching: semi [semi, ;, 70]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement]
 -----------------------------------------------------------------------
@@ -37870,7 +37870,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write 
 rule: 
-matching: write [write, write, 70]
+matching: write [write, write, 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement]
 -----------------------------------------------------------------------
@@ -37939,7 +37939,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( 
 rule: 
-matching: openpar [openpar, (, 70]
+matching: openpar [openpar, (, 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement]
 -----------------------------------------------------------------------
@@ -38284,7 +38284,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 
 rule: 
-matching: id [id, f2, 70]
+matching: id [id, f2, 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
@@ -38491,7 +38491,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . 
 rule: 
-matching: dot [dot, ., 70]
+matching: dot [dot, ., 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
@@ -38560,12 +38560,12 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate 
 rule: 
-matching: id [id, evaluate, 70]
+matching: id [id, evaluate, 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> openpar [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> openpar 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38629,12 +38629,12 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( 
 rule: 
-<idnestFollowing>: [EPSILON: epsilon] openpar <aParams> closepar [CREATE_NODE: aParams] [CREATE_NODE: funcCall] 
+<idnestFollowing>: openpar <aParams> closepar [CREATE_NODE: funcCall] 
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <aParams> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <aParams> 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38698,12 +38698,12 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( 
 rule: 
-matching: openpar [openpar, (, 70]
+matching: openpar [openpar, (, 71]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> <expr> 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> <expr> 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38769,10 +38769,10 @@ write ( f2 . evaluate ( counter
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38838,10 +38838,10 @@ write ( f2 . evaluate ( counter
 rule: 
 <expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38907,10 +38907,10 @@ write ( f2 . evaluate ( counter
 rule: 
 <arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -38976,10 +38976,10 @@ write ( f2 . evaluate ( counter
 rule: 
 <term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39045,10 +39045,10 @@ write ( f2 . evaluate ( counter
 rule: 
 <factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39112,12 +39112,12 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( counter 
 rule: 
-matching: id [id, counter, 70]
+matching: id [id, counter, 71]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39183,10 +39183,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <optIdnestFollowing>: [CREATE_NODE: idIndice] 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][id]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39252,10 +39252,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <multiIdnest>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][epsilon][idIndice]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][idIndice]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39321,10 +39321,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <rightrecTerm>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][epsilon][idFactor]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][idFactor]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39390,10 +39390,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <rightrecArithExpr>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][epsilon][term]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][term]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar <multiAParamsTail> [CREATE_NODE: expr] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar <multiAParamsTail> [CREATE_NODE: expr] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39459,10 +39459,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <exprFollowing>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][epsilon][arithExpr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][arithExpr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] closepar 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] closepar 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39528,10 +39528,10 @@ write ( f2 . evaluate ( counter )
 rule: 
 <multiAParamsTail>: 
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][expr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
-<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] [CREATE_NODE: aParams] 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: funcCall] 
 input: 
 // ====== struct declarations ====== //  
 class POLYNOMIAL { 
@@ -39595,9 +39595,9 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( counter ) 
 rule: 
-matching: closepar [closepar, ), 70]
+matching: closepar [closepar, ), 71]
 semantic stack: 
-[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][epsilon][expr]
+[epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice][epsilon][id][expr]
 -----------------------------------------------------------------------
 stack: 
 <$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: whileStatement] [CREATE_NODE: whileBlockStatements] closecubr <multiStatement> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
@@ -39940,7 +39940,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( counter ) ) 
 rule: 
-matching: closepar [closepar, ), 70]
+matching: closepar [closepar, ), 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][expr]
 -----------------------------------------------------------------------
@@ -40009,7 +40009,7 @@ write ( counter ) ;
 write ( f1 . evaluate ( counter ) ) ; 
 write ( f2 . evaluate ( counter ) ) ; 
 rule: 
-matching: semi [semi, ;, 70]
+matching: semi [semi, ;, 71]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][writeStatement]
 -----------------------------------------------------------------------
@@ -40149,7 +40149,7 @@ write ( f1 . evaluate ( counter ) ) ;
 write ( f2 . evaluate ( counter ) ) ; 
 } 
 rule: 
-matching: closecubr [closecubr, }, 71]
+matching: closecubr [closecubr, }, 72]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileCondition][epsilon][writeStatement][writeStatement][writeStatement]
 -----------------------------------------------------------------------
@@ -40219,7 +40219,7 @@ write ( f1 . evaluate ( counter ) ) ;
 write ( f2 . evaluate ( counter ) ) ; 
 } ; 
 rule: 
-matching: semi [semi, ;, 71]
+matching: semi [semi, ;, 72]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileStatement]
 -----------------------------------------------------------------------
@@ -40361,7 +40361,7 @@ write ( f2 . evaluate ( counter ) ) ;
 } ; 
 } 
 rule: 
-matching: closecubr [closecubr, }, 72]
+matching: closecubr [closecubr, }, 73]
 semantic stack: 
 [epsilon][class][class][class][function][function][function][function][function][normalFunctionHead][epsilon][localVarDecl][localVarDecl][localVarDecl][assignStatement][whileStatement]
 -----------------------------------------------------------------------

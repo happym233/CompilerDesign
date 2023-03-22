@@ -10,7 +10,7 @@ addOp_C, *addOp, or (#or)
 returnType_A, *returnType, *type (returnType|1)
 returnType_B, *returnType, void (returnType|0)
 idnestFollowing_A, *idnestFollowing, (!stop) *multiIndice (indices|-1) (idIndice|-1)
-idnestFollowing_B, *idnestFollowing, (!stop) openpar *aParams closepar (aParams|-1) (funcCall|-1)
+idnestFollowing_B, *idnestFollowing, openpar *aParams closepar (funcCall|-1)
 multiClassDeclOrFuncDef_A, *multiClassDeclOrFuncDef, *classDeclOrFuncDef *multiClassDeclOrFuncDef
 multiClassDeclOrFuncDef_B, *multiClassDeclOrFuncDef,
 localVarDecl_A, *localVarDecl, (!stop) localVar id (#id) colon *type *localVarDeclFollowing (localVarDecl|-1)

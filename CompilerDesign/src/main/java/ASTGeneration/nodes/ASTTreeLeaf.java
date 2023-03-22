@@ -11,6 +11,14 @@ public class ASTTreeLeaf extends ASTTreeNode {
        this.token = token;
     }
 
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
+    }
+
     @Override
     public String getDotStr() {
         if (token.getType() == TokenType.ID || token.getType() == TokenType.FLOAT_NUM || token.getType() == TokenType.INT_NUM)

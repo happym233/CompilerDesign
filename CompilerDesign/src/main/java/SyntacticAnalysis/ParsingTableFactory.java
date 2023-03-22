@@ -17,6 +17,10 @@ public class ParsingTableFactory {
         Map<String, Rule> rules = new HashMap<>();
         Map<String, TerminalSymbol> terminalSymbols = new HashMap<>();
         Map<String, NonTerminalSymbol> nonTerminalSymbols = new HashMap<>();
+        /*
+        HashSet<String> set = new HashSet<>();
+        StringBuilder a = new StringBuilder(), b = new StringBuilder();
+         */
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] strs = line.split(",");
@@ -62,8 +66,12 @@ public class ParsingTableFactory {
             }
             Rule rule = new Rule(ruleName, nonTerminalSymbol, ruleSymbols);
             rules.put(ruleName,rule);
-            // System.out.println(rule);
+            // rule.toReportString(a, b, set);
         }
+        /*
+        System.out.println(a);
+        System.out.println(b);
+         */
         /*
         System.out.println(rules.keySet().size());
         for (String s: terminalSymbols.keySet().stream().sorted().collect(Collectors.toList())) {
@@ -153,9 +161,6 @@ public class ParsingTableFactory {
         try {
             ParsingTable parsingTable = ParsingTableFactory.generate("resource/ASTGeneration/AttributeGrammar.csv",
                     "resource/syntacticAnalysis/parsingTable.csv");
-            for (Rule rule: parsingTable.getTableRules()) {
-                System.out.println(rule.toString());
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
