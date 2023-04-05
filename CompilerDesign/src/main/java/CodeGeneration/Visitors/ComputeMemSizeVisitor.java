@@ -7,9 +7,7 @@ import LexicalAnalyse.TokenType;
 import SemanticAnalysis.ASTVisitor;
 import SemanticAnalysis.SemanticAnalyser;
 import SemanticAnalysis.SemanticTreeNode;
-import SemanticAnalysis.SymbolTableEntry.ClassEntry;
-import SemanticAnalysis.SymbolTableEntry.SymbolTable;
-import SemanticAnalysis.SymbolTableEntry.SymbolTableEntry;
+import SemanticAnalysis.SymbolTableEntry.*;
 import SemanticAnalysis.Visitors.ClassPair;
 import SemanticAnalysis.Visitors.VisitorHelper;
 
@@ -67,12 +65,14 @@ public class ComputeMemSizeVisitor extends ASTVisitor {
                 SemanticTreeNode classNode = (SemanticTreeNode) child;
                 ClassPair classPair = visitorHelper.createClassPair(classNode);
                 classPairs.add(classPair);
-            } else {
-                //function
-                ((SemanticTreeNode)child).accept(this);
             }
         }
         classPairTraversal(semanticTreeNode, classPairs);
+        for (ASTTreeNode child: children) {
+            if (child.getName().equals("function")) {
+                ((SemanticTreeNode)child).accept(this);
+            }
+        }
     }
 
 
@@ -135,7 +135,29 @@ public class ComputeMemSizeVisitor extends ASTVisitor {
             }
         }
         int offset = -4;
-        for (SymbolTableEntry symbolTableEntry: semanticTreeNode.getSymbolTable().getSymTable().values()) {
+        List<String> toAddEntry = new LinkedList<>();
+        List<SymbolTableEntry> toAddSymEntry = new LinkedList<>();
+        for (String entry: semanticTreeNode.getSymbolTable().getSymTable().keySet()) {
+            SymbolTableEntry symbolTableEntry = semanticTreeNode.getSymbolTable().get(entry);
+            if (symbolTableEntry instanceof LocalVarEntry && !(((LocalVarEntry) symbolTableEntry).isBasicType())) {
+                LocalVarEntry localVarEntry = (LocalVarEntry) symbolTableEntry;
+                if (!(localVarEntry.getType().equals("integer")) && !localVarEntry.getType().equals("float")) {
+                    localVarEntry.setSpace(((ClassEntry)globalSymbolTable.get(localVarEntry.getType())).getClassTable().getTotalSize());
+                }
+                localVarEntry.setName(entry + "Data");
+                LocalVarEntry pointerEntry = new LocalVarEntry(entry, semanticTreeNode.getLocation(), "pointer", null);
+                toAddEntry.add(entry);
+                toAddSymEntry.add(pointerEntry);
+                toAddEntry.add(entry + "Data");
+                toAddSymEntry.add(localVarEntry);
+            }
+        }
+        for (int i = 0; i < toAddEntry.size(); i++) {
+            semanticTreeNode.getSymbolTable().addEntry(toAddEntry.get(i), toAddSymEntry.get(i));
+        }
+        for (String entry: semanticTreeNode.getSymbolTable().getSymTable().keySet()) {
+            System.out.println(entry);
+            SymbolTableEntry symbolTableEntry = semanticTreeNode.getSymbolTable().get(entry);
             symbolTableEntry.updateSpace();
             offset = symbolTableEntry.updateOffset(offset);
         }

@@ -110,7 +110,6 @@ function main() => void                                           // 2.1, 2.2
   localvar counter: float;                                        // 1.1
 
   counter = 1.0;                                                    // 3.1
-	
   while(counter <= 10.0)                                            // 3.3, 5.1
   {
     write(counter);                                               // 3.4

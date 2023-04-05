@@ -77,6 +77,7 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                 break;
             case "returnStatement":
                 visitReturnStatement(semanticTreeNode);
+                break;
             case "writeStatement":
                 visitWriteStatement(semanticTreeNode);
                 break;
@@ -89,6 +90,12 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
     }
 
     public void visitReturnStatement(SemanticTreeNode semanticTreeNode) {
+        for (ASTTreeNode astTreeNode: semanticTreeNode.getChildren()) {
+            if (astTreeNode instanceof SemanticTreeNode) {
+                SemanticTreeNode child = (SemanticTreeNode) astTreeNode;
+                child.accept(this);
+            }
+        }
         SemanticTreeNode expr = (SemanticTreeNode) semanticTreeNode.getChildren()[0];
         String register1 = registerPool.pop();
         String register2 = registerPool.pop();
@@ -97,11 +104,11 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
         if (expr.getType().equals("float")) {
             moonExecCode.append(moonCodeIndent + "lw " + register1 + ", " + offset +  "(r14)\n");
             moonExecCode.append(moonCodeIndent + "lw " + register2 + ", " + (offset - 4) +  "(r14)\n");
-            moonExecCode.append(moonCodeIndent + "sw " + register1 + ", " + "-4(r14)\n");
-            moonExecCode.append(moonCodeIndent + "sw " + register2 + ", " + "-8(r14)\n");
+            moonExecCode.append(moonCodeIndent + "sw -4(r14), " + register1 + "\n");
+            moonExecCode.append(moonCodeIndent + "sw -8(r14), " + register2 + "\n");
         } else {
             moonExecCode.append(moonCodeIndent + "lw " + register1 + ", " + offset +  "(r14)\n");
-            moonExecCode.append(moonCodeIndent + "sw " + register1 + ", " + "-4(r14)\n");
+            moonExecCode.append(moonCodeIndent + "sw -4(r14), " + register1 + "\n");
         }
         registerPool.push(register2);
         registerPool.push(register1);
@@ -291,6 +298,14 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                     moonExecCode.append(moonCodeIndent + "lw " + register2 + ", -8(r14)\n");
                 }
                 moonExecCode.append(moonCodeIndent + "subi r14, r14, " + (-1 * semanticTreeNode.getSymbolTable().getTotalSize()) + "\n");
+
+                if (semanticTreeNode.getType().equals("integer")) {
+                    moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getOffset() + "(r14), " + register1 + "\n");
+                } else {
+                    // return type float
+                    moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getOffset() + "(r14), " + register1 + "\n");
+                    moonExecCode.append(moonCodeIndent + "sw " + (semanticTreeNode.getOffset() - 4) + "(r14), " + register2 + "\n");
+                }
             }
         }
         registerPool.push(register6);
@@ -369,8 +384,6 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
     }
 
     public void visitAssignmentStatement(SemanticTreeNode semanticTreeNode) {
-
-        moonExecCode.append(moonCodeIndent + "% processing line" + semanticTreeNode.getLocation() + "\n");
         for (ASTTreeNode astTreeNode: semanticTreeNode.getChildren()) {
             if (astTreeNode instanceof SemanticTreeNode) {
                 SemanticTreeNode child = (SemanticTreeNode) astTreeNode;
@@ -413,7 +426,10 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                             moonExecCode.append(moonCodeIndent + "sw " + tmpTable.get(variableName).getOffset() + "(" + register5 + "), " + register6 + "\n");
                             moonExecCode.append(moonCodeIndent + "sw " + (tmpTable.get(variableName).getOffset() - 4) + "(" + register5 + "), " + register7 + "\n");
                         } else {
-                            moonExecCode.append(moonCodeIndent + "sw " + tmpTable.get(variableName).getOffset() + "(" + register5 + ")" + register6 + "\n");
+                            moonExecCode.append(moonCodeIndent + "lw " + register4 + ", " + tmpTable.get(variableName).getOffset() + "(" + register5 + ")\n");
+                            moonExecCode.append(moonCodeIndent + "add " +  register5 + ", r0, " + register4 + "\n");
+                            LocalVarEntry localVarEntry = (LocalVarEntry) tmpTable.get(variableName + "Data");
+                            tmpTable = ((ClassEntry)globalTable.get(localVarEntry.getType())).getClassTable();
                         }
                     } else {
                         int idFactor = 4;
@@ -425,7 +441,8 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                         if (symbolTableEntry instanceof ParameterEntry) {
                             intIndices = ((ParameterEntry)symbolTableEntry).getDims();
                         } else if (symbolTableEntry instanceof LocalVarEntry) {
-                            intIndices = ((LocalVarEntry)symbolTableEntry).getDims();
+                            LocalVarEntry dataEntry = (LocalVarEntry) semanticTreeNode.getSymbolTable().get(variableName + "Data");
+                            intIndices = ((LocalVarEntry)dataEntry).getDims();
                         }
                         int j = -1;
                         moonExecCode.append(moonCodeIndent + "addi " + register1 + ", r0, 0 \n");
@@ -442,13 +459,13 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                         }
                         int offset = tmpTable.get(variableName).getOffset();
                         moonExecCode.append(moonCodeIndent + "muli " + register1 + ", " + register1 + ", -1\n");
-                        moonExecCode.append(moonCodeIndent + "add " + register1 + ", " + register5 + ", " + register1 + "\n");
-                        moonExecCode.append(moonCodeIndent + "addi " + register1 + ", " + register1 + ", " + offset + "\n");
+                        moonExecCode.append(moonCodeIndent + "lw " + register4 + ", " + offset + "(" + register5 + ")\n");
+                        moonExecCode.append(moonCodeIndent + "add " + register1 + ", " + register4 + ", " + register1 + "\n");
                         if (child.getType().equals("integer")) {
                             moonExecCode.append(moonCodeIndent + "sw  0(" + register1 + "), " + register6 + "\n");
                         } else {
-                            moonExecCode.append(moonCodeIndent + "sw  0(" + register1 + ")" + register6 + "\n");
-                            moonExecCode.append(moonCodeIndent + "sw -4(" + register1 + register7 + ")\n");
+                            moonExecCode.append(moonCodeIndent + "sw  0(" + register1 + "), " + register6 + "\n");
+                            moonExecCode.append(moonCodeIndent + "sw -4(" + register1 + "), " + register7 + "\n");
                         }
                     }
                 } else {
@@ -559,10 +576,10 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
     private void init() {
         moonExecCode.append("\n");
         moonExecCode.append("floatAdd\n");
-        moonExecCode.append(moonCodeIndent + "sw -4(r14), r1\n");
-        moonExecCode.append(moonCodeIndent + "sw -8(r14), r2\n");
-        moonExecCode.append(moonCodeIndent + "sw -12(r14), r3\n");
-        moonExecCode.append(moonCodeIndent + "sw -16(r14), r4\n");
+        moonExecCode.append(moonCodeIndent + "lw r1, -4(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r2, -8(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r3, -12(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r4, -16(r14)\n");
         moonExecCode.append("gowhileFAdd\n");
         moonExecCode.append(moonCodeIndent + "cne r5, r2, r4\n");
         moonExecCode.append(moonCodeIndent + "bz r5, endwhileFAdd\n");
@@ -583,10 +600,10 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
         moonExecCode.append(moonCodeIndent + "jr   r15\n");
 
         moonExecCode.append("floatMul\n");
-        moonExecCode.append(moonCodeIndent + "sw -4(r14), r1\n");
-        moonExecCode.append(moonCodeIndent + "sw -8(r14), r2\n");
-        moonExecCode.append(moonCodeIndent + "sw -12(r14), r3\n");
-        moonExecCode.append(moonCodeIndent + "sw -16(r14), r4\n");
+        moonExecCode.append(moonCodeIndent + "lw r1,  -4(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r2,  -8(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r3,  -12(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r4,  -16(r14)\n");
         moonExecCode.append(moonCodeIndent + "mul r1, r1, r3\n");
         moonExecCode.append(moonCodeIndent + "add r2, r2, r4\n");
         moonExecCode.append(moonCodeIndent + "sw  -4(r14), r1\n");
@@ -594,10 +611,10 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
         moonExecCode.append(moonCodeIndent + "jr   r15\n");
 
         moonExecCode.append("floatLeq\n");
-        moonExecCode.append(moonCodeIndent + "sw -4(r14), r1\n");
-        moonExecCode.append(moonCodeIndent + "sw -8(r14), r2\n");
-        moonExecCode.append(moonCodeIndent + "sw -12(r14), r3\n");
-        moonExecCode.append(moonCodeIndent + "sw -16(r14), r4\n");
+        moonExecCode.append(moonCodeIndent + "lw r1,  -4(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r2,  -8(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r3,  -12(r14)\n");
+        moonExecCode.append(moonCodeIndent + "lw r4,  -16(r14)\n");
         moonExecCode.append("gowhileFLeq\n");
         moonExecCode.append(moonCodeIndent + "cne r5, r2, r4\n");
         moonExecCode.append(moonCodeIndent + "bz   r5, endwhileFLeq\n");
@@ -633,7 +650,7 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                 } else {
                     moonExecCode.append(funcNode.getSymbolTableEntry().getEncoding() + "\n");
                     funcNode.accept(this);
-                    moonExecCode.append("jr r15\n");
+                    moonExecCode.append(moonCodeIndent + "jr r15\n");
                 }
             }
         }
@@ -641,6 +658,18 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
     }
 
     private void visitFunction(SemanticTreeNode semanticTreeNode) {
+        String register1 = registerPool.pop();
+        for (String entry: semanticTreeNode.getSymbolTable().getSymTable().keySet()) {
+            SymbolTableEntry symbolTableEntry = semanticTreeNode.getSymbolTable().get(entry);
+            if (symbolTableEntry instanceof LocalVarEntry && ((LocalVarEntry) symbolTableEntry).getType().equals("pointer")) {
+                LocalVarEntry localVarDataEntry = (LocalVarEntry) semanticTreeNode.getSymbolTable().get(entry + "Data");
+                moonExecCode.append(moonCodeIndent + "% processing pointer\n");
+                moonExecCode.append(moonCodeIndent + "addi " + register1 + ", r0, " + localVarDataEntry.getOffset() + "\n");
+                moonExecCode.append(moonCodeIndent + "add " + register1 + ", " + register1 + ", r14\n");
+                moonExecCode.append(moonCodeIndent + "sw " + symbolTableEntry.getOffset() + "(r14), " + register1 + "\n");
+            }
+        }
+        registerPool.push(register1);
         for (ASTTreeNode astTreeNode: semanticTreeNode.getChildren()) {
             if (astTreeNode instanceof SemanticTreeNode) {
                 SemanticTreeNode child = (SemanticTreeNode) astTreeNode;
@@ -800,14 +829,14 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                             moonExecCode.append(moonCodeIndent + "% processing: " + semanticTreeNode.getTmpSymbol().get(0) + " := " + variableName + "\n");
                             moonExecCode.append(moonCodeIndent + "lw " + register1 + "," + tmpTable.get(variableName).getOffset() + "(" + register5 + ")\n");
                             moonExecCode.append(moonCodeIndent + "lw " + register2 + "," + (tmpTable.get(variableName).getOffset() - 4) + "(" + register5 + ")\n");
-                            moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getSymbolTable().get(semanticTreeNode.getTmpSymbol().get(0)).getOffset() + "(r14), " + register1 + "\n");
-                            moonExecCode.append(moonCodeIndent + "sw " + (semanticTreeNode.getSymbolTable().get(semanticTreeNode.getTmpSymbol().get(0)).getOffset() - 4) + "(r14), " + register2 + "\n");
+                            moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getSymbolTable().get(semanticTreeNode.getTmpSymbol().get(0)).getOffset() + "(" + register5 + "), " + register1 + "\n");
+                            moonExecCode.append(moonCodeIndent + "sw " + (semanticTreeNode.getSymbolTable().get(semanticTreeNode.getTmpSymbol().get(0)).getOffset() - 4) + "(" + register5 + "), " + register2 + "\n");
                         } else {
-                            moonExecCode.append(moonCodeIndent + "% processing: " + semanticTreeNode.getTmpSymbol().get(0) + " := " + variableName + "\n");
-                            moonExecCode.append(moonCodeIndent + "lw " + register1 + "," + semanticTreeNode.getSymbolTable().get(variableName).getOffset() + "(r14)\n");
-                            String variableType = child.getType();
-                            tmpTable = ((ClassEntry)globalTable.get(variableType)).getClassTable();
-                            moonExecCode.append(moonCodeIndent + "addi " + register5 + ", " + register1 + ", 0 \n");
+                            moonExecCode.append(moonCodeIndent + "lw " + register4 + ", " + tmpTable.get(variableName).getOffset() + "(" + register5 + ")\n");
+                            moonExecCode.append(moonCodeIndent + "add " +  register5 + ", r0, " + register4 + "\n");
+                            LocalVarEntry localVarEntry = (LocalVarEntry) tmpTable.get(variableName + "Data");
+                            tmpTable = ((ClassEntry)globalTable.get(localVarEntry.getType())).getClassTable();
+
                         }
                     } else {
                         int idFactor = 4;
@@ -819,7 +848,8 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                         if (symbolTableEntry instanceof ParameterEntry) {
                             intIndices = ((ParameterEntry)symbolTableEntry).getDims();
                         } else if (symbolTableEntry instanceof LocalVarEntry) {
-                            intIndices = ((LocalVarEntry)symbolTableEntry).getDims();
+                            LocalVarEntry dataEntry = (LocalVarEntry) semanticTreeNode.getSymbolTable().get(variableName + "Data");
+                            intIndices = ((LocalVarEntry)dataEntry).getDims();
                         }
                         moonExecCode.append(moonCodeIndent + "% processing: " + semanticTreeNode.getTmpSymbol().get(0) + " := " + variableName + "\n");
                         int j = -1;
@@ -837,8 +867,8 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                         }
                         int offset = tmpTable.get(variableName).getOffset();
                         moonExecCode.append(moonCodeIndent + "muli " + register1 + ", " + register1 + ", -1\n");
-                        moonExecCode.append(moonCodeIndent + "add " + register1 + ", " + register5 + ", " + register1 + "\n");
-                        moonExecCode.append(moonCodeIndent + "addi " + register1 + ", " + register1 + ", " + offset + "\n");
+                        moonExecCode.append(moonCodeIndent + "lw " + register4 + ", " + offset + "(" + register5 + ")\n");
+                        moonExecCode.append(moonCodeIndent + "add " + register1 + ", " + register4  + ", " + register1 + "\n");
                         if (child.getType().equals("integer")) {
                             moonExecCode.append(moonCodeIndent + "lw " + register3 + ", 0(" + register1 + ")\n");
                             moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getSymbolTable().get(semanticTreeNode.getTmpSymbol().get(0)).getOffset() + "(r14), " + register3 + "\n");
@@ -926,6 +956,14 @@ public class StackBasedCodeGenerationVisitor extends ASTVisitor {
                     moonExecCode.append(moonCodeIndent + "lw " + register2 + ", -8(r14)\n");
                 }
                 moonExecCode.append(moonCodeIndent + "subi r14, r14, " + (-1 * semanticTreeNode.getSymbolTable().getTotalSize()) + "\n");
+
+                if (semanticTreeNode.getType().equals("integer")) {
+                    moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getOffset() + "(r14), " + register1 + "\n");
+                } else {
+                    // return type float
+                    moonExecCode.append(moonCodeIndent + "sw " + semanticTreeNode.getOffset() + "(r14), " + register1 + "\n");
+                    moonExecCode.append(moonCodeIndent + "sw " + (semanticTreeNode.getOffset() - 4) + "(r14), " + register2 + "\n");
+                }
             }
         }
         registerPool.push(register5);

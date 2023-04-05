@@ -27,13 +27,19 @@ public class LocalVarEntry extends SymbolTableEntry{
         this.dims = dims;
     }
 
+    public boolean isBasicType() {
+        return (type.equals("integer") || type.equals("float") || type.equals("pointer")) && dims == null;
+    }
+
     @Override
     public void updateSpace() {
         if (dims == null) {
             if (type.equals("float")) {
                 setSpace(8);
-            } else {
+            } else if (type.equals("integer") || type.equals("pointer")) {
                 setSpace(4);
+            } else {
+                setSpace(getSpace());
             }
         } else {
             int i = 1;
@@ -42,8 +48,10 @@ public class LocalVarEntry extends SymbolTableEntry{
             }
             if (type.equals("float")) {
                 setSpace(8 * i);
-            } else {
+            } else if (type.equals("integer")) {
                 setSpace(4 * i);
+            } else {
+                setSpace(getSpace() * i);
             }
         }
     }
