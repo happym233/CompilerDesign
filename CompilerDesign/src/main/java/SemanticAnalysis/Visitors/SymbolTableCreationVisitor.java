@@ -15,9 +15,12 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
 
     private SymbolTable globalTable;
 
+    private int cnt;
+
     public SymbolTableCreationVisitor(PriorityQueue<ErrorMessege> errors) {
         this.errors = errors;
         this.visitorHelper = new VisitorHelper(errors);
+        this.cnt = 0;
     }
 
     public PriorityQueue<ErrorMessege> getErrors() {
@@ -40,6 +43,8 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
             case "class":
                 visitClass(semanticTreeNode);
                 break;
+            default:
+                visitOther(semanticTreeNode);
         }
     }
 
@@ -166,8 +171,12 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
                 } else if (symbolTable.containsKey(functionPair.name)) {
                     errors.add(new ErrorMessege(functionPair.funcPos, ErrorLevel.WARNING, "Overloading function " + functionPair.funcNameEncoded));
                 }
-                semanticTreeNode.getSymbolTable().addEntry(functionPair.name, new FunctionEntry(functionPair.name, functionPair.funcPos, functionPair.returnType,funcSymbolTable));
-                semanticTreeNode.getSymbolTable().addEntry(functionPair.funcNameEncoded, new FunctionEntry(functionPair.name, functionPair.funcPos, functionPair.returnType,funcSymbolTable));
+                FunctionEntry functionEntry = new FunctionEntry(functionPair.name, functionPair.funcPos, functionPair.returnType,funcSymbolTable);
+                functionEntry.setEncoding(functionPair.name + cnt);
+                cnt++;
+                semanticTreeNode.getSymbolTable().addEntry(functionPair.name, functionEntry);
+                semanticTreeNode.getSymbolTable().addEntry(functionPair.funcNameEncoded, functionEntry);
+                functionPair.node.setSymbolTableEntry(functionEntry);
                 functionPair.node.setSymbolTable(funcSymbolTable);
                 functionPair.node.accept(this);
             } else {
@@ -180,6 +189,9 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
                         errors.add(new ErrorMessege(functionPair.funcPos, ErrorLevel.ERROR, "function not declared in class " + functionPair.scope + "."));
                     } else {
                         SymbolTableEntry etr = classTable.get(functionPair.funcNameEncoded);
+                        etr.setEncoding(functionPair.name + cnt);
+                        cnt++;
+                        functionPair.node.setSymbolTableEntry(etr);
                         if (etr instanceof MemberFuncEntry) {
                             functionPair.node.setSymbolTable(((MemberFuncEntry) etr).getFunctionTable());
                         } else {
@@ -197,10 +209,15 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
         SemanticTreeNode funcBody = (SemanticTreeNode) semanticTreeNode.getChildren()[1];
         SymbolTable funcSymbolTable = semanticTreeNode.getSymbolTable();
         SemanticTreeNode fParamsNodes = null;
+        FunctionPair functionPair = (new VisitorHelper(errors)).createFunctionPair(semanticTreeNode);
         if (functionHead.getName().equals("scopedFunctionHead")) {
             fParamsNodes = (SemanticTreeNode) functionHead.getChildren()[2];
+            ParameterEntry parameterEntry = new ParameterEntry("self", semanticTreeNode.getLocation(), functionPair.scope, null);
+            funcSymbolTable.addEntry("self", parameterEntry);
         } else if (functionHead.getName().equals("constructorHead")) {
             fParamsNodes = (SemanticTreeNode) functionHead.getChildren()[1];
+            ParameterEntry parameterEntry = new ParameterEntry("self", semanticTreeNode.getLocation(), functionPair.scope, null);
+            funcSymbolTable.addEntry("self", parameterEntry);
         } else if (functionHead.getName().equals("normalFunctionHead")) {
             fParamsNodes = (SemanticTreeNode) functionHead.getChildren()[1];
         } else {
@@ -257,6 +274,12 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
                 }
                 // System.out.println(funcSymbolTable);
             }
+        }
+
+        for (ASTTreeNode astTreeNode: funcBody.getChildren()) {
+            SemanticTreeNode child = (SemanticTreeNode) astTreeNode;
+            child.setSymbolTable(semanticTreeNode.getSymbolTable());
+            child.accept(this);
         }
     }
 
@@ -344,6 +367,7 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
             }
         }
 
+
         /*
         for (String name: classNode.getSymbolTable().getSymTable().keySet()) {
             System.out.println(name);
@@ -352,4 +376,15 @@ public class SymbolTableCreationVisitor extends ASTVisitor {
          */
     }
 
+
+
+    protected void visitOther(SemanticTreeNode treeNode) {
+        for (ASTTreeNode astTreeNode: treeNode.getChildren()) {
+            if (astTreeNode instanceof SemanticTreeNode) {
+                SemanticTreeNode child = (SemanticTreeNode) astTreeNode;
+                child.setSymbolTable(treeNode.getSymbolTable());
+                child.accept(this);
+            }
+        }
+    }
 }

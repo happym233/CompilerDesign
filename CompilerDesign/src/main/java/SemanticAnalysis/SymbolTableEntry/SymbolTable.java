@@ -1,12 +1,16 @@
 package SemanticAnalysis.SymbolTableEntry;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class SymbolTable {
     private HashMap<String, SymbolTableEntry> symTable;
 
+    private int variableSize;
+    private int totalSize;
+
     public SymbolTable() {
-        this.symTable = new HashMap<>();
+        this.symTable = new LinkedHashMap<>();
     }
 
     public void addEntry(String name, SymbolTableEntry symbolTableEntry) {
@@ -29,6 +33,7 @@ public class SymbolTable {
         this.symTable = symTable;
     }
 
+
     @Override
     public String toString() {
         String str = "";
@@ -36,5 +41,21 @@ public class SymbolTable {
             str += key + " | " + symTable.get(key) + "\n";
         }
         return str;
+    }
+
+    public int getVariableSize() {
+        return variableSize;
+    }
+
+    public void setVariableSize(int variableSize) {
+        this.variableSize = variableSize;
+    }
+
+    public int getTotalSize() {
+        return totalSize;
+    }
+
+    public void setTotalSize(int totalSize) {
+        this.totalSize = totalSize;
     }
 }

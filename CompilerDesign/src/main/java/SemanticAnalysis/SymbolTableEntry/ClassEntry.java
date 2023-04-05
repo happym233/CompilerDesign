@@ -17,4 +17,10 @@ public class ClassEntry extends SymbolTableEntry{
     public void setClassTable(SymbolTable classTable) {
         this.classTable = classTable;
     }
+
+    @Override
+    public void updateSpace() {
+        setSpace(getSpace());
+    }
+
 }

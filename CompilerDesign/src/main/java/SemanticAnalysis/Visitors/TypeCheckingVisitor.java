@@ -75,6 +75,8 @@ public class TypeCheckingVisitor extends ASTVisitor {
             case "signFactor":
                 visitSignFactor(semanticTreeNode);
                 break;
+            case "ifCondition":
+            case "whileCondition":
             case "term":
             case "arithExpr":
             case "expr":
@@ -481,8 +483,12 @@ public class TypeCheckingVisitor extends ASTVisitor {
         int l = semanticTreeNode.getChildren().length;
         if (firstChildIdnest.getName().equals("idIndice")) {
             variableType = handleIdIndice(firstChildIdnest, scope);
+            if (variableType == null) return;
+            firstChildIdnest.setType(variableType.name);
         } else {
             variableType = handleFunctionCall(firstChildIdnest, (classScope.size() == 0)? "": classScope.peek());
+            if (variableType == null) return;
+            firstChildIdnest.setType(variableType.name);
         }
         if (variableType == null) return;
         if (l == 1) {
@@ -500,6 +506,7 @@ public class TypeCheckingVisitor extends ASTVisitor {
             if (childIdnest.getName().equals("idIndice")) {
                 variableType = handleIdIndice(childIdnest, subscope);
                 if (variableType == null) return;
+                childIdnest.setType(variableType.name);
                 subscope = variableType.name;
             } else { //funcCall
                 variableType = handleFunctionCall(childIdnest, subscope);
@@ -552,6 +559,8 @@ public class TypeCheckingVisitor extends ASTVisitor {
                 }
             }
         }
+        if (semanticTreeNode.getName().equals("expr") && semanticTreeNode.getChildren().length > 1)
+            type = "integer";
         semanticTreeNode.setType(type);
     }
 
@@ -567,8 +576,12 @@ public class TypeCheckingVisitor extends ASTVisitor {
         int l = semanticTreeNode.getChildren().length;
         if (firstChildIdnest.getName().equals("idIndice")) {
             variableType = handleIdIndice(firstChildIdnest, scope);
+            if (variableType == null) return;
+            firstChildIdnest.setType(variableType.name);
         } else {
             variableType = handleFunctionCall(semanticTreeNode, (classScope.size() == 0)? "": classScope.peek());
+            if (variableType == null) return;
+            firstChildIdnest.setType(variableType.name);
         }
         if (variableType == null) return;
         if (l == 2) {
@@ -586,6 +599,7 @@ public class TypeCheckingVisitor extends ASTVisitor {
             if (childIdnest.getName().equals("idIndice")) {
                 variableType = handleIdIndice(childIdnest, subscope);
                 if (variableType == null) return;
+                childIdnest.setType(variableType.name);
                 subscope = variableType.name;
             } else { //funcCall
                 variableType = handleFunctionCall(childIdnest, subscope);

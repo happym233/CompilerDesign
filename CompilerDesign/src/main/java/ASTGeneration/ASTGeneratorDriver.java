@@ -68,9 +68,9 @@ public class ASTGeneratorDriver {
 
     public static void main(String[] args) {
         try {
-            writeOutput("bubblesort", "tests/semantic/example-bubblesort.src");
-            writeOutput("ploynomial", "tests/semantic/example-polynomial.src");
-            writeOutput("test2", "tests/semantic/test2.src");
+            writeOutput("bubblesort", "tests/AST/example-bubblesort.src");
+            writeOutput("ploynomial", "tests/AST/example-polynomial.src");
+            writeOutput("test2", "tests/AST/test2.src");
         } catch (IOException e) {
             e.printStackTrace();
         }

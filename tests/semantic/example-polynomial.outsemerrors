@@ -63,11 +63,11 @@ function main() => void
 
   counter = 1.0;
 
-  while(counter <= 10)
+  while(counter <= 10) // 3
   {
     write(counter);
-    write(f1.evaluate(counter));
-    write(f2.evaluate(counter));
+    write(f1.evaluate(counter)); // 4
+    write(f2.evaluate(counter)); // 5
   };
 }
 /*
@@ -202,3 +202,6 @@ function main() => void
 */
 // 1: [line 10]Warning: Overriding member function evaluate
 // 2: [line 18]Warning: Overriding member function evaluate
+// 3: [line 67]Error: Type error, integer with float
+// 4: [line 70]Error: evaluate(null) not defined under class LINEAR
+// 5: [line 71]Error: evaluate(null) not defined under class QUADRATIC

@@ -1,4 +1,4 @@
-function bubbleSort(arr: integer[], size: integer) => void 
+function bubbleSort(arr: integer[7], size: integer) => void
 {
   localvar n    : integer;
   localvar i    : integer;
@@ -24,7 +24,7 @@ function bubbleSort(arr: integer[], size: integer) => void
 }
    
 /* print the array */
-function printArray(arr: integer[], size: integer) => void 
+function printArray(arr: integer[7], size: integer) => void
 {
   localvar n: integer;
   localvar i: integer; 
@@ -47,9 +47,9 @@ function main() => void
   arr[4] = 22;
   arr[5] = 11;
   arr[6] = 90;
-  printArray(arr, 7);
-  bubbleSort(arr, 7);
-  printArray(arr, 7);
+  printArray(arr, 7); // 1
+  bubbleSort(arr, 7); // 2
+  printArray(arr, 7); // 3
 }
 
 /*
@@ -182,3 +182,6 @@ function main() => void
 |X| involving function calls
 | | involving all the above in one expression
 */
+// 1: [line 51]Error: printArray(null) not defined
+// 2: [line 52]Error: bubbleSort(null) not defined
+// 3: [line 53]Error: printArray(null) not defined

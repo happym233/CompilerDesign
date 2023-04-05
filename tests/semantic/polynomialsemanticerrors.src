@@ -115,6 +115,7 @@ function main() => void
   localvar i: integer[2][3];
   localvar j: integer[1][2][3];
   c.b = 1;                                                                 // 11.2
+  counter.b = 1;
   counter = c.f();                                                         // 11.3
   undefined();                                                             // 11.4
   counter = a;                                                             // 11.1

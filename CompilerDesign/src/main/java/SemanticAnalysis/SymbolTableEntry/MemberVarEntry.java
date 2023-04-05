@@ -47,4 +47,26 @@ public class MemberVarEntry extends SymbolTableEntry{
                 ", dims=" + Arrays.toString(dims) +
                 '}';
     }
+
+
+    @Override
+    public void updateSpace() {
+        if (dims == null) {
+            if (type.equals("float")) {
+                setSpace(8);
+            } else {
+                setSpace(4);
+            }
+        } else {
+            int i = 1;
+            for (int j: dims) {
+                i *= j;
+            }
+            if (type.equals("float")) {
+                setSpace(8 * i);
+            } else {
+                setSpace(4 * i);
+            }
+        }
+    }
 }

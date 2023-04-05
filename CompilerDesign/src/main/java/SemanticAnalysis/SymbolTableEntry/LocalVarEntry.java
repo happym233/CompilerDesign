@@ -26,4 +26,25 @@ public class LocalVarEntry extends SymbolTableEntry{
     public void setDims(Integer[] dims) {
         this.dims = dims;
     }
+
+    @Override
+    public void updateSpace() {
+        if (dims == null) {
+            if (type.equals("float")) {
+                setSpace(8);
+            } else {
+                setSpace(4);
+            }
+        } else {
+            int i = 1;
+            for (int j: dims) {
+                i *= j;
+            }
+            if (type.equals("float")) {
+                setSpace(8 * i);
+            } else {
+                setSpace(4 * i);
+            }
+        }
+    }
 }

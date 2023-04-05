@@ -7,11 +7,11 @@ import java.util.Arrays;
 
 public class ClassPair {
 
-    String name;
-    String[] extend_classes;
-    Token[] extend_classes_tokens;
-    SemanticTreeNode node;
-    int classPos;
+    public String name;
+    public String[] extend_classes;
+    public Token[] extend_classes_tokens;
+    public SemanticTreeNode node;
+    public int classPos;
 
     public ClassPair() {
     }

@@ -45,4 +45,9 @@ public class FunctionEntry extends SymbolTableEntry{
         str += returnType;
         return str;
     }
+
+    @Override
+    public void updateSpace() {
+        setSpace(0);
+    }
 }

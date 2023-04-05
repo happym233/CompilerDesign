@@ -64,4 +64,9 @@ public class MemberFuncEntry extends SymbolTableEntry{
                 ", functionTable=" + functionTable +
                 '}';
     }
+
+    @Override
+    public void updateSpace() {
+        setSpace(0);
+    }
 }

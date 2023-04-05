@@ -4,12 +4,12 @@ import SemanticAnalysis.SemanticTreeNode;
 
 public class FunctionPair {
 
-    String name;
-    String funcNameEncoded;
-    String scope;
-    int funcPos;
-    String returnType;
-    SemanticTreeNode node;
+    public String name;
+    public String funcNameEncoded;
+    public String scope;
+    public int funcPos;
+    public String returnType;
+    public SemanticTreeNode node;
 
     public FunctionPair() {
     }

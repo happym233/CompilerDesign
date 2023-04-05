@@ -4,6 +4,7 @@ import ASTGeneration.ASTGenerator;
 import ASTGeneration.nodes.ASTTreeLeaf;
 import ASTGeneration.nodes.ASTTreeNode;
 import ASTGeneration.nodes.ASTTreeParent;
+import CodeGeneration.SymbolTableEntry.TmpVarEntry;
 import SemanticAnalysis.SymbolTableEntry.*;
 import SemanticAnalysis.Visitors.*;
 
@@ -73,6 +74,9 @@ public class SemanticAnalyser {
     }
 
     public String getSymbolTableStr() {
+        StringBuilder sb = new StringBuilder();
+        symbolTableToStr(sb, root.getSymbolTable(), "global", 0);
+        this.symbolTableStr = sb.toString();
         return symbolTableStr;
     }
 
@@ -93,9 +97,6 @@ public class SemanticAnalyser {
         checkOverriding(root.getSymbolTable(), new HashMap<>());
         checkShallow(root.getSymbolTable(), new HashMap<>());
 
-        StringBuilder sb = new StringBuilder();
-        symbolTableToStr(sb, root.getSymbolTable(), "global", 0);
-        this.symbolTableStr = sb.toString();
 
 
         TypeCheckingVisitor typeCheckingVisitor = new TypeCheckingVisitor(root.getSymbolTable(), errorMesseges);
@@ -254,6 +255,10 @@ public class SemanticAnalyser {
                 }
                 sb.append(addBoundary(offset + " parameter      | " + String.format("%-20s", parameterEntry.getName()) + " | "
                         + String.format("%-23s", parameterEntry.getType() + dimsStr)));
+            } else if (symbolTableEntry instanceof TmpVarEntry) {
+                TmpVarEntry tmpVarEntry = (TmpVarEntry) symbolTableEntry;
+                sb.append(addBoundary(offset + " tmpvar         | " + String.format("%-20s", tmpVarEntry.getName()) + " | "
+                        + String.format("%-23s", tmpVarEntry.getType())));
             }
         }
         sb.append(sepLine);

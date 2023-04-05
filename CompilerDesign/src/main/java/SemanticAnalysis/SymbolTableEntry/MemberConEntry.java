@@ -45,6 +45,11 @@ public class MemberConEntry extends SymbolTableEntry {
     }
 
     @Override
+    public void updateSpace() {
+        setSpace(0);
+    }
+
+    @Override
     public String toString() {
         return "MemberConEntry{" +
                 "visibility=" + visibility +

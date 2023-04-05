@@ -49,4 +49,18 @@ public class ParameterEntry extends SymbolTableEntry{
                 ", dims=" + Arrays.toString(dims) +
                 '}';
     }
+
+
+    @Override
+    public void updateSpace() {
+        if (dims == null) {
+            if (type.equals("float")) {
+                setSpace(8);
+            } else {
+                setSpace(4);
+            }
+        } else {
+            setSpace(4);
+        }
+    }
 }

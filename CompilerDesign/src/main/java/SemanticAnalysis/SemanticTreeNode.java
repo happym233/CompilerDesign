@@ -11,6 +11,8 @@ import java.util.List;
 
 public class SemanticTreeNode extends ASTTreeParent {
     private SymbolTable symbolTable;
+    private SymbolTableEntry symbolTableEntry;
+    private List<String> tmpSymbol;
     private String type;
     private int dims;
 
@@ -22,6 +24,7 @@ public class SemanticTreeNode extends ASTTreeParent {
 
     public SemanticTreeNode(ASTTreeParent astTreeParent) {
         super(astTreeParent.getName(), new ASTTreeNode[astTreeParent.getChildren().length]);
+        tmpSymbol = new LinkedList<>();
     }
 
     public SymbolTable getSymbolTable() {
@@ -74,5 +77,25 @@ public class SemanticTreeNode extends ASTTreeParent {
 
     public void setLocation(int location) {
         this.location = location;
+    }
+
+    public List<String> getTmpSymbol() {
+        return tmpSymbol;
+    }
+
+    public int getOffset() {
+        return symbolTable.get(tmpSymbol.get(0)).getOffset();
+    }
+
+    public void setTmpSymbol(List<String> tmpSymbol) {
+        this.tmpSymbol = tmpSymbol;
+    }
+
+    public SymbolTableEntry getSymbolTableEntry() {
+        return symbolTableEntry;
+    }
+
+    public void setSymbolTableEntry(SymbolTableEntry symbolTableEntry) {
+        this.symbolTableEntry = symbolTableEntry;
     }
 }
