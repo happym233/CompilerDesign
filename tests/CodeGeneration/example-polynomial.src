@@ -1,5 +1,5 @@
 /*
-1.1  Allocate memory for basic types (integer, float).
+1.1  Allocate memory for basic types (integer, integer).
 1.2  Allocate memory for arrays of basic types.
 1.3  Allocate memory for objects.
 1.4  Allocate memory for arrays of objects.
@@ -47,33 +47,33 @@
 
 // ====== struct declarations ====== //
 class POLYNOMIAL {
-  public function evaluate: (x: float) => float;                    
+  public function evaluate: (x: integer) => integer;
 };
 
 class LINEAR isa POLYNOMIAL {
-  private attribute a: float;
-  private attribute b: float;
-  public  constructor: (A: float, B: float);
-  public  function evaluate: (x: float) => float;
+  private attribute a: integer;
+  private attribute b: integer;
+  public  constructor: (A: integer, B: integer);
+  public  function evaluate: (x: integer) => integer;
 };
 
 class QUADRATIC isa POLYNOMIAL {
-  private attribute a: float;
-  private attribute b: float;
-  private attribute c: float;
-  public  constructor: (A: float, B: float, C: float);
-  public  function evaluate: (x: float) => float;
+  private attribute a: integer;
+  private attribute b: integer;
+  private attribute c: integer;
+  public  constructor: (A: integer, B: integer, C: integer);
+  public  function evaluate: (x: integer) => integer;
 };
 
 // ====== member function implementations ====== //  
-function POLYNOMIAL::evaluate(x: float) => float                  // 2.1, 2.2
+function POLYNOMIAL::evaluate(x: integer) => integer                  // 2.1, 2.2
 {
-  return (0.0);                                                   // 2.3
+  return (0);                                                   // 2.3
 }
 
-function QUADRATIC::evaluate(x: float) => float
+function QUADRATIC::evaluate(x: integer) => integer
 {
-  localvar result: float;                                         // 1.1
+    localvar result: integer;                                         // 1.1
     //Using Horner's method
     result = a;                                                   // 3.1       
     result = result * x + b;                                      // 3.1, 5.1
@@ -81,23 +81,23 @@ function QUADRATIC::evaluate(x: float) => float
     return (result);                                              // 2.3
 }
 
-function QUADRATIC::constructor(A: float, B: float, C: float)     // 2.1, 2.2
+function QUADRATIC::constructor(A: integer, B: integer, C: integer)     // 2.1, 2.2
 {
   self.a = A;                                                     // 3.1, 5.3
   self.b = B;                                                     // 3.1, 5.3
   self.c = C;                                                     // 3.1, 5.3
 }
 
-function LINEAR::constructor(A: float, B: float)                  // 2.1, 2.2
+function LINEAR::constructor(A: integer, B: integer)                  // 2.1, 2.2
 {
   self.a = A;                                                     // 3.1, 5.3
   self.b = B;                                                     // 3.1, 5.3
 }
 
-function LINEAR::evaluate(x: float) => float                      // 2.1, 2.2
+function LINEAR::evaluate(x: integer) => integer                      // 2.1, 2.2
 {
-  localvar result: float;                                         // 1.1
-    result = 0.0;                                                 // 3.1
+    localvar result: integer;                                         // 1.1
+    result = 0;                                                 // 3.1
     result = a * x + b;                                           // 3.1, 5.1
     return (result);                                              // 2.3
   }
@@ -105,16 +105,16 @@ function LINEAR::evaluate(x: float) => float                      // 2.1, 2.2
 // ====== main ====== //
 function main() => void                                           // 2.1, 2.2
 {
-  localvar f1: LINEAR(2, 3.5);                                    // 1.3, 2.1, 2.2, 2.4
-  localvar f2: QUADRATIC(-2.0, 1.0, 0.0);                         // 1.3, 2.1, 2.2, 2.4
-  localvar counter: float;                                        // 1.1
+  localvar f1: LINEAR(2, 3);                                    // 1.3, 2.1, 2.2, 2.4
+  localvar f2: QUADRATIC(2, 1, 0);                         // 1.3, 2.1, 2.2, 2.4
+  localvar counter: integer;                                        // 1.1
 
-  counter = 1.0;                                                    // 3.1
-  while(counter <= 10.0)                                            // 3.3, 5.1
+  counter = 1;                                                    // 3.1
+  while(counter <= 10)                                            // 3.3, 5.1
   {
     write(counter);                                               // 3.4
     write(f1.evaluate(counter));                                  // 3.4, 2.1, 2.2, 2.4
     write(f2.evaluate(counter));                                  // 3.4, 2.1, 2.2, 2.4
-    counter = counter + 1.0;                                        // 3.1
+    counter = counter + 1;                                        // 3.1
   };
 }

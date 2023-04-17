@@ -49,19 +49,12 @@ class C {
   attribute a: integer;
   attribute b: integer;
   attribute c: integer;
-
-  function prt: () => void;   // 2.1, 2.2
 };
-
-function C::prt() => void   // 2.1, 2.2
-{
-    write(3 * a);
-}
 
 function main() => void
 {
   localVar m: C;
   localVar n: C[7];
   m.a = 123;
-  m.prt();
+  write(m.a);
 }

@@ -19,10 +19,12 @@ public class CodeGenerationDriver {
     public static void main(String[] args) {
         try {
             // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-bubblesort.src");
-            // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-polynomial.src");
-            CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain.src");
-            CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain2.src");
+            CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-polynomial.src");
+            // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain.src");
+            // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain2.src");
             CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain3.src");
+            // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain4.src");
+            // CodeGenerationDriver.writeOutput("tests/CodeGeneration/example-simplemain5.src");
         } catch (IOException e){
             e.printStackTrace();
         }

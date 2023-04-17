@@ -70,6 +70,7 @@ public class ASTGeneratorDriver {
         try {
             writeOutput("bubblesort", "tests/AST/example-bubblesort.src");
             writeOutput("ploynomial", "tests/AST/example-polynomial.src");
+            writeOutput("simplemain3", "tests/AST/example-simplemain3.src");
             writeOutput("test2", "tests/AST/test2.src");
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package CodeGeneration;
 
+import CodeGeneration.SymbolTableEntry.JumpEntry;
 import CodeGeneration.SymbolTableEntry.TmpVarEntry;
 import CodeGeneration.Visitors.ComputeMemSizeVisitor;
 import CodeGeneration.Visitors.StackBasedCodeGenerationVisitor;
@@ -138,6 +139,10 @@ public class CodeGeneration {
                 TmpVarEntry tmpVarEntry = (TmpVarEntry) symbolTableEntry;
                 sb.append(addBoundary(offset + " tmpvar         | " + String.format("%-20s", tmpVarEntry.getName()) + " | "
                         + String.format("%-23s", tmpVarEntry.getType()) + "|" + String.format("%-5s", symbolTableEntry.getSpace()) + "|" + String.format("%-5s", symbolTableEntry.getOffset())));
+            } else if (symbolTableEntry instanceof JumpEntry) {
+                JumpEntry jumpEntry = (JumpEntry) symbolTableEntry;
+                sb.append(addBoundary(offset + " jump           | " + String.format("%-20s", "") + "   "
+                        + String.format("%-23s", "") + "|" + String.format("%-5s", symbolTableEntry.getSpace()) + "|" + String.format("%-5s", symbolTableEntry.getOffset())));
             }
         }
         sb.append(sepLine);
@@ -146,7 +151,7 @@ public class CodeGeneration {
     public static void main(String[] args) {
         try {
             CodeGeneration codeGeneration1 = new CodeGeneration("tests/CodeGeneration/example-bubblesort.src");
-            // CodeGeneration codeGeneration2 = new CodeGeneration("tests/CodeGeneration/example-polynomial.src");
+            CodeGeneration codeGeneration2 = new CodeGeneration("tests/CodeGeneration/example-polynomial.src");
             // CodeGeneration codeGeneration3 = new CodeGeneration("tests/CodeGeneration/example-simplemain.src");
             codeGeneration1.run();
             // codeGeneration2.run();

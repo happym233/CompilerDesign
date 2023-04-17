@@ -95,9 +95,8 @@ function main() => void
   arr[4] = 22;                                             // 3.1
   arr[5] = 11;                                             // 3.1
   arr[6] = 90;                                             // 3.1
-  write(arr[6]);
   printArray(arr, 7);                                      // 2.1, 2.2
   /* assumes that the array is passed as a reference */
-  // bubbleSort(arr, 7);                                      // 2.1, 2.2
-  // printArray(arr, 7);                                      // 2.1, 2.2
+  bubbleSort(arr, 7);                                      // 2.1, 2.2
+  printArray(arr, 7);                                      // 2.1, 2.2
 }

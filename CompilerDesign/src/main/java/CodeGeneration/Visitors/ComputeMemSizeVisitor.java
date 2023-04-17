@@ -2,6 +2,7 @@ package CodeGeneration.Visitors;
 
 import ASTGeneration.nodes.ASTTreeLeaf;
 import ASTGeneration.nodes.ASTTreeNode;
+import CodeGeneration.SymbolTableEntry.JumpEntry;
 import CodeGeneration.SymbolTableEntry.TmpVarEntry;
 import LexicalAnalyse.TokenType;
 import SemanticAnalysis.ASTVisitor;
@@ -134,6 +135,8 @@ public class ComputeMemSizeVisitor extends ASTVisitor {
                 child.accept(this);
             }
         }
+        semanticTreeNode.getSymbolTable().addEntry("jump", new JumpEntry(semanticTreeNode.getLocation()));
+        semanticTreeNode.getSymbolTable().addEntry("jumpReturn", new JumpEntry(semanticTreeNode.getLocation()));
         int offset = -4;
         List<String> toAddEntry = new LinkedList<>();
         List<SymbolTableEntry> toAddSymEntry = new LinkedList<>();
@@ -156,7 +159,6 @@ public class ComputeMemSizeVisitor extends ASTVisitor {
             semanticTreeNode.getSymbolTable().addEntry(toAddEntry.get(i), toAddSymEntry.get(i));
         }
         for (String entry: semanticTreeNode.getSymbolTable().getSymTable().keySet()) {
-            System.out.println(entry);
             SymbolTableEntry symbolTableEntry = semanticTreeNode.getSymbolTable().get(entry);
             symbolTableEntry.updateSpace();
             offset = symbolTableEntry.updateOffset(offset);

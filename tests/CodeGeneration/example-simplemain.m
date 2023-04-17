@@ -46,12 +46,12 @@ entry
           % processing read statement
           addi r5, r14, 0
           addi r1, r0, buf
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r1
           jl r15,getstr
           jl r15,strint
           addi r6, r13, 0
-          subi r14, r14, -244
+          subi r14, r14, -252
           sw -4(r5), r6
           % processing line55
           % processing line55
@@ -61,7 +61,7 @@ entry
           addi r5, r14, 0
           % processing: tmpVar12 := x
           lw r1,-4(r5)
-          sw -64(r5), r1
+          sw -64(r14), r1
           % processing: tmpVar11 := tmpVar12
           lw r1,-64(r14)
           sw -60(r14), r1
@@ -74,7 +74,7 @@ entry
           addi r5, r14, 0
           % processing: tmpVar16 := y
           lw r1,-8(r5)
-          sw -80(r5), r1
+          sw -80(r14), r1
           % processing: tmpVar15 := tmpVar16
           lw r1,-80(r14)
           sw -76(r14), r1
@@ -113,7 +113,7 @@ entry
           addi r6, r14, 0
           % processing: tmpVar23 := x
           lw r2,-4(r6)
-          sw -108(r6), r2
+          sw -108(r14), r2
           % processing: tmpVar22 := tmpVar23
           lw r2,-108(r14)
           sw -104(r14), r2
@@ -137,19 +137,19 @@ entry
           lw r2,-100(r14)
           sw -96(r14), r2
           lw r2, -96(r14)
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           addi r2, r0, buf
           sw -12(r14), r2
           jl r15, intstr
           sw -8(r14),r13
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
           addi r2, r0, charLineSep
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
           j endif1
 elseStatement1
           % processing line58
@@ -161,7 +161,7 @@ elseStatement1
           addi r6, r14, 0
           % processing: tmpVar30 := x
           lw r2,-4(r6)
-          sw -136(r6), r2
+          sw -136(r14), r2
           % processing: tmpVar29 := tmpVar30
           lw r2,-136(r14)
           sw -132(r14), r2
@@ -185,19 +185,19 @@ elseStatement1
           lw r2,-128(r14)
           sw -124(r14), r2
           lw r2, -124(r14)
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           addi r2, r0, buf
           sw -12(r14), r2
           jl r15, intstr
           sw -8(r14),r13
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
           addi r2, r0, charLineSep
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
 endif1    
           % processing line60
           % processing line60
@@ -228,7 +228,7 @@ gowhile2
           addi r6, r14, 0
           % processing: tmpVar41 := z
           lw r2,-12(r6)
-          sw -180(r6), r2
+          sw -180(r14), r2
           % processing: tmpVar40 := tmpVar41
           lw r2,-180(r14)
           sw -176(r14), r2
@@ -266,7 +266,7 @@ gowhile2
           addi r6, r14, 0
           % processing: tmpVar49 := z
           lw r2,-12(r6)
-          sw -212(r6), r2
+          sw -212(r14), r2
           % processing: tmpVar48 := tmpVar49
           lw r2,-212(r14)
           sw -208(r14), r2
@@ -277,19 +277,19 @@ gowhile2
           lw r2,-204(r14)
           sw -200(r14), r2
           lw r2, -200(r14)
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           addi r2, r0, buf
           sw -12(r14), r2
           jl r15, intstr
           sw -8(r14),r13
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
           addi r2, r0, charLineSep
-          addi r14, r14, -244
+          addi r14, r14, -252
           sw -8(r14), r2
           jl r15, putstr
-          subi r14, r14, -244
+          subi r14, r14, -252
           % processing line63
           % processing line63
           % processing line63
@@ -297,7 +297,7 @@ gowhile2
           addi r6, r14, 0
           % processing: tmpVar53 := z
           lw r2,-12(r6)
-          sw -228(r6), r2
+          sw -228(r14), r2
           % processing: tmpVar52 := tmpVar53
           lw r2,-228(r14)
           sw -224(r14), r2

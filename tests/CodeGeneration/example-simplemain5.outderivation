@@ -1,0 +1,1196 @@
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [EPSILON: epsilon] 
+input: 
+function 
+rule: 
+<START>: [EPSILON: epsilon] <multiClassDeclOrFuncDef> [CREATE_NODE: program] 
+semantic stack: 
+
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> <classDeclOrFuncDef> 
+input: 
+function 
+rule: 
+<multiClassDeclOrFuncDef>: <classDeclOrFuncDef> <multiClassDeclOrFuncDef> 
+semantic stack: 
+[epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> <funcDef> 
+input: 
+function 
+rule: 
+<classDeclOrFuncDef>: <funcDef> 
+semantic stack: 
+[epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> <funcHead> 
+input: 
+function 
+rule: 
+<funcDef>: <funcHead> <funcBody> [CREATE_NODE: function] 
+semantic stack: 
+[epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> <funcHeadFollowing> [CREATE_LEAF: id] id function [EPSILON: epsilon] 
+input: 
+function 
+rule: 
+<funcHead>: [EPSILON: epsilon] function id [CREATE_LEAF: id] <funcHeadFollowing> 
+semantic stack: 
+[epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> <funcHeadFollowing> [CREATE_LEAF: id] id 
+input: 
+function 
+rule: 
+matching: function [function, function, 1]
+semantic stack: 
+[epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> <funcHeadFollowing> [CREATE_LEAF: id] 
+input: 
+function main 
+rule: 
+matching: id [id, main, 1]
+semantic stack: 
+[epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] <returnType> returntype closepar [CREATE_NODE: fParams] <fParams> [EPSILON: epsilon] openpar 
+input: 
+function main ( 
+rule: 
+<funcHeadFollowing>: openpar [EPSILON: epsilon] <fParams> [CREATE_NODE: fParams] closepar returntype <returnType> [CREATE_NODE: normalFunctionHead] 
+semantic stack: 
+[epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] <returnType> returntype closepar [CREATE_NODE: fParams] <fParams> [EPSILON: epsilon] 
+input: 
+function main ( 
+rule: 
+matching: openpar [openpar, (, 1]
+semantic stack: 
+[epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] <returnType> returntype closepar [CREATE_NODE: fParams] 
+input: 
+function main ( ) 
+rule: 
+<fParams>: 
+semantic stack: 
+[epsilon][epsilon][id][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] <returnType> returntype 
+input: 
+function main ( ) 
+rule: 
+matching: closepar [closepar, ), 1]
+semantic stack: 
+[epsilon][epsilon][id][fParams]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] <returnType> 
+input: 
+function main ( ) => 
+rule: 
+matching: returntype [returntype, =>, 1]
+semantic stack: 
+[epsilon][epsilon][id][fParams]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] [CREATE_NODE: returnType] void 
+input: 
+function main ( ) => void 
+rule: 
+<returnType>: void [CREATE_NODE: returnType] 
+semantic stack: 
+[epsilon][epsilon][id][fParams]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> [CREATE_NODE: normalFunctionHead] [CREATE_NODE: returnType] 
+input: 
+function main ( ) => void 
+rule: 
+matching: void [void, void, 1]
+semantic stack: 
+[epsilon][epsilon][id][fParams]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] <funcBody> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+rule: 
+skipping
+semantic stack: 
+[epsilon][normalFunctionHead]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> opencubr [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+rule: 
+<funcBody>: [EPSILON: epsilon] opencubr <multiLocalVarDeclOrStmt> closecubr [CREATE_NODE: functionBody] 
+semantic stack: 
+[epsilon][normalFunctionHead]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+rule: 
+matching: opencubr [opencubr, {, 2]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <localVarDecl> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar 
+rule: 
+<localVarDeclOrStmt>: <localVarDecl> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> <type> colon [CREATE_LEAF: id] id localvar [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar 
+rule: 
+<localVarDecl>: [EPSILON: epsilon] localvar id [CREATE_LEAF: id] colon <type> <localVarDeclFollowing> [CREATE_NODE: localVarDecl] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> <type> colon [CREATE_LEAF: id] id 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar 
+rule: 
+matching: localvar [localvar, localvar, 3]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> <type> colon [CREATE_LEAF: id] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter 
+rule: 
+matching: id [id, counter, 3]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> <type> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : 
+rule: 
+matching: colon [colon, :, 3]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> [CREATE_LEAF: float] float 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float 
+rule: 
+<type>: float [CREATE_LEAF: float] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] <localVarDeclFollowing> [CREATE_LEAF: float] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float 
+rule: 
+matching: float [float, float, 3]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] semi [CREATE_NODE: arraySizes] <multiArraySize> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; 
+rule: 
+<localVarDeclFollowing>: [EPSILON: epsilon] <multiArraySize> [CREATE_NODE: arraySizes] semi 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id][float]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] semi [CREATE_NODE: arraySizes] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; 
+rule: 
+<multiArraySize>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id][float][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> [CREATE_NODE: localVarDecl] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; 
+rule: 
+matching: semi [semi, ;, 3]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][epsilon][id][float][arraySizes]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+rule: 
+skipping
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter 
+rule: 
+<statement>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter 
+rule: 
+matching: id [id, counter, 4]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> [CREATE_NODE: idIndice] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 
+rule: 
+<optIdnestFollowing>: [CREATE_NODE: idIndice] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 
+rule: 
+<multiIdnest>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] <expr> <assignOp> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> [CREATE_NODE: assignStatement] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] <expr> assign 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 
+rule: 
+<assignOp>: assign 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] <expr> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 
+rule: 
+matching: assign [assign, =, 4]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 
+rule: 
+<expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 
+rule: 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] floatnum 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 
+rule: 
+<factor>: floatnum [CREATE_LEAF: floatnum] [CREATE_NODE: numFactor] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 
+rule: 
+matching: floatnum [floatnum, 1.0, 4]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; 
+rule: 
+<rightrecTerm>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][epsilon][epsilon][numFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; 
+rule: 
+<rightrecArithExpr>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][epsilon][term]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: assignStatement] [CREATE_NODE: expr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; 
+rule: 
+<exprFollowing>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][epsilon][idIndice][epsilon][arithExpr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; 
+rule: 
+matching: semi [semi, ;, 4]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+rule: 
+skipping
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> openpar write 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write 
+rule: 
+<statement>: write openpar <expr> closepar [CREATE_NODE: writeStatement] semi 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> openpar 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write 
+rule: 
+matching: write [write, write, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( 
+rule: 
+matching: openpar [openpar, (, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter 
+rule: 
+<expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter 
+rule: 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter 
+rule: 
+<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter 
+rule: 
+matching: id [id, counter, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 
+rule: 
+<optIdnestFollowing>: [CREATE_NODE: idIndice] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 
+rule: 
+<multiIdnest>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> <multOp> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 
+rule: 
+<rightrecTerm>: <multOp> <factor> <rightrecTerm> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [CREATE_LEAF: mult] mult 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 
+rule: 
+<multOp>: mult [CREATE_LEAF: mult] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [CREATE_LEAF: mult] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 
+rule: 
+matching: mult [mult, *, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] floatnum 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 
+rule: 
+<factor>: floatnum [CREATE_LEAF: floatnum] [CREATE_NODE: numFactor] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor][mult]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 
+rule: 
+matching: floatnum [floatnum, 2.0, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor][mult]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) 
+rule: 
+<rightrecTerm>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][epsilon][idFactor][mult][numFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) 
+rule: 
+<rightrecArithExpr>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][epsilon][term]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) 
+rule: 
+<exprFollowing>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][epsilon][arithExpr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) 
+rule: 
+matching: closepar [closepar, ), 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][expr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+rule: 
+matching: semi [semi, ;, 5]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> openpar write 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write 
+rule: 
+<statement>: write openpar <expr> closepar [CREATE_NODE: writeStatement] semi 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> openpar 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write 
+rule: 
+matching: write [write, write, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar <expr> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( 
+rule: 
+matching: openpar [openpar, (, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> <arithExpr> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter 
+rule: 
+<expr>: [EPSILON: epsilon] <arithExpr> <exprFollowing> [CREATE_NODE: expr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter 
+rule: 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] id [EPSILON: epsilon] [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter 
+rule: 
+<factor>: [EPSILON: epsilon] [EPSILON: epsilon] id [CREATE_LEAF: id] <optIdnestFollowing> <multiIdnest> [CREATE_NODE: idFactor] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> <optIdnestFollowing> [CREATE_LEAF: id] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter 
+rule: 
+matching: id [id, counter, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] <multiIdnest> [CREATE_NODE: idIndice] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<optIdnestFollowing>: [CREATE_NODE: idIndice] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][epsilon][id]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: idFactor] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<multiIdnest>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][epsilon][epsilon][idIndice]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<rightrecTerm>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][epsilon][idFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <exprFollowing> [CREATE_NODE: arithExpr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<rightrecArithExpr>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][epsilon][term]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <arithExpr> <relOp> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<exprFollowing>: <relOp> <arithExpr> 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <arithExpr> [CREATE_LEAF: leq] leq 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+<relOp>: leq [CREATE_LEAF: leq] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] <arithExpr> [CREATE_LEAF: leq] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 
+rule: 
+matching: leq [leq, <=, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] <rightrecArithExpr> <term> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 
+rule: 
+<arithExpr>: [EPSILON: epsilon] <term> <rightrecArithExpr> [CREATE_NODE: arithExpr] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> <factor> [EPSILON: epsilon] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 
+rule: 
+<term>: [EPSILON: epsilon] <factor> <rightrecTerm> [CREATE_NODE: term] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] floatnum 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 
+rule: 
+<factor>: floatnum [CREATE_LEAF: floatnum] [CREATE_NODE: numFactor] 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] <rightrecTerm> [CREATE_NODE: numFactor] [CREATE_LEAF: floatnum] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 
+rule: 
+matching: floatnum [floatnum, 1.2, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq][epsilon][epsilon]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] <rightrecArithExpr> [CREATE_NODE: term] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) 
+rule: 
+<rightrecTerm>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq][epsilon][epsilon][numFactor]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] closepar [CREATE_NODE: expr] [CREATE_NODE: arithExpr] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) 
+rule: 
+<rightrecArithExpr>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][epsilon][arithExpr][leq][epsilon][term]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> semi [CREATE_NODE: writeStatement] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) 
+rule: 
+matching: closepar [closepar, ), 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][expr]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) ; 
+rule: 
+matching: semi [semi, ;, 6]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] closecubr 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) ; 
+} 
+rule: 
+<multiLocalVarDeclOrStmt>: 
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> [CREATE_NODE: program] <multiClassDeclOrFuncDef> [CREATE_NODE: function] [CREATE_NODE: functionBody] 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) ; 
+} 
+rule: 
+matching: closecubr [closecubr, }, 7]
+semantic stack: 
+[epsilon][normalFunctionHead][epsilon][localVarDecl][assignStatement][writeStatement][writeStatement]
+-----------------------------------------------------------------------
+stack: 
+<$> 
+input: 
+function main ( ) => void // 2.1, 2.2  
+{ 
+localvar counter : float ; // 1.1  
+counter = 1.0 ; // 3.1  
+write ( counter * 2.0 ) ; 
+write ( counter <= 1.2 ) ; 
+} 
+rule: 
+<multiClassDeclOrFuncDef>: 
+semantic stack: 
+[program]
+-----------------------------------------------------------------------

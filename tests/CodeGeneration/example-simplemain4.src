@@ -1,0 +1,22 @@
+function printArr(arr: integer[7], size: integer) => void {
+  localvar z: integer;
+  z = 0;
+  while(z <= size) {
+    write(arr[z]);
+    z = z + 1;
+  };
+}
+
+function main() => void
+{
+  localvar arr: integer[7];
+  arr[0] = 64;
+  arr[1] = 34;
+  arr[2] = 25;
+  arr[3] = 12;
+  arr[4] = 22;
+  arr[5] = 11;
+  arr[6] = 90;
+  printArr(arr, 6);
+  // write(arr[z + 1]);
+}
