@@ -1,0 +1,14 @@
+class A {
+  attribute a: integer;
+};
+
+class C isa A {
+  attribute b: integer;
+  attribute c: integer;
+};
+
+function main() => void
+{
+  localVar m: C;
+  localVar n: C[7];
+}

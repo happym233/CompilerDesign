@@ -1,0 +1,10 @@
+//1
+function main(i: integer) => void
+{
+}
+ // 2
+function main() => void
+{
+}
+// 1: [line 0]Error: duplicate main function
+// 2: [Semantic][line 5]Warning: Overloading function main()

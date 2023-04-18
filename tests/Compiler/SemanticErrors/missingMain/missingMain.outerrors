@@ -1,0 +1,6 @@
+//1
+function multi2(x: integer) => integer
+{
+    return (2 * x);
+}
+// 1: [Semantic][line 0]Error: missing main function

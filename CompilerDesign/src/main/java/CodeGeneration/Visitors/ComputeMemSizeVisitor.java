@@ -116,8 +116,15 @@ public class ComputeMemSizeVisitor extends ASTVisitor {
                 SemanticTreeNode childTreeNode = classDict.get(childClassName).node;
                 SemanticTreeNode parentTreeNode = classDict.get(className).node;
                 for (String entry: parentTreeNode.getSymbolTable().getSymTable().keySet()) {
-                    if (!childTreeNode.getSymbolTable().getSymTable().containsKey(entry))
-                        childTreeNode.getSymbolTable().addEntry(entry, parentTreeNode.getSymbolTable().get(entry));
+                    if (!childTreeNode.getSymbolTable().getSymTable().containsKey(entry)) {
+                        if (parentTreeNode.getSymbolTable().get(entry) instanceof MemberVarEntry) {
+                            MemberVarEntry oldEntry = (MemberVarEntry) parentTreeNode.getSymbolTable().get(entry);
+                            MemberVarEntry newEntry = new MemberVarEntry(oldEntry.getVisibility(), oldEntry.getLocation(), oldEntry.getName(), oldEntry.getType(), oldEntry.getDims());
+                            childTreeNode.getSymbolTable().addEntry(entry, newEntry);
+                        } else {
+                            childTreeNode.getSymbolTable().addEntry(entry, parentTreeNode.getSymbolTable().get(entry));
+                        }
+                    }
                 }
                 if (childInDegree == 0) {
                     queue.add(childClassName);

@@ -1,0 +1,20 @@
+function myFunction(arr: [], size: integer) => void
+{
+   localvar n    : if;
+   i = 0;
+   temp = 0;
+   a.b = 1.0;
+   self.a[2].a(1) = A;
+   if (a == b) then {
+        write(1)
+        read(2);
+   } else {
+        write(2);
+   };
+   a(b).c[1][e] + a[2][1].b[3][4];
+   a[1].b = c(1).b[2][3];
+   c(123);
+}
+
+class myClass {
+}

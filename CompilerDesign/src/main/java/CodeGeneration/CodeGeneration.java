@@ -15,13 +15,24 @@ public class CodeGeneration {
     private StackBasedCodeGenerationVisitor stackBasedCodeGenerationVisitor;
 
     private String tableStr;
+    private boolean semRun;
 
     public CodeGeneration(String fileName) throws IOException {
         semanticAnalyser = new SemanticAnalyser(fileName);
+        semRun = false;
+    }
+
+    public SemanticAnalyser getSemanticAnalyser() {
+        return semanticAnalyser;
+    }
+
+    public void runSemanticAnalyser() {
+        semanticAnalyser.run();
+        semRun = true;
     }
 
     public void run() {
-        semanticAnalyser.run();
+        if (!semRun) semanticAnalyser.run();
         semanticAnalyser.getRoot().accept(new ComputeMemSizeVisitor());
         StringBuilder stringBuilder = new StringBuilder();
         symbolTableToStr(stringBuilder, semanticAnalyser.getRoot().getSymbolTable(), "global", 0);

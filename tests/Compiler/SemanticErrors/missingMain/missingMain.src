@@ -1,0 +1,4 @@
+function multi2(x: integer) => integer
+{
+    return (2 * x);
+}

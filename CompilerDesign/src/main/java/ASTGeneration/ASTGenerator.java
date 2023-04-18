@@ -25,17 +25,17 @@ public class ASTGenerator extends SyntacticAnalyser {
 
 
     protected void writeStackTrace() throws IOException {
-        getOutDerivationWriter().write("stack: \n");
-        getOutDerivationWriter().write(stackToString(getStack()) + "\n");
-        getOutDerivationWriter().write("input: \n");
-        getOutDerivationWriter().write(getParsedString().toString() + "\n");
-        getOutDerivationWriter().write("rule: \n");
-        getOutDerivationWriter().write(getParsingTable().getLastRule() + "\n");
-        getOutDerivationWriter().write("semantic stack: " + "\n");
+        getDerivationStr().append("stack: \n");
+        getDerivationStr().append(stackToString(getStack()) + "\n");
+        getDerivationStr().append("input: \n");
+        getDerivationStr().append(getParsedString().toString() + "\n");
+        getDerivationStr().append("rule: \n");
+        getDerivationStr().append(getParsingTable().getLastRule() + "\n");
+        getDerivationStr().append("semantic stack: " + "\n");
         for (ASTSymbol astSymbol: astParser.getASTNodeStack()) {
-            getOutDerivationWriter().write("[" + astSymbol.getName() + "]");
+            getDerivationStr().append("[" + astSymbol.getName() + "]");
         }
-        getOutDerivationWriter().write("\n");
-        getOutDerivationWriter().write("-----------------------------------------------------------------------\n");
+        getDerivationStr().append("\n");
+        getDerivationStr().append("-----------------------------------------------------------------------\n");
     }
 }

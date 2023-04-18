@@ -1,0 +1,24 @@
+class A {
+  attribute a: integer;
+};
+
+class C isa A {
+  attribute b: integer;
+  attribute c: integer;
+
+  function prt: () => void;   // 2.1, 2.2
+};
+
+function C::prt() => void   // 2.1, 2.2
+{
+    write(a);
+    write(b);
+}
+
+function main() => void
+{
+  localVar m: C;
+  m.a = 123;
+  m.b = 234;
+  m.prt();
+}

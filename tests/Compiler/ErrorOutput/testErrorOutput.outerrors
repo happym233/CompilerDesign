@@ -1,0 +1,213 @@
+// ====== Class declarations ====== //
+class POLYNOMIAL {
+	public function evaluate(x: float) => float;// 1
+	public function evaluate2(x: float) => float;                       // 6.2// 2
+};
+class POLYNOMIAL {                                                      // 8.1 // 7
+	public function evaluate(x: float) => float;                        // 3 // 8
+        public function evaluate(x: integer) => integer;                // 9.2// 4 // 9
+};
+class LINEAR isa POLYNOMIAL {
+	private attribute a: float;
+	private attribute b: float;
+	private attribute b: integer;                                       // 8.3 // 10
+	
+	public constructor: (A: float, B: float);
+	public function evaluate: (x: float) => float;                      // 9.3 // 11
+};
+
+class QUADRATIC isa POLYNOMIAL {
+	private attribute a: float;                                         // 8.5
+	private attribute b: float;                                         // 8.5
+	private attribute c: float;
+	
+	public constructor: (A: float, B: float, C: float); // 12
+	public function evaluate: (x: float) => float;                      // 9.3 // 13
+};
+
+class C isa E {
+	private attribute a: integer; 
+};
+
+class D isa C {
+	private attribute b: integer; 
+};
+
+class E isa D {                                                         // 14.1 // 14
+	private attribute c: integer; 
+};
+
+
+// ====== member function implementations ====== //
+function POLYNOMIAL::evaluate(x: float) => float // 15
+  {
+    return (0); // 16
+  }
+}// 5
+
+function LINEAR::constructor(A: float, B: float)
+  {
+    localvar new_function: LINEAR;
+    new_function.a = A;
+    new_function.b = B;
+    return (new_function); // 17
+  }
+  
+function LINEAR::evaluate(x: float) => float 
+  {
+    localvar result: float;
+    result = 0.0;
+    result = a * x + b;
+    return (result);
+  }
+
+function QUADRATIC::evaluate(x: float) => float
+  {
+    localvar result: float;
+    //Using Horner's method
+    result = a;
+    result = result * x + b;
+    result = result * x + c;
+	result = self.a;
+	result = a.self;                                                       // 15.2 // 18
+    return (result);
+  }
+  
+function QUADRATIC::constructor(B: float, C: float) // 19
+  {
+    localvar new_function: QUADRATIC ;
+    new_function.a = A + B * 3;                                            // 10.1 // 20
+    new_function.b = B; // 21
+    new_function.c = 1;                                                    // 10.2  // 22
+    return (1);                                                            // 10.3 // 23
+  }
+  
+function QUADRATIC::build2(A: float, B: float, C: float) => QUADRATIC      // 6.1 // 24
+  {
+    localvar new_function: QUADRATIC;
+    new_function.a = A; // 25
+    new_function.b = B; // 26
+    new_function.c = C; // 27
+    return (new_function); // 28
+  }
+  
+function f(i: integer) => void {}                                                    
+function f(i: integer) => void {}                                          // 8.2 // 29
+function f(i: integer, j: integer) => integer {}                           // 9.1 // 30
+
+function f3(p1: integer[2][3]) => integer {}
+
+
+// ====== main ====== //
+function main() => void
+{
+  localvar a: a;                                                           // 11.5 // 31
+  localvar c: C; // 32
+  localvar f1: LINEAR;
+  localvar f2: QUADRATIC;
+  localvar counter: integer;
+  localvar counter: float;                                                 // 8.4 // 33
+  localvar i: integer[2][3];
+  localvar j: integer[1][2][3];
+  f1 = f1.build(2, 3.5dfasasd);// 6 // 34
+  f2 = f2.build(-2.0, 1.0, 0.0); // 35
+  c.b = 1;                                                                 // 11.2 // 36
+  counter = c.f();                                                         // 11.3 // 37
+  undefined();                                                             // 11.4 // 38
+  counter = a;                                                             // 11.1 // 39
+  f(1,1,1);                                                                // 12.1 // 40
+  f(1.2,1);                                                                // 12.2	 // 41
+  i[2] = 1;                                                                // 13.1 // 42
+  i[2][1.3] = 2;                                                           // 13.2 // 43
+  f3(j);                                                                   // 13.3 // 44
+  counter.x = 1;                                                           // 15.1 // 45
+  counter = self;                                                          // 15.2 // 46
+  while(counter <= 10) // 47
+  {
+    write(counter);
+    write(f1.evaluate(counter));
+    write(f2.evaluate(counter));
+  };
+}
+
+/*
+1.   |X| Global symbol table 
+2.   |X| Class symbol table
+3.1  |X| Class data member
+3.2  |X| Function's local variable
+4.1  |X| Free function
+4.2  |X| Member function
+6.1  |X| Undeclared member function definition
+6.2  |X| Undefined member function declaration
+8.1  |X| Multiply declared class
+8.2  |X| Multiply defined free function
+8.3  |X| Multiply declared identifier in class
+8.4  |X| Multiply declared identifier in function
+8.5  |X| Shadowed inherited data member
+9.1  |X| Overloaded free function
+9.2  |X| Overloaded member function
+9.3  |X| Overridden inherited member function
+10.1 |X| Type error in expression
+10.2 |X| Type error in assignment statement 
+10.3 |X| Type error in return statement
+11.1 |X| Undeclared local variable
+11.2 |X| Undeclared data member
+11.3 |X| Undeclared member function
+11.4 |X| Undeclared free function
+11.5 |X| Undeclared class
+12.1 |X| function call with wrong number of parameters
+12.2 |X| function call with wrong type of parameters
+13.1 |X| Use of array with wrong number of dimensions
+13.2 |X| Array index is not an integer
+13.3 |X| Array parameter using wrong number of dimensions
+14.1 |X| Circular class dependency
+15.1 |X| "." operator used on non-class type
+15.2 |X| incorrect use of "self" 
+*/
+// 1: [Syntax][line 3]Error: Syntax error at line 3 near ":".
+// 2: [Syntax][line 4]Error: Syntax error at line 4 near ":".
+// 3: [Syntax][line 7]Error: Syntax error at line 7 near ":".
+// 4: [Syntax][line 8]Error: Syntax error at line 8 near ":".
+// 5: [Syntax][line 46]Error: Syntax error at line 46 near "}".
+// 6: [Lexical][line 112]Error: Lexical error: Invalid number: "3.5dfasasd": line 112.
+// 7: [Semantic][line 6]Error: multiple declared class POLYNOMIAL
+// 8: [Semantic][line 7]Error: Member function evaluate declared but not implemented
+// 9: [Semantic][line 8]Warning: Overloading member function evaluate
+// 10: [Semantic][line 13]Error: variable b multi declared in class
+// 11: [Semantic][line 16]Warning: Overriding member function evaluate
+// 12: [Semantic][line 24]Error: Constructor constructor declared but not implemented
+// 13: [Semantic][line 25]Warning: Overriding member function evaluate
+// 14: [Semantic][line 36]Error: Circular class dependency detected between C, D, E
+// 15: [Semantic][line 42]Error: function not declared in class POLYNOMIAL.
+// 16: [Semantic][line 44]Error: return type float expected, given integer
+// 17: [Semantic][line 53]Error: wrong return type LINEAR for constructor
+// 18: [Semantic][line 72]Error: Function call on built-in type float
+// 19: [Semantic][line 76]Error: function not declared in class QUADRATIC.
+// 20: [Semantic][line 79]Error: QUADRATIC.constructor(float, float)not defined.
+// 21: [Semantic][line 80]Error: QUADRATIC.constructor(float, float)not defined.
+// 22: [Semantic][line 81]Error: QUADRATIC.constructor(float, float)not defined.
+// 23: [Semantic][line 82]Error: wrong return type integer for constructor
+// 24: [Semantic][line 85]Error: function not declared in class QUADRATIC.
+// 25: [Semantic][line 88]Error: QUADRATIC.build2(float, float, float)not defined.
+// 26: [Semantic][line 89]Error: QUADRATIC.build2(float, float, float)not defined.
+// 27: [Semantic][line 90]Error: QUADRATIC.build2(float, float, float)not defined.
+// 28: [Semantic][line 91]Error: return type QUADRATIC expected, given null
+// 29: [Semantic][line 95]Error: function f(integer) has been declared.
+// 30: [Semantic][line 96]Warning: Overloading function f(integer, integer)
+// 31: [Semantic][line 104]Error: invalid type a
+// 32: [Semantic][line 105]Error: invalid type C
+// 33: [Semantic][line 109]Error: Shallow variable name counter
+// 34: [Semantic][line 112]Error: build(integer, null) not defined under class LINEAR
+// 35: [Semantic][line 113]Error: build(float, float, float) not defined under class QUADRATIC
+// 36: [Semantic][line 114]Error: Undefined class C
+// 37: [Semantic][line 115]Error: Undefined class C
+// 38: [Semantic][line 116]Error: undefined() not defined
+// 39: [Semantic][line 117]Error: Type error, assign type a expected float
+// 40: [Semantic][line 118]Error: f(integer, integer, integer) not defined
+// 41: [Semantic][line 119]Error: f(float, integer) not defined
+// 42: [Semantic][line 120]Error: assign value to array
+// 43: [Semantic][line 121]Error: Arraysize should be of type integer
+// 44: [Semantic][line 122]Error: f3(integer[][][]) not defined
+// 45: [Semantic][line 123]Error: Function call on built-in type float
+// 46: [Semantic][line 124]Error: self keyword outside a class
+// 47: [Semantic][line 125]Error: Type error, integer with float

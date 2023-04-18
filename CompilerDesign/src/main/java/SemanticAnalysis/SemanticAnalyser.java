@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class SemanticAnalyser {
+
+    ASTGenerator astGenerator;
     private SemanticTreeNode root;
 
     private String symbolTableStr;
@@ -20,10 +22,14 @@ public class SemanticAnalyser {
     private PriorityQueue<ErrorMessege> errorMesseges;
 
     public SemanticAnalyser(String fileName) throws IOException {
-        ASTGenerator astGenerator = new ASTGenerator(fileName);
+        astGenerator = new ASTGenerator(fileName);
         ASTTreeParent astRoot = astGenerator.getRoot();
         root = copyASTTreeToSemanticTree(astRoot);
         errorMesseges = new PriorityQueue<>(Comparator.comparingInt(ErrorMessege::getLineNum));
+    }
+
+    public ASTGenerator getAstGenerator() {
+        return astGenerator;
     }
 
     private SemanticTreeNode copyASTTreeToSemanticTree(ASTTreeParent astRoot) {
@@ -96,7 +102,7 @@ public class SemanticAnalyser {
         checkEmptyEntry(root.getSymbolTable());
         checkOverriding(root.getSymbolTable(), new HashMap<>());
         checkShallow(root.getSymbolTable(), new HashMap<>());
-
+        checkMain(root.getSymbolTable());
 
 
         TypeCheckingVisitor typeCheckingVisitor = new TypeCheckingVisitor(root.getSymbolTable(), errorMesseges);
@@ -106,6 +112,22 @@ public class SemanticAnalyser {
 
     public String addBoundary(String str) {
         return String.format("%-79s", str) + "|"  + "\n";
+    }
+
+    private void checkMain(SymbolTable symbolTable) {
+        int mainCnt = 0;
+        for (String str: symbolTable.getSymTable().keySet()) {
+            SymbolTableEntry symbolTableEntry = symbolTable.get(str);
+            if (symbolTableEntry.getName().equals("main")) {
+                mainCnt++;
+            }
+        }
+        if (mainCnt == 0) {
+            errorMesseges.add(new ErrorMessege(0, ErrorLevel.ERROR, "missing main function"));
+        }
+        if (mainCnt > 2) {
+            errorMesseges.add(new ErrorMessege(0, ErrorLevel.ERROR, "duplicate main function"));
+        }
     }
 
     private void checkOverriding(SymbolTable symbolTable, HashMap<String, MemberFuncEntry> hashMap) {

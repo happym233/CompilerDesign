@@ -1,0 +1,7 @@
+function main(i: integer) => void
+{
+}
+
+function main() => void
+{
+}

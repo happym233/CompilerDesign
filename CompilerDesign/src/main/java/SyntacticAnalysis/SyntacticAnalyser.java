@@ -3,17 +3,21 @@ package SyntacticAnalysis;
 import LexicalAnalyse.LexemeAnalyser;
 import LexicalAnalyse.Token;
 import LexicalAnalyse.TokenType;
+import SemanticAnalysis.Visitors.ErrorLevel;
+import SemanticAnalysis.Visitors.ErrorMessege;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 public class SyntacticAnalyser {
     private LexemeAnalyser lexemeAnalyser;
     private Stack<Symbol> stack;
     private ParsingTable parsingTable;
-    private FileWriter outDerivationWriter;
-    private FileWriter outSyntaxErrorWriter;
+    private StringBuilder derivationStr;
+    private PriorityQueue<ErrorMessege> errors;
     private StringBuilder parsedString;
 
     private Token lastToken;
@@ -22,8 +26,8 @@ public class SyntacticAnalyser {
         lexemeAnalyser = new LexemeAnalyser(fileName);
         this.parsingTable = parsingTable;
         stack = new Stack<>();
-        outDerivationWriter = new FileWriter(outDerivationFilePath);
-        outSyntaxErrorWriter = new FileWriter(outSyntaxErrorFilePath);
+        derivationStr = new StringBuilder();
+        errors = new PriorityQueue<>(Comparator.comparingInt(ErrorMessege::getLineNum));
         stack.push(new NonTerminalSymbol("$"));
         stack.push(parsingTable.getStartSymbol());
         // System.out.println(stack.isEmpty());
@@ -35,8 +39,8 @@ public class SyntacticAnalyser {
         lexemeAnalyser = new LexemeAnalyser(fileName);
         parsingTable = ParsingTableFactory.generate(Config.getLL1GrammarPath(), Config.getParsingTablePath());
         stack = new Stack<>();
-        outDerivationWriter = new FileWriter(outDerivationFilePath);
-        outSyntaxErrorWriter = new FileWriter(outSyntaxErrorFilePath);
+        derivationStr = new StringBuilder();
+        errors = new PriorityQueue<>(Comparator.comparingInt(ErrorMessege::getLineNum));
         stack.push(new NonTerminalSymbol("$"));
         stack.push(parsingTable.getStartSymbol());
         // System.out.println(stack.isEmpty());
@@ -52,7 +56,7 @@ public class SyntacticAnalyser {
     }
 
     private void writeSyntaxError(Token token) throws IOException {
-        outSyntaxErrorWriter.write("Syntax error at line " + token.getLocation() + " near \"" + token.getLexeme() + "\".\n");
+        errors.add(new ErrorMessege(token.getLocation(), ErrorLevel.ERROR, "Syntax error at line " + token.getLocation() + " near \"" + token.getLexeme() + "\"."));
     }
 
     public ParsingTable getParsingTable() {
@@ -63,36 +67,43 @@ public class SyntacticAnalyser {
         return stack;
     }
 
-    public FileWriter getOutDerivationWriter() {
-        return outDerivationWriter;
-    }
-
     public StringBuilder getParsedString() {
         return parsedString;
     }
 
     private void writeLexicalError(Token token) throws IOException {
-        outSyntaxErrorWriter.write(token.errMessage() + "\n");
+        errors.add(new ErrorMessege(token.getLocation(), ErrorLevel.ERROR, token.errMessage() ));
     }
 
     protected void writeStackTrace() throws IOException {
-        outDerivationWriter.write("stack: \n");
-        outDerivationWriter.write(stackToString(stack) + "\n");
-        outDerivationWriter.write("input: \n");
-        outDerivationWriter.write(parsedString.toString() + "\n");
-        outDerivationWriter.write("rule: \n");
-        outDerivationWriter.write(parsingTable.getLastRule() + "\n");
-        outDerivationWriter.write("-----------------------------------------------------------------------\n");
+        derivationStr.append("stack: \n");
+        derivationStr.append(stackToString(stack) + "\n");
+        derivationStr.append("input: \n");
+        derivationStr.append(parsedString.toString() + "\n");
+        derivationStr.append("rule: \n");
+        derivationStr.append(parsingTable.getLastRule() + "\n");
+        derivationStr.append("-----------------------------------------------------------------------\n");
+    }
+
+    public StringBuilder getDerivationStr() {
+        return derivationStr;
+    }
+
+    public void setDerivationStr(StringBuilder derivationStr) {
+        this.derivationStr = derivationStr;
+    }
+
+    public PriorityQueue<ErrorMessege> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(PriorityQueue<ErrorMessege> errors) {
+        this.errors = errors;
     }
 
     private void writeSkippedToken(StringBuilder skippedToken) throws IOException {
-        outDerivationWriter.write("Syntax error detected, skipping token: \n");
-        outDerivationWriter.write(skippedToken.toString() + "\n");
-    }
-
-    private void close() throws IOException {
-        outDerivationWriter.close();
-        outSyntaxErrorWriter.close();
+        derivationStr.append("Syntax error detected, skipping token: \n");
+        derivationStr.append(skippedToken.toString() + "\n");
     }
 
     protected String stackToString(Stack<Symbol> stack) {
@@ -154,7 +165,6 @@ public class SyntacticAnalyser {
                     token = null;
                 }
             }
-            close();
         }catch(IOException e){
             e.printStackTrace();
         }

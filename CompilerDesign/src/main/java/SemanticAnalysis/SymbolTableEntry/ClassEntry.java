@@ -20,7 +20,7 @@ public class ClassEntry extends SymbolTableEntry{
 
     @Override
     public void updateSpace() {
-        setSpace(getSpace());
+        setSpace(0);
     }
 
 }

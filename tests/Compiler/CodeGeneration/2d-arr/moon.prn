@@ -1,0 +1,431 @@
+MOON listing of .\2d-arr.m.
+
+    1     0 entry
+    2     0           addi r14, r0, topaddr
+    3     4           % processing pointer
+    4     4           addi r1, r0, -252
+    5     8           add r1, r1, r14
+    6    12           sw -4(r14), r1
+    7    16           % processing line4
+    8    16           % processing line4
+    9    16           % processing line4
+   10    16           % processing: tmpVar2 := 0
+   11    16           addi r1,r0,0
+   12    20           sw -16(r14),r1
+   13    24           % processing: tmpVar1 := tmpVar2
+   14    24           lw r1,-16(r14)
+   15    28           sw -12(r14), r1
+   16    32           % processing: tmpVar0 := tmpVar1
+   17    32           lw r1,-12(r14)
+   18    36           sw -8(r14), r1
+   19    40           % processing line4
+   20    40           % processing line4
+   21    40           % processing line4
+   22    40           % processing: tmpVar5 := 0
+   23    40           addi r1,r0,0
+   24    44           sw -28(r14),r1
+   25    48           % processing: tmpVar4 := tmpVar5
+   26    48           lw r1,-28(r14)
+   27    52           sw -24(r14), r1
+   28    56           % processing: tmpVar3 := tmpVar4
+   29    56           lw r1,-24(r14)
+   30    60           sw -20(r14), r1
+   31    64           % processing line4
+   32    64           % processing line4
+   33    64           % processing line4
+   34    64           % processing line4
+   35    64           % processing: tmpVar9 := 64
+   36    64           addi r1,r0,64
+   37    68           sw -44(r14),r1
+   38    72           % processing: tmpVar8 := tmpVar9
+   39    72           lw r1,-44(r14)
+   40    76           sw -40(r14), r1
+   41    80           % processing: tmpVar7 := tmpVar8
+   42    80           lw r1,-40(r14)
+   43    84           sw -36(r14), r1
+   44    88           % processing: tmpVar6 := tmpVar7
+   45    88           lw r1,-36(r14)
+   46    92           sw -32(r14), r1
+   47    96           % processing assignment statement
+   48    96           addi r5, r14, 0
+   49   100           lw r6,-32(r5)
+   50   104           addi r1, r0, 0 
+   51   108           addi r2, r0, 4 
+   52   112           % processing: dimension 0
+   53   112           lw r3, -8(r5)
+   54   116           add r1, r1, r3
+   55   120           mul r1, r1, r2
+   56   124           muli r2, r2, 2 
+   57   128           % processing: dimension 1
+   58   128           lw r3, -20(r5)
+   59   132           add r1, r1, r3
+   60   136           mul r1, r1, r2
+   61   140           muli r2, r2, 2 
+   62   144           muli r1, r1, -1
+   63   148           lw r4, -4(r5)
+   64   152           add r1, r4, r1
+   65   156           sw  0(r1), r6
+   66   160           % processing line5
+   67   160           % processing line5
+   68   160           % processing line5
+   69   160           % processing: tmpVar12 := 0
+   70   160           addi r1,r0,0
+   71   164           sw -56(r14),r1
+   72   168           % processing: tmpVar11 := tmpVar12
+   73   168           lw r1,-56(r14)
+   74   172           sw -52(r14), r1
+   75   176           % processing: tmpVar10 := tmpVar11
+   76   176           lw r1,-52(r14)
+   77   180           sw -48(r14), r1
+   78   184           % processing line5
+   79   184           % processing line5
+   80   184           % processing line5
+   81   184           % processing: tmpVar15 := 1
+   82   184           addi r1,r0,1
+   83   188           sw -68(r14),r1
+   84   192           % processing: tmpVar14 := tmpVar15
+   85   192           lw r1,-68(r14)
+   86   196           sw -64(r14), r1
+   87   200           % processing: tmpVar13 := tmpVar14
+   88   200           lw r1,-64(r14)
+   89   204           sw -60(r14), r1
+   90   208           % processing line5
+   91   208           % processing line5
+   92   208           % processing line5
+   93   208           % processing line5
+   94   208           % processing: tmpVar19 := 34
+   95   208           addi r1,r0,34
+   96   212           sw -84(r14),r1
+   97   216           % processing: tmpVar18 := tmpVar19
+   98   216           lw r1,-84(r14)
+   99   220           sw -80(r14), r1
+  100   224           % processing: tmpVar17 := tmpVar18
+  101   224           lw r1,-80(r14)
+  102   228           sw -76(r14), r1
+  103   232           % processing: tmpVar16 := tmpVar17
+  104   232           lw r1,-76(r14)
+  105   236           sw -72(r14), r1
+  106   240           % processing assignment statement
+  107   240           addi r5, r14, 0
+  108   244           lw r6,-72(r5)
+  109   248           addi r1, r0, 0 
+  110   252           addi r2, r0, 4 
+  111   256           % processing: dimension 0
+  112   256           lw r3, -48(r5)
+  113   260           add r1, r1, r3
+  114   264           mul r1, r1, r2
+  115   268           muli r2, r2, 2 
+  116   272           % processing: dimension 1
+  117   272           lw r3, -60(r5)
+  118   276           add r1, r1, r3
+  119   280           mul r1, r1, r2
+  120   284           muli r2, r2, 2 
+  121   288           muli r1, r1, -1
+  122   292           lw r4, -4(r5)
+  123   296           add r1, r4, r1
+  124   300           sw  0(r1), r6
+  125   304           % processing line6
+  126   304           % processing line6
+  127   304           % processing line6
+  128   304           % processing: tmpVar22 := 1
+  129   304           addi r1,r0,1
+  130   308           sw -96(r14),r1
+  131   312           % processing: tmpVar21 := tmpVar22
+  132   312           lw r1,-96(r14)
+  133   316           sw -92(r14), r1
+  134   320           % processing: tmpVar20 := tmpVar21
+  135   320           lw r1,-92(r14)
+  136   324           sw -88(r14), r1
+  137   328           % processing line6
+  138   328           % processing line6
+  139   328           % processing line6
+  140   328           % processing: tmpVar25 := 0
+  141   328           addi r1,r0,0
+  142   332           sw -108(r14),r1
+  143   336           % processing: tmpVar24 := tmpVar25
+  144   336           lw r1,-108(r14)
+  145   340           sw -104(r14), r1
+  146   344           % processing: tmpVar23 := tmpVar24
+  147   344           lw r1,-104(r14)
+  148   348           sw -100(r14), r1
+  149   352           % processing line6
+  150   352           % processing line6
+  151   352           % processing line6
+  152   352           % processing line6
+  153   352           % processing: tmpVar29 := 25
+  154   352           addi r1,r0,25
+  155   356           sw -124(r14),r1
+  156   360           % processing: tmpVar28 := tmpVar29
+  157   360           lw r1,-124(r14)
+  158   364           sw -120(r14), r1
+  159   368           % processing: tmpVar27 := tmpVar28
+  160   368           lw r1,-120(r14)
+  161   372           sw -116(r14), r1
+  162   376           % processing: tmpVar26 := tmpVar27
+  163   376           lw r1,-116(r14)
+  164   380           sw -112(r14), r1
+  165   384           % processing assignment statement
+  166   384           addi r5, r14, 0
+  167   388           lw r6,-112(r5)
+  168   392           addi r1, r0, 0 
+  169   396           addi r2, r0, 4 
+  170   400           % processing: dimension 0
+  171   400           lw r3, -88(r5)
+  172   404           add r1, r1, r3
+  173   408           mul r1, r1, r2
+  174   412           muli r2, r2, 2 
+  175   416           % processing: dimension 1
+  176   416           lw r3, -100(r5)
+  177   420           add r1, r1, r3
+  178   424           mul r1, r1, r2
+  179   428           muli r2, r2, 2 
+  180   432           muli r1, r1, -1
+  181   436           lw r4, -4(r5)
+  182   440           add r1, r4, r1
+  183   444           sw  0(r1), r6
+  184   448           % processing line7
+  185   448           % processing line7
+  186   448           % processing line7
+  187   448           % processing: tmpVar32 := 1
+  188   448           addi r1,r0,1
+  189   452           sw -136(r14),r1
+  190   456           % processing: tmpVar31 := tmpVar32
+  191   456           lw r1,-136(r14)
+  192   460           sw -132(r14), r1
+  193   464           % processing: tmpVar30 := tmpVar31
+  194   464           lw r1,-132(r14)
+  195   468           sw -128(r14), r1
+  196   472           % processing line7
+  197   472           % processing line7
+  198   472           % processing line7
+  199   472           % processing: tmpVar35 := 1
+  200   472           addi r1,r0,1
+  201   476           sw -148(r14),r1
+  202   480           % processing: tmpVar34 := tmpVar35
+  203   480           lw r1,-148(r14)
+  204   484           sw -144(r14), r1
+  205   488           % processing: tmpVar33 := tmpVar34
+  206   488           lw r1,-144(r14)
+  207   492           sw -140(r14), r1
+  208   496           % processing line7
+  209   496           % processing line7
+  210   496           % processing line7
+  211   496           % processing line7
+  212   496           % processing: tmpVar39 := 12
+  213   496           addi r1,r0,12
+  214   500           sw -164(r14),r1
+  215   504           % processing: tmpVar38 := tmpVar39
+  216   504           lw r1,-164(r14)
+  217   508           sw -160(r14), r1
+  218   512           % processing: tmpVar37 := tmpVar38
+  219   512           lw r1,-160(r14)
+  220   516           sw -156(r14), r1
+  221   520           % processing: tmpVar36 := tmpVar37
+  222   520           lw r1,-156(r14)
+  223   524           sw -152(r14), r1
+  224   528           % processing assignment statement
+  225   528           addi r5, r14, 0
+  226   532           lw r6,-152(r5)
+  227   536           addi r1, r0, 0 
+  228   540           addi r2, r0, 4 
+  229   544           % processing: dimension 0
+  230   544           lw r3, -128(r5)
+  231   548           add r1, r1, r3
+  232   552           mul r1, r1, r2
+  233   556           muli r2, r2, 2 
+  234   560           % processing: dimension 1
+  235   560           lw r3, -140(r5)
+  236   564           add r1, r1, r3
+  237   568           mul r1, r1, r2
+  238   572           muli r2, r2, 2 
+  239   576           muli r1, r1, -1
+  240   580           lw r4, -4(r5)
+  241   584           add r1, r4, r1
+  242   588           sw  0(r1), r6
+  243   592           % processing line8
+  244   592           % processing write statement
+  245   592           % processing line8
+  246   592           % processing line8
+  247   592           % processing line8
+  248   592           % processing line8
+  249   592           % processing line8
+  250   592           % processing line8
+  251   592           % processing line8
+  252   592           % processing: tmpVar46 := 0
+  253   592           addi r1,r0,0
+  254   596           sw -192(r14),r1
+  255   600           % processing: tmpVar45 := tmpVar46
+  256   600           lw r1,-192(r14)
+  257   604           sw -188(r14), r1
+  258   608           % processing: tmpVar44 := tmpVar45
+  259   608           lw r1,-188(r14)
+  260   612           sw -184(r14), r1
+  261   616           % processing line8
+  262   616           % processing line8
+  263   616           % processing line8
+  264   616           % processing: tmpVar49 := 0
+  265   616           addi r1,r0,0
+  266   620           sw -204(r14),r1
+  267   624           % processing: tmpVar48 := tmpVar49
+  268   624           lw r1,-204(r14)
+  269   628           sw -200(r14), r1
+  270   632           % processing: tmpVar47 := tmpVar48
+  271   632           lw r1,-200(r14)
+  272   636           sw -196(r14), r1
+  273   640           addi r5, r14, 0
+  274   644           % processing: tmpVar43 := arr
+  275   644           addi r1, r0, 0 
+  276   648           addi r2, r0, 4 
+  277   652           % processing: dimension 0
+  278   652           lw r3, -184(r5)
+  279   656           add r1, r1, r3
+  280   660           mul r1, r1, r2 
+  281   664           muli r2, r2, 2 
+  282   668           % processing: dimension 1
+  283   668           lw r3, -196(r5)
+  284   672           add r1, r1, r3
+  285   676           mul r1, r1, r2 
+  286   680           muli r2, r2, 2 
+  287   684           muli r1, r1, -1
+  288   688           lw r4, -4(r5)
+  289   692           add r1, r4, r1
+  290   696           lw r3, 0(r1)
+  291   700           sw -180(r14), r3
+  292   704           % processing: tmpVar42 := tmpVar43
+  293   704           lw r1,-180(r14)
+  294   708           sw -176(r14), r1
+  295   712           % processing line8
+  296   712           % processing line8
+  297   712           % processing line8
+  298   712           % processing line8
+  299   712           % processing line8
+  300   712           % processing: tmpVar55 := 1
+  301   712           addi r1,r0,1
+  302   716           sw -228(r14),r1
+  303   720           % processing: tmpVar54 := tmpVar55
+  304   720           lw r1,-228(r14)
+  305   724           sw -224(r14), r1
+  306   728           % processing: tmpVar53 := tmpVar54
+  307   728           lw r1,-224(r14)
+  308   732           sw -220(r14), r1
+  309   736           % processing line8
+  310   736           % processing line8
+  311   736           % processing line8
+  312   736           % processing: tmpVar58 := 1
+  313   736           addi r1,r0,1
+  314   740           sw -240(r14),r1
+  315   744           % processing: tmpVar57 := tmpVar58
+  316   744           lw r1,-240(r14)
+  317   748           sw -236(r14), r1
+  318   752           % processing: tmpVar56 := tmpVar57
+  319   752           lw r1,-236(r14)
+  320   756           sw -232(r14), r1
+  321   760           addi r5, r14, 0
+  322   764           % processing: tmpVar52 := arr
+  323   764           addi r1, r0, 0 
+  324   768           addi r2, r0, 4 
+  325   772           % processing: dimension 0
+  326   772           lw r3, -220(r5)
+  327   776           add r1, r1, r3
+  328   780           mul r1, r1, r2 
+  329   784           muli r2, r2, 2 
+  330   788           % processing: dimension 1
+  331   788           lw r3, -232(r5)
+  332   792           add r1, r1, r3
+  333   796           mul r1, r1, r2 
+  334   800           muli r2, r2, 2 
+  335   804           muli r1, r1, -1
+  336   808           lw r4, -4(r5)
+  337   812           add r1, r4, r1
+  338   816           lw r3, 0(r1)
+  339   820           sw -216(r14), r3
+  340   824           % processing: tmpVar51 := tmpVar52
+  341   824           lw r1,-216(r14)
+  342   828           sw -212(r14), r1
+  343   832           % processing: tmpVar41 := tmpVar42
+  344   832           lw r1,-176(r14)
+  345   836           sw -172(r14), r1
+  346   840           % processing: tmpVar41 := tmpVar41 + tmpVar51
+  347   840           lw r1,-172(r14)
+  348   844           lw r2,-212(r14)
+  349   848           add r1,r1,r2
+  350   852           sw -172(r14),r1
+  351   856           % processing: tmpVar40 := tmpVar41
+  352   856           lw r1,-172(r14)
+  353   860           sw -168(r14), r1
+  354   864           lw r1, -168(r14)
+  355   868           addi r14, r14, -268
+  356   872           sw -8(r14), r1
+  357   876           addi r1, r0, buf
+  358   880           sw -12(r14), r1
+  359   884           jl r15, intstr
+  360   888           sw -8(r14),r13
+  361   892           jl r15, putstr
+  362   896           subi r14, r14, -268
+  363   900           addi r1, r0, charLineSep
+  364   904           addi r14, r14, -268
+  365   908           sw -8(r14), r1
+  366   912           jl r15, putstr
+  367   916           subi r14, r14, -268
+  368   920 hlt
+  369   924 
+  370   924 floatAdd
+  371   924           lw r1, -4(r14)
+  372   928           lw r2, -8(r14)
+  373   932           lw r3, -12(r14)
+  374   936           lw r4, -16(r14)
+  375   940 gowhileFAdd
+  376   940           cne r5, r2, r4
+  377   944           bz r5, endwhileFAdd
+  378   948           clt r6, r2, r4
+  379   952           bz r6, elseFAdd
+  380   956           muli r3, r3, 10
+  381   960           subi r4, r4, 1
+  382   964           j endIfFAdd
+  383   968 elseFAdd
+  384   968           muli r1, r1, 10
+  385   972           subi r2, r2, 1
+  386   976 endIfFAdd
+  387   976           j gowhileFAdd
+  388   980 endwhileFAdd
+  389   980           add  r1, r1, r3
+  390   984           sw   -4(r14), r1
+  391   988           sw   -8(r14), r2
+  392   992           jr   r15
+  393   996 floatMul
+  394   996           lw r1,  -4(r14)
+  395  1000           lw r2,  -8(r14)
+  396  1004           lw r3,  -12(r14)
+  397  1008           lw r4,  -16(r14)
+  398  1012           mul r1, r1, r3
+  399  1016           add r2, r2, r4
+  400  1020           sw  -4(r14), r1
+  401  1024           sw  -8(r14), r2
+  402  1028           jr   r15
+  403  1032 floatLeq
+  404  1032           lw r1,  -4(r14)
+  405  1036           lw r2,  -8(r14)
+  406  1040           lw r3,  -12(r14)
+  407  1044           lw r4,  -16(r14)
+  408  1048 gowhileFLeq
+  409  1048           cne r5, r2, r4
+  410  1052           bz   r5, endwhileFLeq
+  411  1056           clt r6, r2, r4
+  412  1060           bz r6, elseFLeq
+  413  1064           muli r3, r3, 10
+  414  1068           subi r4, r4, 1
+  415  1072           j endIfFLeq
+  416  1076 elseFLeq
+  417  1076           muli r1, r1, 10
+  418  1080           subi r2, r2, 1
+  419  1084           endIfFLeq
+  420  1084           j gowhileFLeq
+  421  1088 endwhileFLeq 
+  422  1088           cle r1, r1, r3
+  423  1092           sw -4(r14), r1
+  424  1096           jr r15
+  425  1100 
+  426  1100 buf       res 20
+  427  1120 charE     db "e", 0
+  428  1122 charLineSep    db "  ", 0
+

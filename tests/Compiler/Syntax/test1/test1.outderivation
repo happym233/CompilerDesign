@@ -1,0 +1,6369 @@
+stack: 
+<$> <multiClassDeclOrFuncDef> 
+input: 
+function 
+rule: 
+<START>: <multiClassDeclOrFuncDef> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <classDeclOrFuncDef> 
+input: 
+function 
+rule: 
+<multiClassDeclOrFuncDef>: <classDeclOrFuncDef> <multiClassDeclOrFuncDef> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcDef> 
+input: 
+function 
+rule: 
+<classDeclOrFuncDef>: <funcDef> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <funcHead> 
+input: 
+function 
+rule: 
+<funcDef>: <funcHead> <funcBody> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <funcHeadFollowing> id function 
+input: 
+function 
+rule: 
+<funcHead>: function id <funcHeadFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <funcHeadFollowing> id 
+input: 
+function 
+rule: 
+matching: function [function, function, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <funcHeadFollowing> 
+input: 
+function myFunction 
+rule: 
+matching: id [id, myFunction, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <fParams> openpar 
+input: 
+function myFunction ( 
+rule: 
+<funcHeadFollowing>: openpar <fParams> closepar returntype <returnType> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <fParams> 
+input: 
+function myFunction ( 
+rule: 
+matching: openpar [openpar, (, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> colon id 
+input: 
+function myFunction ( arr 
+rule: 
+<fParams>: id colon <type> <multiArraySize> <multiFParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> colon 
+input: 
+function myFunction ( arr 
+rule: 
+matching: id [id, arr, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> 
+input: 
+function myFunction ( arr : 
+rule: 
+matching: colon [colon, :, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> 
+input: 
+function myFunction ( arr : [ 
+rule: 
+pop
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <arraySize> 
+input: 
+function myFunction ( arr : [ 
+rule: 
+<multiArraySize>: <arraySize> <multiArraySize> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <arraySizeParam> opensqbr 
+input: 
+function myFunction ( arr : [ 
+rule: 
+<arraySize>: opensqbr <arraySizeParam> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <arraySizeParam> 
+input: 
+function myFunction ( arr : [ 
+rule: 
+matching: opensqbr [opensqbr, [, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> closesqbr 
+input: 
+function myFunction ( arr : [ ] 
+rule: 
+<arraySizeParam>: closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> 
+input: 
+function myFunction ( arr : [ ] 
+rule: 
+matching: closesqbr [closesqbr, ], 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> 
+input: 
+function myFunction ( arr : [ ] , 
+rule: 
+<multiArraySize>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <fParamsTail> 
+input: 
+function myFunction ( arr : [ ] , 
+rule: 
+<multiFParamsTail>: <fParamsTail> <multiFParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> colon id comma 
+input: 
+function myFunction ( arr : [ ] , 
+rule: 
+<fParamsTail>: comma id colon <type> <multiArraySize> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> colon id 
+input: 
+function myFunction ( arr : [ ] , 
+rule: 
+matching: comma [comma, ,, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> colon 
+input: 
+function myFunction ( arr : [ ] , size 
+rule: 
+matching: id [id, size, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> <type> 
+input: 
+function myFunction ( arr : [ ] , size : 
+rule: 
+matching: colon [colon, :, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> integer 
+input: 
+function myFunction ( arr : [ ] , size : integer 
+rule: 
+<type>: integer 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> <multiArraySize> 
+input: 
+function myFunction ( arr : [ ] , size : integer 
+rule: 
+matching: integer [integer, integer, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar <multiFParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) 
+rule: 
+<multiArraySize>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) 
+rule: 
+<multiFParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> returntype 
+input: 
+function myFunction ( arr : [ ] , size : integer ) 
+rule: 
+matching: closepar [closepar, ), 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> <returnType> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => 
+rule: 
+matching: returntype [returntype, =>, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> void 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+rule: 
+<returnType>: void 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <funcBody> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+rule: 
+matching: void [void, void, 1]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> opencubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+rule: 
+<funcBody>: opencubr <multiLocalVarDeclOrStmt> closecubr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+rule: 
+matching: opencubr [opencubr, {, 2]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDecl> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar 
+rule: 
+<localVarDeclOrStmt>: <localVarDecl> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> <type> colon id localvar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar 
+rule: 
+<localVarDecl>: localvar id colon <type> <localVarDeclFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> <type> colon id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar 
+rule: 
+matching: localvar [localvar, localvar, 3]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> <type> colon 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n 
+rule: 
+matching: id [id, n, 3]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> <type> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : 
+rule: 
+matching: colon [colon, :, 3]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> <type> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+rule: 
+pop
+-----------------------------------------------------------------------
+Syntax error detected, skipping token: 
+if 
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <multiArraySize> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+rule: 
+<localVarDeclFollowing>: <multiArraySize> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+rule: 
+<multiArraySize>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+rule: 
+matching: semi [semi, ;, 3]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i 
+rule: 
+matching: id [id, i, 4]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 
+rule: 
+matching: assign [assign, =, 4]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 
+rule: 
+matching: intnum [intnum, 0, 4]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+rule: 
+matching: semi [semi, ;, 4]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp 
+rule: 
+matching: id [id, temp, 5]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 
+rule: 
+matching: assign [assign, =, 5]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 
+rule: 
+matching: intnum [intnum, 0, 5]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+rule: 
+matching: semi [semi, ;, 5]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a 
+rule: 
+matching: id [id, a, 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . 
+rule: 
+matching: dot [dot, ., 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b 
+rule: 
+matching: id [id, b, 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 
+rule: 
+matching: assign [assign, =, 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> floatnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 
+rule: 
+<factor>: floatnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 
+rule: 
+matching: floatnum [floatnum, 1.0, 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+rule: 
+matching: semi [semi, ;, 6]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self 
+rule: 
+matching: id [self, self, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . 
+rule: 
+matching: dot [dot, ., 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a 
+rule: 
+matching: id [id, a, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 
+rule: 
+matching: opensqbr [opensqbr, [, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 
+rule: 
+matching: intnum [intnum, 2, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] 
+rule: 
+matching: closesqbr [closesqbr, ], 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . 
+rule: 
+matching: dot [dot, ., 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a 
+rule: 
+matching: id [id, a, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 
+rule: 
+<idnestFollowing>: openpar <aParams> closepar 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 
+rule: 
+matching: openpar [openpar, (, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+<aParams>: <expr> <multiAParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 
+rule: 
+matching: intnum [intnum, 1, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) 
+rule: 
+<multiAParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) 
+rule: 
+matching: closepar [closepar, ), 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = 
+rule: 
+matching: assign [assign, =, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A 
+rule: 
+matching: id [id, A, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+rule: 
+matching: semi [semi, ;, 7]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <relExpr> openpar if 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if 
+rule: 
+<statement>: if openpar <relExpr> closepar then <statBlock> else <statBlock> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <relExpr> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if 
+rule: 
+matching: if [if, if, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <relExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( 
+rule: 
+matching: openpar [openpar, (, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a 
+rule: 
+<relExpr>: <arithExpr> <relOp> <arithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a 
+rule: 
+matching: id [id, a, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> <relOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> eq 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+<relOp>: eq 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == 
+rule: 
+matching: eq [eq, ==, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b 
+rule: 
+matching: id [id, b, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> then 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) 
+rule: 
+matching: closepar [closepar, ), 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else <statBlock> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then 
+rule: 
+matching: then [then, then, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> opencubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+rule: 
+<statBlock>: opencubr <multiStatement> closecubr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+rule: 
+matching: opencubr [opencubr, {, 8]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write 
+rule: 
+<multiStatement>: <statement> <multiStatement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <expr> openpar write 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write 
+rule: 
+<statement>: write openpar <expr> closepar semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <expr> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write 
+rule: 
+matching: write [write, write, 9]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 
+rule: 
+matching: openpar [openpar, (, 9]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 
+rule: 
+matching: intnum [intnum, 1, 9]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+rule: 
+matching: closepar [closepar, ), 9]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read 
+rule: 
+matching: semi [read, read, 10]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+rule: 
+scan
+-----------------------------------------------------------------------
+Syntax error detected, skipping token: 
+( 2 ) ; 
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else closecubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} 
+rule: 
+<multiStatement>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> else 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} 
+rule: 
+matching: closecubr [closecubr, }, 11]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <statBlock> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else 
+rule: 
+matching: else [else, else, 11]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> opencubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+rule: 
+<statBlock>: opencubr <multiStatement> closecubr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+rule: 
+matching: opencubr [opencubr, {, 11]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write 
+rule: 
+<multiStatement>: <statement> <multiStatement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <expr> openpar write 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write 
+rule: 
+<statement>: write openpar <expr> closepar semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <expr> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write 
+rule: 
+matching: write [write, write, 12]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 
+rule: 
+matching: openpar [openpar, (, 12]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 
+rule: 
+matching: intnum [intnum, 2, 12]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) 
+rule: 
+matching: closepar [closepar, ), 12]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr <multiStatement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+rule: 
+matching: semi [semi, ;, 12]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi closecubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} 
+rule: 
+<multiStatement>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} 
+rule: 
+matching: closecubr [closecubr, }, 13]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+rule: 
+matching: semi [semi, ;, 13]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a 
+rule: 
+matching: id [id, a, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( 
+rule: 
+<optIdnestFollowing>: <idnestFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( 
+rule: 
+<idnestFollowing>: openpar <aParams> closepar 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( 
+rule: 
+matching: openpar [openpar, (, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+<aParams>: <expr> <multiAParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b 
+rule: 
+matching: id [id, b, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+<multiAParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) 
+rule: 
+matching: closepar [closepar, ), 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . 
+rule: 
+matching: dot [dot, ., 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c 
+rule: 
+matching: id [id, c, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 
+rule: 
+matching: opensqbr [opensqbr, [, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 
+rule: 
+matching: intnum [intnum, 1, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] 
+rule: 
+matching: closesqbr [closesqbr, ], 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ 
+rule: 
+matching: opensqbr [opensqbr, [, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e 
+rule: 
+matching: id [id, e, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] 
+rule: 
+<optIdnestFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] 
+rule: 
+matching: closesqbr [closesqbr, ], 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+Syntax error detected, skipping token: 
++ a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] 
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+rule: 
+<functionCallOrAssignStat>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+rule: 
+matching: semi [semi, ;, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a 
+rule: 
+matching: id [id, a, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 
+rule: 
+<optIdnestFollowing>: <idnestFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 
+rule: 
+matching: opensqbr [opensqbr, [, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 
+rule: 
+matching: intnum [intnum, 1, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] 
+rule: 
+matching: closesqbr [closesqbr, ], 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . 
+rule: 
+matching: dot [dot, ., 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b 
+rule: 
+matching: id [id, b, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = 
+rule: 
+matching: assign [assign, =, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c 
+rule: 
+matching: id [id, c, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 
+rule: 
+<optIdnestFollowing>: <idnestFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <aParams> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 
+rule: 
+<idnestFollowing>: openpar <aParams> closepar 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <aParams> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 
+rule: 
+matching: openpar [openpar, (, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+<aParams>: <expr> <multiAParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 
+rule: 
+matching: intnum [intnum, 1, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) 
+rule: 
+<multiAParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) 
+rule: 
+matching: closepar [closepar, ), 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <idnestFollowing> id dot 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . 
+rule: 
+<multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <idnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . 
+rule: 
+matching: dot [dot, ., 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b 
+rule: 
+matching: id [id, b, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 
+rule: 
+<idnestFollowing>: <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 
+rule: 
+matching: opensqbr [opensqbr, [, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 
+rule: 
+matching: intnum [intnum, 2, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
+rule: 
+matching: closesqbr [closesqbr, ], 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> <indice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
+rule: 
+<multiIndice>: <indice> <multiIndice> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <arithExpr> opensqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
+rule: 
+<indice>: opensqbr <arithExpr> closesqbr 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
+rule: 
+matching: opensqbr [opensqbr, [, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
+rule: 
+matching: intnum [intnum, 3, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> closesqbr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <multiIndice> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
+rule: 
+matching: closesqbr [closesqbr, ], 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+<multiIndice>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+rule: 
+matching: semi [semi, ;, 15]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c 
+rule: 
+<multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <statement> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c 
+rule: 
+<localVarDeclOrStmt>: <statement> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c 
+rule: 
+<statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c 
+rule: 
+matching: id [id, c, 16]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 
+rule: 
+<optIdnestFollowing>: <idnestFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 
+rule: 
+<idnestFollowing>: openpar <aParams> closepar 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <aParams> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 
+rule: 
+matching: openpar [openpar, (, 16]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+<aParams>: <expr> <multiAParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 
+rule: 
+matching: intnum [intnum, 123, 16]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar <multiAParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) 
+rule: 
+<multiAParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) 
+rule: 
+matching: closepar [closepar, ), 16]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+rule: 
+<functionCallOrAssignStat>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+rule: 
+matching: semi [semi, ;, 16]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+rule: 
+<multiLocalVarDeclOrStmt>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+rule: 
+matching: closecubr [closecubr, }, 17]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <classDeclOrFuncDef> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class 
+rule: 
+<multiClassDeclOrFuncDef>: <classDeclOrFuncDef> <multiClassDeclOrFuncDef> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> <classDecl> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class 
+rule: 
+<classDeclOrFuncDef>: <classDecl> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr <multiVisiMemberDecl> opencubr <optClassDecl2> id class 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class 
+rule: 
+<classDecl>: class id <optClassDecl2> opencubr <multiVisiMemberDecl> closecubr semi 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr <multiVisiMemberDecl> opencubr <optClassDecl2> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class 
+rule: 
+matching: class [class, class, 19]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr <multiVisiMemberDecl> opencubr <optClassDecl2> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass 
+rule: 
+matching: id [id, myClass, 19]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr <multiVisiMemberDecl> opencubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass { 
+rule: 
+<optClassDecl2>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr <multiVisiMemberDecl> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass { 
+rule: 
+matching: opencubr [opencubr, {, 19]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi closecubr 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass { 
+} 
+rule: 
+<multiVisiMemberDecl>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass { 
+} 
+rule: 
+matching: closecubr [closecubr, }, 20]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> semi 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
+c ( 123 ) ; 
+} 
+class myClass { 
+} 
+rule: 
+matching: closecubr [closecubr, }, 20]
+-----------------------------------------------------------------------
