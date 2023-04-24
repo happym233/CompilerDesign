@@ -166,189 +166,209 @@ MOON listing of .\funcInFunc.m.
   164   400           % processing read statement
   165   400           addi r5, r14, 0
   166   404           addi r1, r0, buf
-  167   408           addi r14, r14, -144
+  167   408           addi r14, r14, -160
   168   412           sw -8(r14), r1
   169   416           jl r15,getstr
   170   420           jl r15,strint
   171   424           addi r6, r13, 0
-  172   428           subi r14, r14, -144
+  172   428           subi r14, r14, -160
   173   432           sw -4(r5), r6
   174   436           % processing line66
   175   436           % processing line66
   176   436           % processing line66
   177   436           % processing line66
-  178   436           % processing line66
-  179   436           % processing line66
-  180   436           % processing line66
-  181   436           % processing line66
-  182   436           addi r5, r14, 0
-  183   440           % processing: tmpVar38 := x
-  184   440           lw r1,-4(r5)
-  185   444           sw -84(r14), r1
-  186   448           % processing: tmpVar37 := tmpVar38
-  187   448           lw r1,-84(r14)
-  188   452           sw -80(r14), r1
-  189   456           % processing: tmpVar36 := tmpVar37
-  190   456           lw r1,-80(r14)
-  191   460           sw -76(r14), r1
-  192   464           % processing: tmpVar35 := tmpVar36
-  193   464           lw r1,-76(r14)
-  194   468           sw -72(r14), r1
-  195   472           % processing line66
-  196   472           % processing line66
-  197   472           % processing line66
-  198   472           % processing line66
-  199   472           addi r5, r14, 0
-  200   476           % processing: tmpVar42 := y
-  201   476           lw r1,-8(r5)
-  202   480           sw -100(r14), r1
-  203   484           % processing: tmpVar41 := tmpVar42
-  204   484           lw r1,-100(r14)
-  205   488           sw -96(r14), r1
-  206   492           % processing: tmpVar40 := tmpVar41
-  207   492           lw r1,-96(r14)
-  208   496           sw -92(r14), r1
-  209   500           % processing: tmpVar39 := tmpVar40
-  210   500           lw r1,-92(r14)
-  211   504           sw -88(r14), r1
-  212   508           % processing line66
-  213   508           % processing line66
-  214   508           % processing line66
-  215   508           % processing line66
-  216   508           addi r5, r14, 0
-  217   512           % processing: tmpVar46 := z
-  218   512           lw r1,-12(r5)
-  219   516           sw -116(r14), r1
-  220   520           % processing: tmpVar45 := tmpVar46
-  221   520           lw r1,-116(r14)
-  222   524           sw -112(r14), r1
-  223   528           % processing: tmpVar44 := tmpVar45
-  224   528           lw r1,-112(r14)
-  225   532           sw -108(r14), r1
-  226   536           % processing: tmpVar43 := tmpVar44
-  227   536           lw r1,-108(r14)
-  228   540           sw -104(r14), r1
-  229   544           addi r5, r14, 0
-  230   548           %processing parameter0: x
-  231   548           lw r1, -72(r14)
-  232   552           sw -148(r14), r1
-  233   556           %processing parameter1: y
-  234   556           lw r1, -88(r14)
-  235   560           sw -152(r14), r1
-  236   564           %processing parameter2: z
-  237   564           lw r1, -104(r14)
-  238   568           sw -156(r14), r1
-  239   572           % processing jump
-  240   572           sw -220(r14), r14
-  241   576           addi r14, r14, -144
-  242   580           jl r15, add0
-  243   584           lw r1, -148(r14)
-  244   588           sw -64(r14), r1
-  245   592           % processing: tmpVar32 := tmpVar33
-  246   592           lw r1,-64(r14)
-  247   596           sw -60(r14), r1
-  248   600           % processing: tmpVar31 := tmpVar32
-  249   600           lw r1,-60(r14)
-  250   604           sw -56(r14), r1
-  251   608           % processing: tmpVar30 := tmpVar31
-  252   608           lw r1,-56(r14)
-  253   612           sw -52(r14), r1
-  254   616           % processing assignment statement
-  255   616           addi r5, r14, 0
-  256   620           lw r6,-52(r5)
-  257   624           sw -12(r5), r6
-  258   628           % processing line67
-  259   628           % processing write statement
-  260   628           % processing line67
-  261   628           % processing line67
-  262   628           % processing line67
-  263   628           % processing line67
-  264   628           addi r5, r14, 0
-  265   632           % processing: tmpVar50 := z
-  266   632           lw r1,-12(r5)
-  267   636           sw -132(r14), r1
-  268   640           % processing: tmpVar49 := tmpVar50
-  269   640           lw r1,-132(r14)
-  270   644           sw -128(r14), r1
-  271   648           % processing: tmpVar48 := tmpVar49
-  272   648           lw r1,-128(r14)
-  273   652           sw -124(r14), r1
-  274   656           % processing: tmpVar47 := tmpVar48
-  275   656           lw r1,-124(r14)
-  276   660           sw -120(r14), r1
-  277   664           lw r1, -120(r14)
-  278   668           addi r14, r14, -144
-  279   672           sw -8(r14), r1
-  280   676           addi r1, r0, buf
-  281   680           sw -12(r14), r1
-  282   684           jl r15, intstr
-  283   688           sw -8(r14),r13
-  284   692           jl r15, putstr
-  285   696           subi r14, r14, -144
-  286   700           addi r1, r0, charLineSep
-  287   704           addi r14, r14, -144
-  288   708           sw -8(r14), r1
-  289   712           jl r15, putstr
-  290   716           subi r14, r14, -144
-  291   720 hlt
-  292   724 
-  293   724 floatAdd
-  294   724           lw r1, -4(r14)
-  295   728           lw r2, -8(r14)
-  296   732           lw r3, -12(r14)
-  297   736           lw r4, -16(r14)
-  298   740 gowhileFAdd
-  299   740           cne r5, r2, r4
-  300   744           bz r5, endwhileFAdd
-  301   748           clt r6, r2, r4
-  302   752           bz r6, elseFAdd
-  303   756           muli r3, r3, 10
-  304   760           subi r4, r4, 1
-  305   764           j endIfFAdd
-  306   768 elseFAdd
-  307   768           muli r1, r1, 10
-  308   772           subi r2, r2, 1
-  309   776 endIfFAdd
-  310   776           j gowhileFAdd
-  311   780 endwhileFAdd
-  312   780           add  r1, r1, r3
-  313   784           sw   -4(r14), r1
-  314   788           sw   -8(r14), r2
-  315   792           jr   r15
-  316   796 floatMul
-  317   796           lw r1,  -4(r14)
-  318   800           lw r2,  -8(r14)
-  319   804           lw r3,  -12(r14)
-  320   808           lw r4,  -16(r14)
-  321   812           mul r1, r1, r3
-  322   816           add r2, r2, r4
-  323   820           sw  -4(r14), r1
-  324   824           sw  -8(r14), r2
-  325   828           jr   r15
-  326   832 floatLeq
-  327   832           lw r1,  -4(r14)
-  328   836           lw r2,  -8(r14)
-  329   840           lw r3,  -12(r14)
-  330   844           lw r4,  -16(r14)
-  331   848 gowhileFLeq
-  332   848           cne r5, r2, r4
-  333   852           bz   r5, endwhileFLeq
-  334   856           clt r6, r2, r4
-  335   860           bz r6, elseFLeq
-  336   864           muli r3, r3, 10
-  337   868           subi r4, r4, 1
-  338   872           j endIfFLeq
-  339   876 elseFLeq
-  340   876           muli r1, r1, 10
-  341   880           subi r2, r2, 1
-  342   884           endIfFLeq
-  343   884           j gowhileFLeq
-  344   888 endwhileFLeq 
-  345   888           cle r1, r1, r3
-  346   892           sw -4(r14), r1
-  347   896           jr r15
-  348   900 
-  349   900 buf       res 20
-  350   920 charE     db "e", 0
-  351   922 charLineSep    db "  ", 0
+  178   436           % processing: tmpVar33 := 1
+  179   436           addi r1,r0,1
+  180   440           sw -64(r14),r1
+  181   444           % processing: tmpVar32 := tmpVar33
+  182   444           lw r1,-64(r14)
+  183   448           sw -60(r14), r1
+  184   452           % processing: tmpVar31 := tmpVar32
+  185   452           lw r1,-60(r14)
+  186   456           sw -56(r14), r1
+  187   460           % processing: tmpVar30 := tmpVar31
+  188   460           lw r1,-56(r14)
+  189   464           sw -52(r14), r1
+  190   468           % processing assignment statement
+  191   468           addi r5, r14, 0
+  192   472           lw r6,-52(r5)
+  193   476           sw -12(r5), r6
+  194   480           % processing line67
+  195   480           % processing line67
+  196   480           % processing line67
+  197   480           % processing line67
+  198   480           % processing line67
+  199   480           % processing line67
+  200   480           % processing line67
+  201   480           % processing line67
+  202   480           addi r5, r14, 0
+  203   484           % processing: tmpVar42 := x
+  204   484           lw r1,-4(r5)
+  205   488           sw -100(r14), r1
+  206   492           % processing: tmpVar41 := tmpVar42
+  207   492           lw r1,-100(r14)
+  208   496           sw -96(r14), r1
+  209   500           % processing: tmpVar40 := tmpVar41
+  210   500           lw r1,-96(r14)
+  211   504           sw -92(r14), r1
+  212   508           % processing: tmpVar39 := tmpVar40
+  213   508           lw r1,-92(r14)
+  214   512           sw -88(r14), r1
+  215   516           % processing line67
+  216   516           % processing line67
+  217   516           % processing line67
+  218   516           % processing line67
+  219   516           addi r5, r14, 0
+  220   520           % processing: tmpVar46 := y
+  221   520           lw r1,-8(r5)
+  222   524           sw -116(r14), r1
+  223   528           % processing: tmpVar45 := tmpVar46
+  224   528           lw r1,-116(r14)
+  225   532           sw -112(r14), r1
+  226   536           % processing: tmpVar44 := tmpVar45
+  227   536           lw r1,-112(r14)
+  228   540           sw -108(r14), r1
+  229   544           % processing: tmpVar43 := tmpVar44
+  230   544           lw r1,-108(r14)
+  231   548           sw -104(r14), r1
+  232   552           % processing line67
+  233   552           % processing line67
+  234   552           % processing line67
+  235   552           % processing line67
+  236   552           addi r5, r14, 0
+  237   556           % processing: tmpVar50 := z
+  238   556           lw r1,-12(r5)
+  239   560           sw -132(r14), r1
+  240   564           % processing: tmpVar49 := tmpVar50
+  241   564           lw r1,-132(r14)
+  242   568           sw -128(r14), r1
+  243   572           % processing: tmpVar48 := tmpVar49
+  244   572           lw r1,-128(r14)
+  245   576           sw -124(r14), r1
+  246   580           % processing: tmpVar47 := tmpVar48
+  247   580           lw r1,-124(r14)
+  248   584           sw -120(r14), r1
+  249   588           addi r5, r14, 0
+  250   592           %processing parameter0: x
+  251   592           lw r1, -88(r14)
+  252   596           sw -164(r14), r1
+  253   600           %processing parameter1: y
+  254   600           lw r1, -104(r14)
+  255   604           sw -168(r14), r1
+  256   608           %processing parameter2: z
+  257   608           lw r1, -120(r14)
+  258   612           sw -172(r14), r1
+  259   616           % processing jump
+  260   616           sw -236(r14), r14
+  261   620           addi r14, r14, -160
+  262   624           jl r15, add0
+  263   628           lw r1, -164(r14)
+  264   632           sw -80(r14), r1
+  265   636           % processing: tmpVar36 := tmpVar37
+  266   636           lw r1,-80(r14)
+  267   640           sw -76(r14), r1
+  268   644           % processing: tmpVar35 := tmpVar36
+  269   644           lw r1,-76(r14)
+  270   648           sw -72(r14), r1
+  271   652           % processing: tmpVar34 := tmpVar35
+  272   652           lw r1,-72(r14)
+  273   656           sw -68(r14), r1
+  274   660           % processing assignment statement
+  275   660           addi r5, r14, 0
+  276   664           lw r6,-68(r5)
+  277   668           sw -12(r5), r6
+  278   672           % processing line68
+  279   672           % processing write statement
+  280   672           % processing line68
+  281   672           % processing line68
+  282   672           % processing line68
+  283   672           % processing line68
+  284   672           addi r5, r14, 0
+  285   676           % processing: tmpVar54 := z
+  286   676           lw r1,-12(r5)
+  287   680           sw -148(r14), r1
+  288   684           % processing: tmpVar53 := tmpVar54
+  289   684           lw r1,-148(r14)
+  290   688           sw -144(r14), r1
+  291   692           % processing: tmpVar52 := tmpVar53
+  292   692           lw r1,-144(r14)
+  293   696           sw -140(r14), r1
+  294   700           % processing: tmpVar51 := tmpVar52
+  295   700           lw r1,-140(r14)
+  296   704           sw -136(r14), r1
+  297   708           lw r1, -136(r14)
+  298   712           addi r14, r14, -160
+  299   716           sw -8(r14), r1
+  300   720           addi r1, r0, buf
+  301   724           sw -12(r14), r1
+  302   728           jl r15, intstr
+  303   732           sw -8(r14),r13
+  304   736           jl r15, putstr
+  305   740           subi r14, r14, -160
+  306   744           addi r1, r0, charLineSep
+  307   748           addi r14, r14, -160
+  308   752           sw -8(r14), r1
+  309   756           jl r15, putstr
+  310   760           subi r14, r14, -160
+  311   764 hlt
+  312   768 
+  313   768 floatAdd
+  314   768           lw r1, -4(r14)
+  315   772           lw r2, -8(r14)
+  316   776           lw r3, -12(r14)
+  317   780           lw r4, -16(r14)
+  318   784 gowhileFAdd
+  319   784           cne r5, r2, r4
+  320   788           bz r5, endwhileFAdd
+  321   792           clt r6, r2, r4
+  322   796           bz r6, elseFAdd
+  323   800           muli r3, r3, 10
+  324   804           subi r4, r4, 1
+  325   808           j endIfFAdd
+  326   812 elseFAdd
+  327   812           muli r1, r1, 10
+  328   816           subi r2, r2, 1
+  329   820 endIfFAdd
+  330   820           j gowhileFAdd
+  331   824 endwhileFAdd
+  332   824           add  r1, r1, r3
+  333   828           sw   -4(r14), r1
+  334   832           sw   -8(r14), r2
+  335   836           jr   r15
+  336   840 floatMul
+  337   840           lw r1,  -4(r14)
+  338   844           lw r2,  -8(r14)
+  339   848           lw r3,  -12(r14)
+  340   852           lw r4,  -16(r14)
+  341   856           mul r1, r1, r3
+  342   860           add r2, r2, r4
+  343   864           sw  -4(r14), r1
+  344   868           sw  -8(r14), r2
+  345   872           jr   r15
+  346   876 floatLeq
+  347   876           lw r1,  -4(r14)
+  348   880           lw r2,  -8(r14)
+  349   884           lw r3,  -12(r14)
+  350   888           lw r4,  -16(r14)
+  351   892 gowhileFLeq
+  352   892           cne r5, r2, r4
+  353   896           bz   r5, endwhileFLeq
+  354   900           clt r6, r2, r4
+  355   904           bz r6, elseFLeq
+  356   908           muli r3, r3, 10
+  357   912           subi r4, r4, 1
+  358   916           j endIfFLeq
+  359   920 elseFLeq
+  360   920           muli r1, r1, 10
+  361   924           subi r2, r2, 1
+  362   928           endIfFLeq
+  363   928           j gowhileFLeq
+  364   932 endwhileFLeq 
+  365   932           cle r1, r1, r3
+  366   936           sw -4(r14), r1
+  367   940           jr r15
+  368   944 
+  369   944 buf       res 20
+  370   964 charE     db "e", 0
+  371   966 charLineSep    db "  ", 0
 

@@ -164,84 +164,20 @@ entry
           % processing read statement
           addi r5, r14, 0
           addi r1, r0, buf
-          addi r14, r14, -144
+          addi r14, r14, -160
           sw -8(r14), r1
           jl r15,getstr
           jl r15,strint
           addi r6, r13, 0
-          subi r14, r14, -144
+          subi r14, r14, -160
           sw -4(r5), r6
           % processing line66
           % processing line66
           % processing line66
           % processing line66
-          % processing line66
-          % processing line66
-          % processing line66
-          % processing line66
-          addi r5, r14, 0
-          % processing: tmpVar38 := x
-          lw r1,-4(r5)
-          sw -84(r14), r1
-          % processing: tmpVar37 := tmpVar38
-          lw r1,-84(r14)
-          sw -80(r14), r1
-          % processing: tmpVar36 := tmpVar37
-          lw r1,-80(r14)
-          sw -76(r14), r1
-          % processing: tmpVar35 := tmpVar36
-          lw r1,-76(r14)
-          sw -72(r14), r1
-          % processing line66
-          % processing line66
-          % processing line66
-          % processing line66
-          addi r5, r14, 0
-          % processing: tmpVar42 := y
-          lw r1,-8(r5)
-          sw -100(r14), r1
-          % processing: tmpVar41 := tmpVar42
-          lw r1,-100(r14)
-          sw -96(r14), r1
-          % processing: tmpVar40 := tmpVar41
-          lw r1,-96(r14)
-          sw -92(r14), r1
-          % processing: tmpVar39 := tmpVar40
-          lw r1,-92(r14)
-          sw -88(r14), r1
-          % processing line66
-          % processing line66
-          % processing line66
-          % processing line66
-          addi r5, r14, 0
-          % processing: tmpVar46 := z
-          lw r1,-12(r5)
-          sw -116(r14), r1
-          % processing: tmpVar45 := tmpVar46
-          lw r1,-116(r14)
-          sw -112(r14), r1
-          % processing: tmpVar44 := tmpVar45
-          lw r1,-112(r14)
-          sw -108(r14), r1
-          % processing: tmpVar43 := tmpVar44
-          lw r1,-108(r14)
-          sw -104(r14), r1
-          addi r5, r14, 0
-          %processing parameter0: x
-          lw r1, -72(r14)
-          sw -148(r14), r1
-          %processing parameter1: y
-          lw r1, -88(r14)
-          sw -152(r14), r1
-          %processing parameter2: z
-          lw r1, -104(r14)
-          sw -156(r14), r1
-          % processing jump
-          sw -220(r14), r14
-          addi r14, r14, -144
-          jl r15, add0
-          lw r1, -148(r14)
-          sw -64(r14), r1
+          % processing: tmpVar33 := 1
+          addi r1,r0,1
+          sw -64(r14),r1
           % processing: tmpVar32 := tmpVar33
           lw r1,-64(r14)
           sw -60(r14), r1
@@ -256,7 +192,43 @@ entry
           lw r6,-52(r5)
           sw -12(r5), r6
           % processing line67
-          % processing write statement
+          % processing line67
+          % processing line67
+          % processing line67
+          % processing line67
+          % processing line67
+          % processing line67
+          % processing line67
+          addi r5, r14, 0
+          % processing: tmpVar42 := x
+          lw r1,-4(r5)
+          sw -100(r14), r1
+          % processing: tmpVar41 := tmpVar42
+          lw r1,-100(r14)
+          sw -96(r14), r1
+          % processing: tmpVar40 := tmpVar41
+          lw r1,-96(r14)
+          sw -92(r14), r1
+          % processing: tmpVar39 := tmpVar40
+          lw r1,-92(r14)
+          sw -88(r14), r1
+          % processing line67
+          % processing line67
+          % processing line67
+          % processing line67
+          addi r5, r14, 0
+          % processing: tmpVar46 := y
+          lw r1,-8(r5)
+          sw -116(r14), r1
+          % processing: tmpVar45 := tmpVar46
+          lw r1,-116(r14)
+          sw -112(r14), r1
+          % processing: tmpVar44 := tmpVar45
+          lw r1,-112(r14)
+          sw -108(r14), r1
+          % processing: tmpVar43 := tmpVar44
+          lw r1,-108(r14)
+          sw -104(r14), r1
           % processing line67
           % processing line67
           % processing line67
@@ -274,20 +246,68 @@ entry
           % processing: tmpVar47 := tmpVar48
           lw r1,-124(r14)
           sw -120(r14), r1
+          addi r5, r14, 0
+          %processing parameter0: x
+          lw r1, -88(r14)
+          sw -164(r14), r1
+          %processing parameter1: y
+          lw r1, -104(r14)
+          sw -168(r14), r1
+          %processing parameter2: z
           lw r1, -120(r14)
-          addi r14, r14, -144
+          sw -172(r14), r1
+          % processing jump
+          sw -236(r14), r14
+          addi r14, r14, -160
+          jl r15, add0
+          lw r1, -164(r14)
+          sw -80(r14), r1
+          % processing: tmpVar36 := tmpVar37
+          lw r1,-80(r14)
+          sw -76(r14), r1
+          % processing: tmpVar35 := tmpVar36
+          lw r1,-76(r14)
+          sw -72(r14), r1
+          % processing: tmpVar34 := tmpVar35
+          lw r1,-72(r14)
+          sw -68(r14), r1
+          % processing assignment statement
+          addi r5, r14, 0
+          lw r6,-68(r5)
+          sw -12(r5), r6
+          % processing line68
+          % processing write statement
+          % processing line68
+          % processing line68
+          % processing line68
+          % processing line68
+          addi r5, r14, 0
+          % processing: tmpVar54 := z
+          lw r1,-12(r5)
+          sw -148(r14), r1
+          % processing: tmpVar53 := tmpVar54
+          lw r1,-148(r14)
+          sw -144(r14), r1
+          % processing: tmpVar52 := tmpVar53
+          lw r1,-144(r14)
+          sw -140(r14), r1
+          % processing: tmpVar51 := tmpVar52
+          lw r1,-140(r14)
+          sw -136(r14), r1
+          lw r1, -136(r14)
+          addi r14, r14, -160
           sw -8(r14), r1
           addi r1, r0, buf
           sw -12(r14), r1
           jl r15, intstr
           sw -8(r14),r13
           jl r15, putstr
-          subi r14, r14, -144
+          subi r14, r14, -160
           addi r1, r0, charLineSep
-          addi r14, r14, -144
+          addi r14, r14, -160
           sw -8(r14), r1
           jl r15, putstr
-          subi r14, r14, -144
+          subi r14, r14, -160
 hlt
 
 floatAdd

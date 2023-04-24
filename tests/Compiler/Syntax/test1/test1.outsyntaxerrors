@@ -1,5 +1,6 @@
 [line 1]Error: Syntax error at line 1 near "[".
 [line 3]Error: Syntax error at line 3 near "if".
 [line 10]Error: Syntax error at line 10 near "(".
+[line 14]Error: Syntax error at line 14 near "(".
 [line 14]Error: Syntax error at line 14 near "+".
 [line 20]Error: Syntax error at line 20 near "EOF".

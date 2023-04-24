@@ -11,7 +11,7 @@ function myFunction(arr: [], size: integer) => void
    } else {
         write(2);
    };
-   a(b).c[1][e] + a[2][1].b[3][4];
+   (a(b).c[1][e] + a[2][1].b[3][4] * c(1).b[2][3] = c(123);
    a[1].b = c(1).b[2][3];
    c(123);
 }

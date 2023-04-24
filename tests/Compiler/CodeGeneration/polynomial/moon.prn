@@ -1,4 +1,4 @@
-MOON listing of .\example-polynomial.m.
+MOON listing of example-polynomial.m.
 
     1     0 evaluate0
     2     0           sw -32(r14), r15

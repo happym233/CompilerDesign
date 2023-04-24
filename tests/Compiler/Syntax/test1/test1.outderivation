@@ -2720,6 +2720,29 @@ rule:
 matching: semi [semi, ;, 13]
 -----------------------------------------------------------------------
 stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( 
+rule: 
+scan
+-----------------------------------------------------------------------
+Syntax error detected, skipping token: 
+
+( 
+stack: 
 <$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> <localVarDeclOrStmt> 
 input: 
 function myFunction ( arr : [ ] , size : integer ) => void 
@@ -2735,7 +2758,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a 
+( a 
 rule: 
 <multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
 -----------------------------------------------------------------------
@@ -2755,7 +2778,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a 
+( a 
 rule: 
 <localVarDeclOrStmt>: <statement> 
 -----------------------------------------------------------------------
@@ -2775,7 +2798,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a 
+( a 
 rule: 
 <statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
 -----------------------------------------------------------------------
@@ -2795,7 +2818,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a 
+( a 
 rule: 
 matching: id [id, a, 14]
 -----------------------------------------------------------------------
@@ -2815,7 +2838,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( 
+( a ( 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
 -----------------------------------------------------------------------
@@ -2835,7 +2858,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( 
+( a ( 
 rule: 
 <idnestFollowing>: openpar <aParams> closepar 
 -----------------------------------------------------------------------
@@ -2855,7 +2878,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( 
+( a ( 
 rule: 
 matching: openpar [openpar, (, 14]
 -----------------------------------------------------------------------
@@ -2875,7 +2898,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
 -----------------------------------------------------------------------
@@ -2895,7 +2918,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 <expr>: <arithExpr> <exprFollowing> 
 -----------------------------------------------------------------------
@@ -2915,7 +2938,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
 -----------------------------------------------------------------------
@@ -2935,7 +2958,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 <term>: <factor> <rightrecTerm> 
 -----------------------------------------------------------------------
@@ -2955,7 +2978,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 <factor>: id <optIdnestFollowing> <multiIdnest> 
 -----------------------------------------------------------------------
@@ -2975,7 +2998,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b 
+( a ( b 
 rule: 
 matching: id [id, b, 14]
 -----------------------------------------------------------------------
@@ -2995,7 +3018,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <optIdnestFollowing>: 
 -----------------------------------------------------------------------
@@ -3015,7 +3038,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <multiIdnest>: 
 -----------------------------------------------------------------------
@@ -3035,7 +3058,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <rightrecTerm>: 
 -----------------------------------------------------------------------
@@ -3055,7 +3078,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <rightrecArithExpr>: 
 -----------------------------------------------------------------------
@@ -3075,7 +3098,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <exprFollowing>: 
 -----------------------------------------------------------------------
@@ -3095,7 +3118,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 <multiAParamsTail>: 
 -----------------------------------------------------------------------
@@ -3115,7 +3138,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) 
+( a ( b ) 
 rule: 
 matching: closepar [closepar, ), 14]
 -----------------------------------------------------------------------
@@ -3135,7 +3158,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . 
+( a ( b ) . 
 rule: 
 <multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
 -----------------------------------------------------------------------
@@ -3155,7 +3178,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . 
+( a ( b ) . 
 rule: 
 matching: dot [dot, ., 14]
 -----------------------------------------------------------------------
@@ -3175,7 +3198,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c 
+( a ( b ) . c 
 rule: 
 matching: id [id, c, 14]
 -----------------------------------------------------------------------
@@ -3195,7 +3218,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 
+( a ( b ) . c [ 
 rule: 
 <idnestFollowing>: <multiIndice> 
 -----------------------------------------------------------------------
@@ -3215,7 +3238,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 
+( a ( b ) . c [ 
 rule: 
 <multiIndice>: <indice> <multiIndice> 
 -----------------------------------------------------------------------
@@ -3235,7 +3258,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 
+( a ( b ) . c [ 
 rule: 
 <indice>: opensqbr <arithExpr> closesqbr 
 -----------------------------------------------------------------------
@@ -3255,7 +3278,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 
+( a ( b ) . c [ 
 rule: 
 matching: opensqbr [opensqbr, [, 14]
 -----------------------------------------------------------------------
@@ -3275,7 +3298,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 
+( a ( b ) . c [ 1 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
 -----------------------------------------------------------------------
@@ -3295,7 +3318,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 
+( a ( b ) . c [ 1 
 rule: 
 <term>: <factor> <rightrecTerm> 
 -----------------------------------------------------------------------
@@ -3315,7 +3338,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 
+( a ( b ) . c [ 1 
 rule: 
 <factor>: intnum 
 -----------------------------------------------------------------------
@@ -3335,7 +3358,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 
+( a ( b ) . c [ 1 
 rule: 
 matching: intnum [intnum, 1, 14]
 -----------------------------------------------------------------------
@@ -3355,7 +3378,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] 
+( a ( b ) . c [ 1 ] 
 rule: 
 <rightrecTerm>: 
 -----------------------------------------------------------------------
@@ -3375,7 +3398,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] 
+( a ( b ) . c [ 1 ] 
 rule: 
 <rightrecArithExpr>: 
 -----------------------------------------------------------------------
@@ -3395,7 +3418,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] 
+( a ( b ) . c [ 1 ] 
 rule: 
 matching: closesqbr [closesqbr, ], 14]
 -----------------------------------------------------------------------
@@ -3415,7 +3438,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ 
+( a ( b ) . c [ 1 ] [ 
 rule: 
 <multiIndice>: <indice> <multiIndice> 
 -----------------------------------------------------------------------
@@ -3435,7 +3458,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ 
+( a ( b ) . c [ 1 ] [ 
 rule: 
 <indice>: opensqbr <arithExpr> closesqbr 
 -----------------------------------------------------------------------
@@ -3455,7 +3478,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ 
+( a ( b ) . c [ 1 ] [ 
 rule: 
 matching: opensqbr [opensqbr, [, 14]
 -----------------------------------------------------------------------
@@ -3475,7 +3498,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e 
+( a ( b ) . c [ 1 ] [ e 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
 -----------------------------------------------------------------------
@@ -3495,7 +3518,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e 
+( a ( b ) . c [ 1 ] [ e 
 rule: 
 <term>: <factor> <rightrecTerm> 
 -----------------------------------------------------------------------
@@ -3515,7 +3538,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e 
+( a ( b ) . c [ 1 ] [ e 
 rule: 
 <factor>: id <optIdnestFollowing> <multiIdnest> 
 -----------------------------------------------------------------------
@@ -3535,7 +3558,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e 
+( a ( b ) . c [ 1 ] [ e 
 rule: 
 matching: id [id, e, 14]
 -----------------------------------------------------------------------
@@ -3555,7 +3578,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] 
+( a ( b ) . c [ 1 ] [ e ] 
 rule: 
 <optIdnestFollowing>: 
 -----------------------------------------------------------------------
@@ -3575,7 +3598,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] 
+( a ( b ) . c [ 1 ] [ e ] 
 rule: 
 <multiIdnest>: 
 -----------------------------------------------------------------------
@@ -3595,7 +3618,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] 
+( a ( b ) . c [ 1 ] [ e ] 
 rule: 
 <rightrecTerm>: 
 -----------------------------------------------------------------------
@@ -3615,7 +3638,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] 
+( a ( b ) . c [ 1 ] [ e ] 
 rule: 
 <rightrecArithExpr>: 
 -----------------------------------------------------------------------
@@ -3635,7 +3658,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] 
+( a ( b ) . c [ 1 ] [ e ] 
 rule: 
 matching: closesqbr [closesqbr, ], 14]
 -----------------------------------------------------------------------
@@ -3655,7 +3678,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + 
+( a ( b ) . c [ 1 ] [ e ] + 
 rule: 
 <multiIndice>: 
 -----------------------------------------------------------------------
@@ -3675,7 +3698,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + 
+( a ( b ) . c [ 1 ] [ e ] + 
 rule: 
 <multiIdnest>: 
 -----------------------------------------------------------------------
@@ -3695,7 +3718,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + 
+( a ( b ) . c [ 1 ] [ e ] + 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3715,7 +3738,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a 
+( a ( b ) . c [ 1 ] [ e ] + a 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3735,7 +3758,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 
+( a ( b ) . c [ 1 ] [ e ] + a [ 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3755,7 +3778,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3775,7 +3798,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3795,7 +3818,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3815,7 +3838,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3835,7 +3858,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3855,7 +3878,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3875,7 +3898,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3895,7 +3918,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3915,7 +3938,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3935,7 +3958,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3955,7 +3978,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3975,7 +3998,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 
 rule: 
 scan
 -----------------------------------------------------------------------
@@ -3995,12 +4018,772 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 
+rule: 
+scan
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <functionCallOrAssignStat> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] 
 rule: 
 scan
 -----------------------------------------------------------------------
 Syntax error detected, skipping token: 
-+ a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] 
++ a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] 
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> <assignOp> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = 
+rule: 
+<functionCallOrAssignStat>: <assignOp> <expr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> assign 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = 
+rule: 
+<assignOp>: assign 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = 
+rule: 
+matching: assign [assign, =, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> id 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c 
+rule: 
+<factor>: id <optIdnestFollowing> <multiIdnest> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <optIdnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c 
+rule: 
+matching: id [id, c, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> <idnestFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 
+rule: 
+<optIdnestFollowing>: <idnestFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <aParams> openpar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 
+rule: 
+<idnestFollowing>: openpar <aParams> closepar 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <aParams> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 
+rule: 
+matching: openpar [openpar, (, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <expr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+<aParams>: <expr> <multiAParamsTail> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <arithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+<expr>: <arithExpr> <exprFollowing> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <term> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+<arithExpr>: <term> <rightrecArithExpr> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> <factor> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+<term>: <factor> <rightrecTerm> 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> intnum 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+<factor>: intnum 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 
+rule: 
+matching: intnum [intnum, 123, 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar <multiAParamsTail> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) 
+rule: 
+<exprFollowing>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> closepar 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) 
+rule: 
+<multiAParamsTail>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> <multiIdnest> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) 
+rule: 
+matching: closepar [closepar, ), 14]
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> <rightrecTerm> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
+rule: 
+<multiIdnest>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> <rightrecArithExpr> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
+rule: 
+<rightrecTerm>: 
+-----------------------------------------------------------------------
+stack: 
+<$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi <exprFollowing> 
+input: 
+function myFunction ( arr : [ ] , size : integer ) => void 
+{ 
+localvar n : if ; 
+i = 0 ; 
+temp = 0 ; 
+a . b = 1.0 ; 
+self . a [ 2 ] . a ( 1 ) = A ; 
+if ( a == b ) then { 
+write ( 1 ) 
+read ( 2 ) ; 
+} else { 
+write ( 2 ) ; 
+} ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
+rule: 
+<rightrecArithExpr>: 
+-----------------------------------------------------------------------
 stack: 
 <$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> semi 
 input: 
@@ -4017,9 +4800,9 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 rule: 
-<functionCallOrAssignStat>: 
+<exprFollowing>: 
 -----------------------------------------------------------------------
 stack: 
 <$> <multiClassDeclOrFuncDef> closecubr <multiLocalVarDeclOrStmt> 
@@ -4037,7 +4820,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 rule: 
 matching: semi [semi, ;, 14]
 -----------------------------------------------------------------------
@@ -4057,7 +4840,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a 
 rule: 
 <multiLocalVarDeclOrStmt>: <localVarDeclOrStmt> <multiLocalVarDeclOrStmt> 
@@ -4078,7 +4861,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a 
 rule: 
 <localVarDeclOrStmt>: <statement> 
@@ -4099,7 +4882,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a 
 rule: 
 <statement>: id <optIdnestFollowing> <multiIdnest> <functionCallOrAssignStat> semi 
@@ -4120,7 +4903,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a 
 rule: 
 matching: id [id, a, 15]
@@ -4141,7 +4924,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
@@ -4162,7 +4945,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 
 rule: 
 <idnestFollowing>: <multiIndice> 
@@ -4183,7 +4966,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 
 rule: 
 <multiIndice>: <indice> <multiIndice> 
@@ -4204,7 +4987,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 
 rule: 
 <indice>: opensqbr <arithExpr> closesqbr 
@@ -4225,7 +5008,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 
 rule: 
 matching: opensqbr [opensqbr, [, 15]
@@ -4246,7 +5029,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
@@ -4267,7 +5050,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 
 rule: 
 <term>: <factor> <rightrecTerm> 
@@ -4288,7 +5071,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 
 rule: 
 <factor>: intnum 
@@ -4309,7 +5092,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 
 rule: 
 matching: intnum [intnum, 1, 15]
@@ -4330,7 +5113,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] 
 rule: 
 <rightrecTerm>: 
@@ -4351,7 +5134,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] 
 rule: 
 <rightrecArithExpr>: 
@@ -4372,7 +5155,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] 
 rule: 
 matching: closesqbr [closesqbr, ], 15]
@@ -4393,7 +5176,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . 
 rule: 
 <multiIndice>: 
@@ -4414,7 +5197,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . 
 rule: 
 <multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
@@ -4435,7 +5218,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . 
 rule: 
 matching: dot [dot, ., 15]
@@ -4456,7 +5239,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b 
 rule: 
 matching: id [id, b, 15]
@@ -4477,7 +5260,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 <idnestFollowing>: <multiIndice> 
@@ -4498,7 +5281,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 <multiIndice>: 
@@ -4519,7 +5302,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 <multiIdnest>: 
@@ -4540,7 +5323,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 <functionCallOrAssignStat>: <assignOp> <expr> 
@@ -4561,7 +5344,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 <assignOp>: assign 
@@ -4582,7 +5365,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = 
 rule: 
 matching: assign [assign, =, 15]
@@ -4603,7 +5386,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c 
 rule: 
 <expr>: <arithExpr> <exprFollowing> 
@@ -4624,7 +5407,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
@@ -4645,7 +5428,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c 
 rule: 
 <term>: <factor> <rightrecTerm> 
@@ -4666,7 +5449,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c 
 rule: 
 <factor>: id <optIdnestFollowing> <multiIdnest> 
@@ -4687,7 +5470,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c 
 rule: 
 matching: id [id, c, 15]
@@ -4708,7 +5491,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 
 rule: 
 <optIdnestFollowing>: <idnestFollowing> 
@@ -4729,7 +5512,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 
 rule: 
 <idnestFollowing>: openpar <aParams> closepar 
@@ -4750,7 +5533,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 
 rule: 
 matching: openpar [openpar, (, 15]
@@ -4771,7 +5554,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 <aParams>: <expr> <multiAParamsTail> 
@@ -4792,7 +5575,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 <expr>: <arithExpr> <exprFollowing> 
@@ -4813,7 +5596,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
@@ -4834,7 +5617,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 <term>: <factor> <rightrecTerm> 
@@ -4855,7 +5638,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 <factor>: intnum 
@@ -4876,7 +5659,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 
 rule: 
 matching: intnum [intnum, 1, 15]
@@ -4897,7 +5680,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) 
 rule: 
 <rightrecTerm>: 
@@ -4918,7 +5701,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) 
 rule: 
 <rightrecArithExpr>: 
@@ -4939,7 +5722,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) 
 rule: 
 <exprFollowing>: 
@@ -4960,7 +5743,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) 
 rule: 
 <multiAParamsTail>: 
@@ -4981,7 +5764,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) 
 rule: 
 matching: closepar [closepar, ), 15]
@@ -5002,7 +5785,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . 
 rule: 
 <multiIdnest>: dot id <idnestFollowing> <multiIdnest> 
@@ -5023,7 +5806,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . 
 rule: 
 matching: dot [dot, ., 15]
@@ -5044,7 +5827,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b 
 rule: 
 matching: id [id, b, 15]
@@ -5065,7 +5848,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 
 rule: 
 <idnestFollowing>: <multiIndice> 
@@ -5086,7 +5869,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 
 rule: 
 <multiIndice>: <indice> <multiIndice> 
@@ -5107,7 +5890,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 
 rule: 
 <indice>: opensqbr <arithExpr> closesqbr 
@@ -5128,7 +5911,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 
 rule: 
 matching: opensqbr [opensqbr, [, 15]
@@ -5149,7 +5932,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
@@ -5170,7 +5953,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 
 rule: 
 <term>: <factor> <rightrecTerm> 
@@ -5191,7 +5974,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 
 rule: 
 <factor>: intnum 
@@ -5212,7 +5995,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 
 rule: 
 matching: intnum [intnum, 2, 15]
@@ -5233,7 +6016,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
 rule: 
 <rightrecTerm>: 
@@ -5254,7 +6037,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
 rule: 
 <rightrecArithExpr>: 
@@ -5275,7 +6058,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] 
 rule: 
 matching: closesqbr [closesqbr, ], 15]
@@ -5296,7 +6079,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
 rule: 
 <multiIndice>: <indice> <multiIndice> 
@@ -5317,7 +6100,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
 rule: 
 <indice>: opensqbr <arithExpr> closesqbr 
@@ -5338,7 +6121,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 
 rule: 
 matching: opensqbr [opensqbr, [, 15]
@@ -5359,7 +6142,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
 rule: 
 <arithExpr>: <term> <rightrecArithExpr> 
@@ -5380,7 +6163,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
 rule: 
 <term>: <factor> <rightrecTerm> 
@@ -5401,7 +6184,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
 rule: 
 <factor>: intnum 
@@ -5422,7 +6205,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 
 rule: 
 matching: intnum [intnum, 3, 15]
@@ -5443,7 +6226,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
 rule: 
 <rightrecTerm>: 
@@ -5464,7 +6247,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
 rule: 
 <rightrecArithExpr>: 
@@ -5485,7 +6268,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] 
 rule: 
 matching: closesqbr [closesqbr, ], 15]
@@ -5506,7 +6289,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 <multiIndice>: 
@@ -5527,7 +6310,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 <multiIdnest>: 
@@ -5548,7 +6331,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 <rightrecTerm>: 
@@ -5569,7 +6352,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 <rightrecArithExpr>: 
@@ -5590,7 +6373,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 <exprFollowing>: 
@@ -5611,7 +6394,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 rule: 
 matching: semi [semi, ;, 15]
@@ -5632,7 +6415,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c 
 rule: 
@@ -5654,7 +6437,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c 
 rule: 
@@ -5676,7 +6459,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c 
 rule: 
@@ -5698,7 +6481,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c 
 rule: 
@@ -5720,7 +6503,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 
 rule: 
@@ -5742,7 +6525,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 
 rule: 
@@ -5764,7 +6547,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 
 rule: 
@@ -5786,7 +6569,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5808,7 +6591,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5830,7 +6613,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5852,7 +6635,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5874,7 +6657,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5896,7 +6679,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 
 rule: 
@@ -5918,7 +6701,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) 
 rule: 
@@ -5940,7 +6723,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) 
 rule: 
@@ -5962,7 +6745,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) 
 rule: 
@@ -5984,7 +6767,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) 
 rule: 
@@ -6006,7 +6789,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) 
 rule: 
@@ -6028,7 +6811,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 rule: 
@@ -6050,7 +6833,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 rule: 
@@ -6072,7 +6855,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 rule: 
@@ -6094,7 +6877,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6117,7 +6900,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6140,7 +6923,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6164,7 +6947,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6188,7 +6971,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6212,7 +6995,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6236,7 +7019,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6260,7 +7043,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6284,7 +7067,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6308,7 +7091,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6333,7 +7116,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
@@ -6358,7 +7141,7 @@ read ( 2 ) ;
 } else { 
 write ( 2 ) ; 
 } ; 
-a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] ; 
+( a ( b ) . c [ 1 ] [ e ] + a [ 2 ] [ 1 ] . b [ 3 ] [ 4 ] * c ( 1 ) . b [ 2 ] [ 3 ] = c ( 123 ) ; 
 a [ 1 ] . b = c ( 1 ) . b [ 2 ] [ 3 ] ; 
 c ( 123 ) ; 
 } 
